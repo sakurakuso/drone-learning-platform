@@ -71,3 +71,29 @@
   .mount-hint,.current-step-card p{font-size:11px}.selected-section{padding:15px}
   .app-footer{padding:12px 14px}
 }
+
+/* Detailed mouse instructions remain outside the interactive canvas. */
+.operation-help-trigger{white-space:nowrap;color:#c8e9ff;border-color:#4c708b;margin-left:auto}
+.operation-help-trigger+.view-options{margin-left:0}
+.operation-hint{display:flex;gap:8px;align-items:flex-start;padding:9px 13px;background:#1b3342;border-bottom:1px solid #375668;color:#bddceb;font-size:11px;line-height:1.65;flex-shrink:0}
+.operation-hint>span{color:#7bd9c2;font-size:17px;line-height:1.1;flex-shrink:0}
+.operation-help-dialog{margin:auto;width:min(760px,calc(100vw - 28px));max-width:none;max-height:calc(100dvh - 32px);padding:0;border:1px solid #55788b;border-radius:12px;background:#172b38;color:#d9e9f1;box-shadow:0 18px 80px #0008;overflow:hidden}
+.operation-help-dialog::backdrop{background:#030b15bb;backdrop-filter:blur(3px)}
+.operation-help-dialog[open]{display:flex;flex-direction:column}
+.operation-help-dialog>header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px 22px;border-bottom:1px solid #3b5667;flex-shrink:0}
+.operation-help-dialog h2{font-size:20px;line-height:1.4;margin:3px 0 0}
+.operation-help-dialog header span{font-size:10px;letter-spacing:.7px;color:#90b5c9}
+.operation-help-dialog header button{flex-shrink:0}
+.operation-help-body{padding:18px 22px 22px;overflow:auto;overscroll-behavior:contain;min-height:0;font-size:14px;line-height:1.85}
+.operation-help-intro{color:#d5eef5;margin-bottom:12px}
+.operation-axis-key{padding:12px 14px;border:1px solid #496b7e;border-radius:7px;background:#203e4d;color:#abd2e5;margin-bottom:18px;font-size:13px}
+.operation-help-body details{border:1px solid #3b5869;border-radius:8px;margin-top:12px;background:#152833;overflow:hidden}
+.operation-help-body summary{cursor:pointer;padding:13px 15px;font-size:15px;font-weight:600;color:#bfece1;line-height:1.6}
+.operation-help-body summary:focus-visible{outline:2px solid var(--accent);outline-offset:-3px}
+.operation-help-body details[open] summary{border-bottom:1px solid #334f60;background:#203b49}
+.operation-help-body ol{padding:4px 20px 4px 40px;margin:12px 0}
+.operation-help-body li{padding-left:4px;margin-bottom:12px;color:#c6dbe7}
+.operation-help-body li::marker{color:#7be0c4;font-weight:600}
+.operation-help-note{padding:12px 15px;margin:0 15px 15px;border-left:3px solid #7bd9c2;background:#24423e;color:#c0e2d6;font-size:13px}
+.operation-help-dismiss{color:#91aebe;font-size:12px;margin-top:16px}
+@media(max-width:599px){.operation-help-dialog>header{padding:14px 13px;gap:8px}.operation-help-dialog h2{font-size:17px}.operation-help-dialog header span{font-size:8px}.operation-help-dialog header button{font-size:10px;padding:8px}.operation-help-body{padding:13px;font-size:13px}.operation-help-body summary{font-size:14px;padding:11px 12px}.operation-help-body ol{padding-left:32px;padding-right:14px}.operation-axis-key{font-size:12px}.operation-hint{font-size:11px;padding:8px 10px}}

@@ -43,6 +43,30 @@ Narrow browser panels stack the complete canvas above the library and inspector,
 
 Camera: drag empty space to orbit, scroll to zoom, right-drag to pan. Presets: Perspective, Top, Front and Side. Installed components are locked against movement. The frame counter reports measured rendered FPS for this Mac and browser; it is not a performance guarantee for other devices.
 
+## Detailed controls / 详细操作说明
+
+The **How to operate / 操作说明** button above the scene opens a bilingual guide. It explains selection, free dragging, axis and plane handles, rotation rings, camera controls, numeric input, installation, locks and recovery. A contextual hint below the toolbar changes with selection, Move/Rotate mode, installed state and exploded view.
+
+### 移动器件
+
+1. 点击零件库中的器件或场景中的实体器件，再点击上方 **移动**。点击 **定位安装位** 可同时看见器件和安装目标；它只调整镜头。
+2. 把鼠标放在实体器件上，按住左键拖动，松开提交。拖动在当前镜头的屏幕平面内进行，可能改变高度；拖空白处则转动镜头。安装位的半透明轮廓不能作为实体器件拖动。
+3. 精确调整时，按住红 **X**、绿 **Y**、蓝 **Z** 箭头的轴杆或尖端拖动，只沿该轴移动；拖两轴之间的小方块则在两轴平面内移动。X 为左右，Y 为上下，Z 为前后。机头 FRONT 为 −Z，飞机左为 −X，右为 +X；视角转动不会改变这些方向。
+4. 例如把左前动力组件拖到目标附近，用绿 Y 调高度，再用红 X、蓝 Z 调整左右和前后。结合俯视、侧视检查，避免一个视角看似重合却存在高度误差。
+5. 拖动过程中看场景虚线和距离，松开后看安装位指南的数值。一次完整拖动只记录一次装配操作，拖错可 **撤销**。自由拖动不会自动吸附或安装。
+
+### 旋转与数值调整
+
+点击 **旋转**，按住彩色旋转环沿圆周拖动，松开提交。红/绿/蓝环分别绕 X/Y/Z 轴旋转；绿色 Y 环可改变水平朝向。在旋转模式直接拖实体不会平移。位置合格但方向不合格时，调整旋转环直到角度进入容差。展开 **高级调整：位置与旋转** 可输入位置和旋转角（度）；必须点击 **应用位置与旋转** 才生效。
+
+### 镜头与安装
+
+空白处左键拖动环绕，滚轮缩放，右键拖动平移；用菜单切换透视、俯视、正视、侧视。镜头操作不改变器件变换。手动对齐后，或用 **对齐安装位置** 辅助后，仍需点 **检查并安装**。前置零件未安装时不会通过；点击指南内的前置零件可选择并定位它。
+
+### 拖不动时
+
+已安装件先 **拆卸**；有已安装的依赖件时先拆依赖件。爆炸图中操作锁定，退出后继续。确认已选择正确编号、处于移动模式、器件未被隐藏；重叠时从零件库选择。重置可以撤销；保存与刷新恢复仍按当前浏览器地址区分。
+
 ## Parts, references and state / 零件、参考与保存
 
 The first model has 17 parts: 1 main frame, 2 landing skids, 4 motors, 4 propellers, 4 guards, 1 flight controller and 1 battery. Teaching position tolerance is 0.18 units and angle tolerance is 10°. Y is up; quaternions use `[x,y,z,w]`.
