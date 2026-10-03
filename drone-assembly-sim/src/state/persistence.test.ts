@@ -1,0 +1,20 @@
+import { describe, expect, it } from 'vitest';
+import { createAssemblyRules } from '../assembly';
+import { partDefinitions } from '../data/parts';
+import { loadProgress, saveProgress, STORAGE_KEY, validState } from './persistence';
+const rules = createAssemblyRules(partDefinitions);
+function memory() { const data = new Map<string,string>(); return { getItem: (key: string) => data.get(key) ?? null, setItem: (key: string,value: string) => {data.set(key,value);} }; }
+function installed() { let state = rules.createInitialState(); const frame = partDefinitions[0]; state = rules.apply(state,{type:'SET_TRANSFORM',partId:frame.id,transform:frame.targetTransform}).state; return rules.apply(state,{type:'INSTALL_PART',partId:frame.id}).state; }
+describe('UI progress persistence using the delivered rules', () => {
+  it('rejects installed parts displaced within loose-part installation tolerance', () => {
+    const shifted = installed(); shifted.parts['FRAME-01'].transform.position[0] += 0.09;
+    expect(validState(shifted, partDefinitions)).toBe(false);
+    const turned = installed(); turned.parts['FRAME-01'].transform.rotation = [0, Math.sin(Math.PI / 72), 0, Math.cos(Math.PI / 72)];
+    expect(validState(turned, partDefinitions)).toBe(false);
+  });
+  it('round-trips transforms, selection, settings and undo history exactly', () => { const store=memory(); let state=installed(); state=rules.apply(state,{type:'SELECT_PART',partId:'FRAME-01'}).state; state=rules.apply(state,{type:'SET_EXPLODED',exploded:true}).state; expect(saveProgress(store,state,partDefinitions)).toBe(true); const loaded=loadProgress(store,partDefinitions); expect(loaded.status).toBe('restored'); expect(loaded.state).toEqual(state); const undo=rules.apply(loaded.state!,{type:'UNDO'}).state; expect(undo.parts['FRAME-01'].installed).toBe(false); expect(undo.exploded).toBe(true); });
+  it('rejects incomplete catalogs, unknown IDs and malformed transforms', () => { const initial=rules.createInitialState(); const missing=structuredClone(initial); delete missing.parts['BAT-01']; expect(validState(missing,partDefinitions)).toBe(false); const unknown=structuredClone(initial); unknown.parts['UNKNOWN']=unknown.parts['BAT-01']; delete unknown.parts['BAT-01']; expect(validState(unknown,partDefinitions)).toBe(false); for (const bad of [NaN,Infinity,-Infinity]) { const state=structuredClone(initial); state.parts['FRAME-01'].transform.position[0]=bad; expect(validState(state,partDefinitions)).toBe(false); } const q=structuredClone(initial); q.parts['FRAME-01'].transform.rotation=[0,0,0,0]; expect(validState(q,partDefinitions)).toBe(false); });
+  it('rejects forged installed transforms, dependencies and corrupt history', () => { const state=installed(); const forged=structuredClone(state); forged.parts['FRAME-01'].transform.position[0]+=1; expect(validState(forged,partDefinitions)).toBe(false); const deps=structuredClone(state); deps.parts['FRAME-01'].installed=false; deps.parts['LEG-L']={installed:true,transform:structuredClone(partDefinitions.find(p=>p.id==='LEG-L')!.targetTransform)}; expect(validState(deps,partDefinitions)).toBe(false); const badHistory=structuredClone(state); badHistory.history[0].parts['FRAME-01'].transform.scale[0]=-1; expect(validState(badHistory,partDefinitions)).toBe(false); });
+  it('rejects a changed definition signature and invalid JSON without throwing', () => { const store=memory(); saveProgress(store,installed(),partDefinitions); const changed=structuredClone(partDefinitions); changed[0].targetTransform.position[0]=3; expect(loadProgress(store,changed).status).toBe('invalid'); store.setItem(STORAGE_KEY,'broken json'); expect(loadProgress(store,partDefinitions).status).toBe('invalid'); });
+  it('handles empty and denied storage', () => { expect(loadProgress(memory(),partDefinitions).status).toBe('new'); expect(loadProgress({getItem(){throw new Error('denied');}},partDefinitions).status).toBe('unavailable'); expect(saveProgress({setItem(){throw new Error('quota');}},installed(),partDefinitions)).toBe(false); });
+});

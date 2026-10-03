@@ -1,0 +1,2628 @@
+{
+  "date": "2026-10-03",
+  "timezone": "Asia/Hong_Kong",
+  "browser": "Chrome",
+  "origin": "http://127.0.0.1:4180",
+  "serverStoppedForOfflineCheck": true,
+  "automatedTests": 101,
+  "build": "passed",
+  "auditVulnerabilities": 0,
+  "cases": [
+    {
+      "case": "missing prerequisites",
+      "state": {
+        "feedback": "Installation feedbackInstall the required components first.Related components: Flight controller, Left landing skid, Right landing skid",
+        "fps": "120 FPS · 8.3 ms",
+        "history": 0,
+        "installed": 0,
+        "parts": {
+          "BAT-01": {
+            "installed": false,
+            "transform": {
+              "position": [
+                -3.2,
+                0.4,
+                3.2
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "CTRL-01": {
+            "installed": false,
+            "transform": {
+              "position": [
+                -3.2,
+                0.3,
+                -3.2
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "FRAME-01": {
+            "installed": false,
+            "transform": {
+              "position": [
+                -5.7,
+                0.45,
+                0
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "GUARD-FL": {
+            "installed": false,
+            "transform": {
+              "position": [
+                4.7,
+                0.35,
+                3
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "GUARD-FR": {
+            "installed": false,
+            "transform": {
+              "position": [
+                7.35,
+                0.35,
+                3
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "GUARD-RL": {
+            "installed": false,
+            "transform": {
+              "position": [
+                4.7,
+                0.35,
+                5.65
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "GUARD-RR": {
+            "installed": false,
+            "transform": {
+              "position": [
+                7.35,
+                0.35,
+                5.65
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "LEG-L": {
+            "installed": false,
+            "transform": {
+              "position": [
+                -6,
+                0.9,
+                -3.4
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "LEG-R": {
+            "installed": false,
+            "transform": {
+              "position": [
+                -6,
+                0.9,
+                3.4
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "MOTOR-FL": {
+            "installed": false,
+            "transform": {
+              "position": [
+                5,
+                0.5,
+                -4.5
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "MOTOR-FR": {
+            "installed": false,
+            "transform": {
+              "position": [
+                6.9,
+                0.5,
+                -4.5
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "MOTOR-RL": {
+            "installed": false,
+            "transform": {
+              "position": [
+                5,
+                0.5,
+                -2.7
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "MOTOR-RR": {
+            "installed": false,
+            "transform": {
+              "position": [
+                6.9,
+                0.5,
+                -2.7
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "PROP-FL": {
+            "installed": false,
+            "transform": {
+              "position": [
+                5,
+                0.3,
+                -0.6
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "PROP-FR": {
+            "installed": false,
+            "transform": {
+              "position": [
+                7,
+                0.3,
+                -0.6
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "PROP-RL": {
+            "installed": false,
+            "transform": {
+              "position": [
+                5,
+                0.3,
+                0.9
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "PROP-RR": {
+            "installed": false,
+            "transform": {
+              "position": [
+                7,
+                0.3,
+                0.9
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "case": "wrong position",
+      "state": {
+        "feedback": "Installation feedbackPosition is outside the installation tolerance.Position error: 5.907Angle error: 90.0°",
+        "fps": "120 FPS · 8.3 ms",
+        "history": 0,
+        "installed": 0,
+        "parts": {
+          "BAT-01": {
+            "installed": false,
+            "transform": {
+              "position": [
+                -3.2,
+                0.4,
+                3.2
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "CTRL-01": {
+            "installed": false,
+            "transform": {
+              "position": [
+                -3.2,
+                0.3,
+                -3.2
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "FRAME-01": {
+            "installed": false,
+            "transform": {
+              "position": [
+                -5.7,
+                0.45,
+                0
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "GUARD-FL": {
+            "installed": false,
+            "transform": {
+              "position": [
+                4.7,
+                0.35,
+                3
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "GUARD-FR": {
+            "installed": false,
+            "transform": {
+              "position": [
+                7.35,
+                0.35,
+                3
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "GUARD-RL": {
+            "installed": false,
+            "transform": {
+              "position": [
+                4.7,
+                0.35,
+                5.65
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "GUARD-RR": {
+            "installed": false,
+            "transform": {
+              "position": [
+                7.35,
+                0.35,
+                5.65
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "LEG-L": {
+            "installed": false,
+            "transform": {
+              "position": [
+                -6,
+                0.9,
+                -3.4
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "LEG-R": {
+            "installed": false,
+            "transform": {
+              "position": [
+                -6,
+                0.9,
+                3.4
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "MOTOR-FL": {
+            "installed": false,
+            "transform": {
+              "position": [
+                5,
+                0.5,
+                -4.5
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "MOTOR-FR": {
+            "installed": false,
+            "transform": {
+              "position": [
+                6.9,
+                0.5,
+                -4.5
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "MOTOR-RL": {
+            "installed": false,
+            "transform": {
+              "position": [
+                5,
+                0.5,
+                -2.7
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "MOTOR-RR": {
+            "installed": false,
+            "transform": {
+              "position": [
+                6.9,
+                0.5,
+                -2.7
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "PROP-FL": {
+            "installed": false,
+            "transform": {
+              "position": [
+                5,
+                0.3,
+                -0.6
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "PROP-FR": {
+            "installed": false,
+            "transform": {
+              "position": [
+                7,
+                0.3,
+                -0.6
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "PROP-RL": {
+            "installed": false,
+            "transform": {
+              "position": [
+                5,
+                0.3,
+                0.9
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "PROP-RR": {
+            "installed": false,
+            "transform": {
+              "position": [
+                7,
+                0.3,
+                0.9
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "case": "wrong angle",
+      "state": {
+        "feedback": "Installation feedbackOrientation is outside the installation tolerance.Position error: 0.000Angle error: 20.0°",
+        "fps": "120 FPS · 8.3 ms",
+        "history": 2,
+        "installed": 0,
+        "parts": {
+          "BAT-01": {
+            "installed": false,
+            "transform": {
+              "position": [
+                -3.2,
+                0.4,
+                3.2
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "CTRL-01": {
+            "installed": false,
+            "transform": {
+              "position": [
+                -3.2,
+                0.3,
+                -3.2
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "FRAME-01": {
+            "installed": false,
+            "transform": {
+              "position": [
+                0,
+                2,
+                0
+              ],
+              "rotation": [
+                0,
+                0.17364817766693033,
+                0,
+                0.984807753012208
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "GUARD-FL": {
+            "installed": false,
+            "transform": {
+              "position": [
+                4.7,
+                0.35,
+                3
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "GUARD-FR": {
+            "installed": false,
+            "transform": {
+              "position": [
+                7.35,
+                0.35,
+                3
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "GUARD-RL": {
+            "installed": false,
+            "transform": {
+              "position": [
+                4.7,
+                0.35,
+                5.65
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "GUARD-RR": {
+            "installed": false,
+            "transform": {
+              "position": [
+                7.35,
+                0.35,
+                5.65
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "LEG-L": {
+            "installed": false,
+            "transform": {
+              "position": [
+                -6,
+                0.9,
+                -3.4
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "LEG-R": {
+            "installed": false,
+            "transform": {
+              "position": [
+                -6,
+                0.9,
+                3.4
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "MOTOR-FL": {
+            "installed": false,
+            "transform": {
+              "position": [
+                5,
+                0.5,
+                -4.5
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "MOTOR-FR": {
+            "installed": false,
+            "transform": {
+              "position": [
+                6.9,
+                0.5,
+                -4.5
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "MOTOR-RL": {
+            "installed": false,
+            "transform": {
+              "position": [
+                5,
+                0.5,
+                -2.7
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "MOTOR-RR": {
+            "installed": false,
+            "transform": {
+              "position": [
+                6.9,
+                0.5,
+                -2.7
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "PROP-FL": {
+            "installed": false,
+            "transform": {
+              "position": [
+                5,
+                0.3,
+                -0.6
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "PROP-FR": {
+            "installed": false,
+            "transform": {
+              "position": [
+                7,
+                0.3,
+                -0.6
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "PROP-RL": {
+            "installed": false,
+            "transform": {
+              "position": [
+                5,
+                0.3,
+                0.9
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "PROP-RR": {
+            "installed": false,
+            "transform": {
+              "position": [
+                7,
+                0.3,
+                0.9
+              ],
+              "rotation": [
+                0,
+                0.7071067811865476,
+                0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "case": "3D drag one history entry",
+      "passed": true
+    },
+    {
+      "case": "undo drag",
+      "passed": true
+    },
+    {
+      "case": "complete 17 parts",
+      "state": {
+        "feedback": "Installation feedbackInstallation confirmed.Position error: 0.000Angle error: 0.0°",
+        "fps": "120 FPS · 8.3 ms",
+        "history": 36,
+        "installed": 17,
+        "parts": {
+          "BAT-01": {
+            "installed": true,
+            "transform": {
+              "position": [
+                0,
+                2.42,
+                0.72
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "CTRL-01": {
+            "installed": true,
+            "transform": {
+              "position": [
+                0,
+                2.32,
+                -0.65
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "FRAME-01": {
+            "installed": true,
+            "transform": {
+              "position": [
+                0,
+                2,
+                0
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "GUARD-FL": {
+            "installed": true,
+            "transform": {
+              "position": [
+                -2.2,
+                2.72,
+                -2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "GUARD-FR": {
+            "installed": true,
+            "transform": {
+              "position": [
+                2.2,
+                2.72,
+                -2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "GUARD-RL": {
+            "installed": true,
+            "transform": {
+              "position": [
+                -2.2,
+                2.72,
+                2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "GUARD-RR": {
+            "installed": true,
+            "transform": {
+              "position": [
+                2.2,
+                2.72,
+                2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "LEG-L": {
+            "installed": true,
+            "transform": {
+              "position": [
+                -1.15,
+                1.05,
+                0
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "LEG-R": {
+            "installed": true,
+            "transform": {
+              "position": [
+                1.15,
+                1.05,
+                0
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "MOTOR-FL": {
+            "installed": true,
+            "transform": {
+              "position": [
+                -2.2,
+                2.36,
+                -2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "MOTOR-FR": {
+            "installed": true,
+            "transform": {
+              "position": [
+                2.2,
+                2.36,
+                -2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "MOTOR-RL": {
+            "installed": true,
+            "transform": {
+              "position": [
+                -2.2,
+                2.36,
+                2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "MOTOR-RR": {
+            "installed": true,
+            "transform": {
+              "position": [
+                2.2,
+                2.36,
+                2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "PROP-FL": {
+            "installed": true,
+            "transform": {
+              "position": [
+                -2.2,
+                2.72,
+                -2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "PROP-FR": {
+            "installed": true,
+            "transform": {
+              "position": [
+                2.2,
+                2.72,
+                -2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "PROP-RL": {
+            "installed": true,
+            "transform": {
+              "position": [
+                -2.2,
+                2.72,
+                2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "PROP-RR": {
+            "installed": true,
+            "transform": {
+              "position": [
+                2.2,
+                2.72,
+                2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "case": "dependent removal",
+      "state": {
+        "feedback": "Installation feedbackRemove the dependent components first.Related components: Left landing skid, Right landing skid, front left motor, front right motor, rear left motor, rear right motor, front left propeller, front right propeller, rear left propeller, rear right propeller, front left propeller guard, front right propeller guard, rear left propeller guard, rear right propeller guard, Flight controller, Battery",
+        "fps": "120 FPS · 8.3 ms",
+        "history": 36,
+        "installed": 17,
+        "parts": {
+          "BAT-01": {
+            "installed": true,
+            "transform": {
+              "position": [
+                0,
+                2.42,
+                0.72
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "CTRL-01": {
+            "installed": true,
+            "transform": {
+              "position": [
+                0,
+                2.32,
+                -0.65
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "FRAME-01": {
+            "installed": true,
+            "transform": {
+              "position": [
+                0,
+                2,
+                0
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "GUARD-FL": {
+            "installed": true,
+            "transform": {
+              "position": [
+                -2.2,
+                2.72,
+                -2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "GUARD-FR": {
+            "installed": true,
+            "transform": {
+              "position": [
+                2.2,
+                2.72,
+                -2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "GUARD-RL": {
+            "installed": true,
+            "transform": {
+              "position": [
+                -2.2,
+                2.72,
+                2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "GUARD-RR": {
+            "installed": true,
+            "transform": {
+              "position": [
+                2.2,
+                2.72,
+                2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "LEG-L": {
+            "installed": true,
+            "transform": {
+              "position": [
+                -1.15,
+                1.05,
+                0
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "LEG-R": {
+            "installed": true,
+            "transform": {
+              "position": [
+                1.15,
+                1.05,
+                0
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "MOTOR-FL": {
+            "installed": true,
+            "transform": {
+              "position": [
+                -2.2,
+                2.36,
+                -2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "MOTOR-FR": {
+            "installed": true,
+            "transform": {
+              "position": [
+                2.2,
+                2.36,
+                -2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "MOTOR-RL": {
+            "installed": true,
+            "transform": {
+              "position": [
+                -2.2,
+                2.36,
+                2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "MOTOR-RR": {
+            "installed": true,
+            "transform": {
+              "position": [
+                2.2,
+                2.36,
+                2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "PROP-FL": {
+            "installed": true,
+            "transform": {
+              "position": [
+                -2.2,
+                2.72,
+                -2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "PROP-FR": {
+            "installed": true,
+            "transform": {
+              "position": [
+                2.2,
+                2.72,
+                -2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "PROP-RL": {
+            "installed": true,
+            "transform": {
+              "position": [
+                -2.2,
+                2.72,
+                2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "PROP-RR": {
+            "installed": true,
+            "transform": {
+              "position": [
+                2.2,
+                2.72,
+                2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "case": "battery removal",
+      "state": {
+        "feedback": "Installation feedbackComponent removed. It can now be moved.",
+        "fps": "120 FPS · 8.3 ms",
+        "history": 37,
+        "installed": 16,
+        "parts": {
+          "BAT-01": {
+            "installed": false,
+            "transform": {
+              "position": [
+                0,
+                2.42,
+                0.72
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "CTRL-01": {
+            "installed": true,
+            "transform": {
+              "position": [
+                0,
+                2.32,
+                -0.65
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "FRAME-01": {
+            "installed": true,
+            "transform": {
+              "position": [
+                0,
+                2,
+                0
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "GUARD-FL": {
+            "installed": true,
+            "transform": {
+              "position": [
+                -2.2,
+                2.72,
+                -2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "GUARD-FR": {
+            "installed": true,
+            "transform": {
+              "position": [
+                2.2,
+                2.72,
+                -2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "GUARD-RL": {
+            "installed": true,
+            "transform": {
+              "position": [
+                -2.2,
+                2.72,
+                2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "GUARD-RR": {
+            "installed": true,
+            "transform": {
+              "position": [
+                2.2,
+                2.72,
+                2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "LEG-L": {
+            "installed": true,
+            "transform": {
+              "position": [
+                -1.15,
+                1.05,
+                0
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "LEG-R": {
+            "installed": true,
+            "transform": {
+              "position": [
+                1.15,
+                1.05,
+                0
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "MOTOR-FL": {
+            "installed": true,
+            "transform": {
+              "position": [
+                -2.2,
+                2.36,
+                -2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "MOTOR-FR": {
+            "installed": true,
+            "transform": {
+              "position": [
+                2.2,
+                2.36,
+                -2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "MOTOR-RL": {
+            "installed": true,
+            "transform": {
+              "position": [
+                -2.2,
+                2.36,
+                2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "MOTOR-RR": {
+            "installed": true,
+            "transform": {
+              "position": [
+                2.2,
+                2.36,
+                2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "PROP-FL": {
+            "installed": true,
+            "transform": {
+              "position": [
+                -2.2,
+                2.72,
+                -2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "PROP-FR": {
+            "installed": true,
+            "transform": {
+              "position": [
+                2.2,
+                2.72,
+                -2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "PROP-RL": {
+            "installed": true,
+            "transform": {
+              "position": [
+                -2.2,
+                2.72,
+                2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "PROP-RR": {
+            "installed": true,
+            "transform": {
+              "position": [
+                2.2,
+                2.72,
+                2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "case": "half explosion preserves assembly",
+      "passed": true
+    },
+    {
+      "case": "display controls preserve state",
+      "passed": true
+    },
+    {
+      "case": "refresh restores parts and history",
+      "passed": true
+    },
+    {
+      "case": "free assembly reinstall",
+      "state": {
+        "feedback": "Installation feedbackInstallation confirmed.Position error: 0.000Angle error: 0.0°",
+        "fps": "120 FPS · 8.3 ms",
+        "history": 38,
+        "installed": 17,
+        "parts": {
+          "BAT-01": {
+            "installed": true,
+            "transform": {
+              "position": [
+                0,
+                2.42,
+                0.72
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "CTRL-01": {
+            "installed": true,
+            "transform": {
+              "position": [
+                0,
+                2.32,
+                -0.65
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "FRAME-01": {
+            "installed": true,
+            "transform": {
+              "position": [
+                0,
+                2,
+                0
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "GUARD-FL": {
+            "installed": true,
+            "transform": {
+              "position": [
+                -2.2,
+                2.72,
+                -2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "GUARD-FR": {
+            "installed": true,
+            "transform": {
+              "position": [
+                2.2,
+                2.72,
+                -2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "GUARD-RL": {
+            "installed": true,
+            "transform": {
+              "position": [
+                -2.2,
+                2.72,
+                2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "GUARD-RR": {
+            "installed": true,
+            "transform": {
+              "position": [
+                2.2,
+                2.72,
+                2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "LEG-L": {
+            "installed": true,
+            "transform": {
+              "position": [
+                -1.15,
+                1.05,
+                0
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "LEG-R": {
+            "installed": true,
+            "transform": {
+              "position": [
+                1.15,
+                1.05,
+                0
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "MOTOR-FL": {
+            "installed": true,
+            "transform": {
+              "position": [
+                -2.2,
+                2.36,
+                -2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "MOTOR-FR": {
+            "installed": true,
+            "transform": {
+              "position": [
+                2.2,
+                2.36,
+                -2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "MOTOR-RL": {
+            "installed": true,
+            "transform": {
+              "position": [
+                -2.2,
+                2.36,
+                2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "MOTOR-RR": {
+            "installed": true,
+            "transform": {
+              "position": [
+                2.2,
+                2.36,
+                2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "PROP-FL": {
+            "installed": true,
+            "transform": {
+              "position": [
+                -2.2,
+                2.72,
+                -2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "PROP-FR": {
+            "installed": true,
+            "transform": {
+              "position": [
+                2.2,
+                2.72,
+                -2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "PROP-RL": {
+            "installed": true,
+            "transform": {
+              "position": [
+                -2.2,
+                2.72,
+                2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "PROP-RR": {
+            "installed": true,
+            "transform": {
+              "position": [
+                2.2,
+                2.72,
+                2.2
+              ],
+              "rotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "case": "cancel reset preserves assembly",
+      "passed": true
+    },
+    {
+      "case": "reset reaches zero",
+      "passed": true
+    },
+    {
+      "case": "undo reset restores complete assembly",
+      "passed": true
+    },
+    {
+      "case": "Chinese and camera preserve assembly",
+      "passed": true
+    },
+    {
+      "case": "server stopped reload and editing",
+      "passed": true
+    }
+  ]
+}
