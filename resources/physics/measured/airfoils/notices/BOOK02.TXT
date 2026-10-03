@@ -1,0 +1,60 @@
+Summary of Low-Speed Airfoil Data - Volume 2
+
+The second installment of the wind tunnel work that Michael Selig and
+his graduate students have been conducting at the University of
+Illinois, may now be ordered. This work is titled "Summary of
+Low-Speed Airfoil Data - Volume 2". Twenty five airfoils were tested,
+many with a variety of flap and turbulator configurations. Continuous
+improvement of the wind tunnel, and data reduction system has resulted
+in better accuracy and reliability in the data. The team is still
+working to improve these systems. In the next series increased
+accuracy and the addition of airfoil pitching moment data may be
+expected.
+
+Volume 2 is based on the second series of wind tunnel tests at UIUC. A
+third series of tests have now begun, and we expect that some time
+before the end of 1996, Volume three will also be published.
+
+"Summary ... Vol 2" is 251 pages of narrative and data much like
+Michael's previous works "Summary of Low-Speed Airfoil Data - Volume
+1" (1995) and "Airfoils at Low Speeds" (SoarTech #8 - 1989). This book
+is similar in content and organization to Volume 1, and is similar
+also to the material in "Airfoils at Low Speeds." We've set the price
+at $25 in the USA - which includes postage.
+
+All of the actual tabulated data and airfoil coordinates (but none of
+the narrative or illustrations) in the book are available on-disk in
+ascii text files. There is no program for use of these files included
+on the disk.  These are provided for those who wish to use the data in
+their own programs. By formatting the data properly, their use can
+make manual re-entry of the data unnecessary. The price for the disk
+data in the USA is $15 including postage.
+
+When ordering the book from outside the USA, add $4 to the basic US
+price for international surface mail. For Air Mail to the Western
+Hemisphere add $6 to the basic US price. For Air Mail to Europe add
+$13, and for other parts of the world add $17. For disk orders from
+outside of the USA add one dollar to it's price.
+
+A significant portion of the price received from all book and disk
+sales will be returned to UIUC to provide part of the continuing
+support for Michael's ongoing test program.
+
+Summary .....Volume 1, and SoarTech 8 are both currently available
+also.  The price for Volume 1 is the same as for Volume 2. SoarTech 8
+has a base price in the USA of $20 and the international surcharges
+are the same as for Volume 1 and 2. Data disks are also available for
+Volume 1 and SoarTech 8. The SoarTech operation isn't big enough to
+handle credit card orders. Please feel free to question me directly by
+email, (herkstok@aol.com) or send regular mail to SoarTech
+Publications, 1504 N. Horseshoe Cir., Virginia Beach VA 23451 U.S.A..
+
+When ordering, PLEASE provide a check or money order in US Dollars
+which can be paid at a US bank.  U.S.  cash is also accepted.
+Residents of Virginia should add the state 4-1/2 percent sales tax to
+the above rates.
+
+Herk Stokely
+May 1996
+
+

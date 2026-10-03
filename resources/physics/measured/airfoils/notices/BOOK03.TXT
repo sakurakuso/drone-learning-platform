@@ -1,0 +1,161 @@
+
+
+______________________________________________________________________
+Now available: C.A. Lyon, A.P. Broeren, P. Giguere, A. Gopalarathnam,
+and M.S. Selig, "Summary of Low-Speed Airfoil Data, Volume 3," 
+ISBN 0-9646747-3-4  ($35 + shipping)
+To order contact: herkstok@aol.com
+______________________________________________________________________
+
+
+Summary of Low-Speed Airfoil Data - Volume 3
+
+The latest volume of Summary of Low-Speed Airfoil Data documents the
+wind-tunnel test results of 37 airfoils, including
+
+        A18                 LRN1007             SD7032          
+        Avistar             PT-40               SD7037          
+        BW-3                RG14                SD7062          
+        CG Ultimate	    RG15                SD7080          
+        Clark-Y             S6063               SG6040          
+        DH4009              S7012               SG6041          
+        E231                S7075               SG6042          
+        E374                S8036               SG6043          
+        E387                S8037               Trainer 60      
+        E472                S8052               Ultra-Sport 1000
+        ESA                 SA7035              USNPS-4         
+        Falcon 56 MK II     SA7036          
+        Goe 417a            SA7038               
+
+For the R/C soaring airfoils, several were tested with various
+trailing-edge flap settings as suggested by R/C soaring
+enthusiasts. In particular, large flap settings of 15-25 degs to were
+tested to give insight into possible performance improvements during
+launch, and smaller flap settings of 2.5 degs were tested to represent
+typical control deflections during thermal soaring. Supplementing this
+data are leading-edge flap settings of -3 deg and 2.5 deg tested on
+the popular SD7037. Also, as variations of the popular SD7037, three
+new airfoils, the SA7035, SA7036, and SA7038, were designed and
+wind-tunnel tested.
+
+The second group of airfoils used on powered R/C aircraft were
+tested. With a majority of the attention from airfoil designers
+focused on the design of new R/C soaring airfoils, a large disparity
+in performance has resulted between sailplane and powered
+airfoils. With this volume, the UIUC LSATs team has attempted to lay
+the foundation for reducing this disparity. To be more specific,
+several airfoils used on popular powered R/C aircraft were tested to
+provide a benchmark against which new designs can be compared. Serving
+as an indicator of the possible performance improvements, three new
+airfoils, the S8036, S8037, and S8052, were designed and tested.
+
+Airfoils for use on small wind turbines comprise the third group of
+airfoils tested. Among these are four new airfoils (SG6040 - SG6043)
+specifically designed for variable-speed wind turbines. The reader
+will note that several of the airfoils listed here were designed
+specifically for use on aircraft (A18, SD7032, and SD7062). These
+airfoils, together with three others grouped under the "Sailplane" and
+"Powered Aircraft" headings (Clark-Y, S7012, and SD7037), were tested
+with leading-edge roughness to establish their potential for use on
+small wind turbines.
+
+Also, this volume contains a rather extensive study of the effect
+boundary-layer trips have on airfoil performance. Experience, however,
+has proven such a study to be impractical for every
+airfoil. Therefore, two candidate airfoils were selected which are
+representative of a majority of the airfoils used on R/C model
+aircraft. These were the SD7037 and the E374. Each was tested with
+various trip configurations (single, multiple), geometries (2-D, 3-D),
+locations, and heights.
+
+"Summary of Low-Speed Airfoil Data - Vol 3" is 418 pages of narrative
+and data much like the previous works "Summary of Low-Speed Airfoil
+Data - Vols 1 and 2" (1995, 1996) and "Airfoils at Low Speeds"
+(SoarTech #8 - 1989). This book is similar in content and organization
+to Volumes 1 and 2. We've set the price at $35 + shipping:
+
+Book price  Shipping and Packaging            Qua    Cost    Total          
+$35         Anywhere in the US           $6 = ___  x  $41  =  ____
+$35         International surface mail   $8 = ___  x  $43  =  ____
+$35         Airmail to Europe           $20 = ___  x  $55  =  ____
+$35         Airmail to Asia/Africa      $25 = ___  x  $60  =  ____
+$35         Airmail to Pacific Rim      $27 = ___  x  $62  =  ____
+
+All of the actual tabulated data and airfoil coordinates (but none of
+the narrative or illustrations) in the book are available on-disk in
+ascii text files. There is no program for use of these files included
+on the disk.  These are provided for those who wish to use the data in
+their own programs. By formatting the data properly, their use can
+make manual re-entry of the data unnecessary. The price for the disk
+data in the USA is $20 including postage. For disk orders from outside
+of the USA add one dollar to it's price.
+
+A significant portion of the price received from all book and disk
+sales will be returned to UIUC Low-Speed Airfoil Tests (LSATs) program
+to provide part of the continuing support for the ongoing test
+program.
+
+Other books and data in the series are priced as follows:
+
+Qty         Totals
+
+___ @ $20 = $ ____ Airfoils at Low Speeds, SoarTech 8, 1989
+                   M.S. Selig, J.F. Donovan, & D.B. Fraser
+
+___ @ $15 = $ ____ Data Disk SoarTech 8
+
+___ @ $25 = $ ____ Summary of Low-Speed Airfoil Data - Vol. 1, June 1995
+                   M.S. Selig, C.A. Lyon, P. Giguere, C.N. Ninham,
+                   & J.J. Guglielmo
+
+___ @ $15 = $ ____ Data Disk Vol 1
+
+___ @ $25 = $ ____ Summary of Low-Speed Airfoil Data - Vol. 2, May 1996
+                   M.S. Selig, J.J. Guglielmo, A.P. Broeren, & P. Giguere
+
+___ @ $15 = $ ____ Data Disk Vol 2
+
+            $ ____ Subtotal
+
+            $ ____ Virginia residents add 4-1/2% sales tax
+
+            $ ____ Shipping for SoarTech 8
+                   - Airmail to Canada and Mexico add $2 per book
+                   - Surface mail to other countries add $5 per book
+                   - Airmail to other countries add $15 per book
+
+            $ ____ Shipping for Vols 1 and 2
+                   - Vols 1 and 2 prices include postage for shipping
+                     within the US
+                   - International surface mail outside the USA add $4 per book
+                   - Airmail to the Western Hemisphere add  $6 per book
+                   - Airmail to Europe add $13 per book
+                   - Airmail to other parts of the world add $17 per book
+
+            $ ____ Shipping for data disks
+                   - Prices above include postage for shipping within the USA
+                   - For orders outside the USA add $1 per disk
+
+
+TOTAL       $ ____ Provide a check or money order in US Dollars that can be
+                   paid at a US bank.  US cash is also accepted.  The
+                   SoarTech operation is not big enough to handle credit card
+                   orders.  A significant portion of the price received from
+                   all book and disk sales will be returned to UIUC to provide
+                   part of the continuing support for the ongoing test program.
+
+
+Send book and data disk orders to:
+
+SoarTech Publications
+Herk Stokely
+1504 N. Horseshoe Circle
+Virginia Beach, VA 23451  USA
+e-mail: herkstok@aol.com
+
+When ordering, PLEASE provide a check or money order in US Dollars
+which can be paid at a US bank.  U.S.  cash is also accepted.
+Residents of Virginia should add the state 4-1/2 percent sales tax to
+the above rates.
+
+

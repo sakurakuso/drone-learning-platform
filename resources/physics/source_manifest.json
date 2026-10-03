@@ -1,0 +1,341 @@
+{
+  "retrieved": "2026-10-03",
+  "upstream_revisions": {
+    "rcforge": {
+      "repository": "adithya-s-k/RCForge",
+      "commit": "560365528303906b1db96b312e90ffcebbe2da08"
+    },
+    "pybullet": {
+      "repository": "learnsyslab/gym-pybullet-drones",
+      "commit": "7ebad1ecabd28a7000add2d05f888aa2e837c2cc"
+    },
+    "px4": {
+      "repository": "PX4/PX4-gazebo-models",
+      "commit": "a15af9628536914ff7201c992fce5e3cb5d70db9"
+    },
+    "fpv_sim": {
+      "repository": "AristidesAI/FPV.Sim",
+      "commit": "370b10d20ff5f912156f69e8f61efb375101d0f9"
+    },
+    "propwash": {
+      "repository": "mqnc/propwash",
+      "commit": "396b91b6979d19f7b18332b0de9c8ad407aea4cd"
+    }
+  },
+  "files": [
+    {
+      "source_id": "uiuc/volume01.zip",
+      "url": "https://m-selig.ae.illinois.edu/pd/pub/lsat/volume01.zip",
+      "bytes": 254863,
+      "sha256": "124b990a3d22163cadf6efb8e805860e89275f2f987d96e4fbe7a07bda8e03ab",
+      "public_path": "measured/airfoils/archives/volume01.zip",
+      "status": "downloaded"
+    },
+    {
+      "source_id": "uiuc/volume02.zip",
+      "url": "https://m-selig.ae.illinois.edu/pd/pub/lsat/volume02.zip",
+      "bytes": 232146,
+      "sha256": "5a678fd02ed71ffd4a0a2c4a9f891f739001426ab0d258f7d7370389f0b121c3",
+      "public_path": "measured/airfoils/archives/volume02.zip",
+      "status": "downloaded"
+    },
+    {
+      "source_id": "uiuc/volume03.zip",
+      "url": "https://m-selig.ae.illinois.edu/pd/pub/lsat/volume03.zip",
+      "bytes": 381532,
+      "sha256": "199e7fd9441469c4c49ab21b4f3443cd0de26d950a7053cf6d0e53575b706421",
+      "public_path": "measured/airfoils/archives/volume03.zip",
+      "status": "downloaded"
+    },
+    {
+      "source_id": "uiuc/volume04.zip",
+      "url": "https://m-selig.ae.illinois.edu/pd/pub/lsat/volume04.zip",
+      "bytes": 133131,
+      "sha256": "4b9db14ba466ef96d80c90cfa77ab97f9d0ea48ecd7c449b2772e92076a54a94",
+      "public_path": "measured/airfoils/archives/volume04.zip",
+      "status": "downloaded"
+    },
+    {
+      "source_id": "uiuc/volume05.zip",
+      "url": "https://m-selig.ae.illinois.edu/pd/pub/lsat/volume05.zip",
+      "bytes": 197917,
+      "sha256": "35e15b8e89c0b32cc148867df9926403fcf5a64ceadcfe114f072a05fc25c190",
+      "public_path": "measured/airfoils/archives/volume05.zip",
+      "status": "downloaded"
+    },
+    {
+      "source_id": "uiuc/volume06.zip",
+      "url": "https://m-selig.ae.illinois.edu/pd/pub/lsat/volume06.zip",
+      "bytes": 239479,
+      "sha256": "987d4b6a412e7c7fd0b186891e131c1b8aa5a0bb39a677ad76827c630d9b3186",
+      "public_path": "measured/airfoils/archives/volume06.zip",
+      "status": "downloaded"
+    },
+    {
+      "source_id": "uiuc/Stec8.zip",
+      "url": "https://m-selig.ae.illinois.edu/uiuc_lsat/Stec8.zip",
+      "bytes": 194797,
+      "sha256": "11ae99c9c16fae4cc947875889491e3dfce9678114ef1fbbe5d822cfe1ffd47f",
+      "public_path": null,
+      "status": "downloaded"
+    },
+    {
+      "source_id": "uiuc/UIUC-propDB.zip",
+      "url": "https://m-selig.ae.illinois.edu/props/download/UIUC-propDB.zip",
+      "bytes": 90906721,
+      "sha256": "089b66db10391b9a3ad53aac1b95fa63d24bb7130f0dc1e6a4e7d971c5645995",
+      "public_path": null,
+      "status": "downloaded"
+    },
+    {
+      "source_id": "uiuc/pd.html",
+      "url": "https://m-selig.ae.illinois.edu/pd.html",
+      "bytes": 8171,
+      "sha256": "d6ae3ad601502bc97aba82c09247584a10b34b5b7027f78e8ed126a69533c3ee",
+      "public_path": null,
+      "status": "downloaded"
+    },
+    {
+      "source_id": "rcforge/aircraft/quad-x-5inch.json",
+      "url": "https://raw.githubusercontent.com/adithya-s-k/RCForge/560365528303906b1db96b312e90ffcebbe2da08/aircraft/quad-x-5inch.json",
+      "bytes": 8612,
+      "sha256": "9d747c87dd1e64997630502197ee3bf9563a63d8df114e6529afc69ac88f8077",
+      "public_path": "models/rcforge/quad-x-5inch.json",
+      "status": "downloaded"
+    },
+    {
+      "source_id": "rcforge/aircraft/quad-x-450.json",
+      "url": "https://raw.githubusercontent.com/adithya-s-k/RCForge/560365528303906b1db96b312e90ffcebbe2da08/aircraft/quad-x-450.json",
+      "bytes": 21018,
+      "sha256": "b1ef64193ca560014a1dead73c5657afe5794ab15fdb26ab5f6a4d2ddf7e3ca7",
+      "public_path": "models/rcforge/quad-x-450.json",
+      "status": "downloaded"
+    },
+    {
+      "source_id": "rcforge/aircraft/quad-x-6s.json",
+      "url": "https://raw.githubusercontent.com/adithya-s-k/RCForge/560365528303906b1db96b312e90ffcebbe2da08/aircraft/quad-x-6s.json",
+      "bytes": 10136,
+      "sha256": "90a73d9e20c16f50a19339ed612548f9463a3e6422b01004ba64b7856a33c01b",
+      "public_path": "models/rcforge/quad-x-6s.json",
+      "status": "downloaded"
+    },
+    {
+      "source_id": "rcforge/src/core/simulation.ts",
+      "url": "https://raw.githubusercontent.com/adithya-s-k/RCForge/560365528303906b1db96b312e90ffcebbe2da08/src/core/simulation.ts",
+      "bytes": 14192,
+      "sha256": "451fabe56cbc647e65cea0f8a86486e1c692d71c7f5a808ee00f17cb552a467a",
+      "public_path": null,
+      "status": "downloaded"
+    },
+    {
+      "source_id": "rcforge/src/core/aerodynamics.ts",
+      "url": "https://raw.githubusercontent.com/adithya-s-k/RCForge/560365528303906b1db96b312e90ffcebbe2da08/src/core/aerodynamics.ts",
+      "bytes": 2399,
+      "sha256": "e259beb1f8dbc2a298ca8912ee243d9bb9cefd222ade42841e30fa89383e930e",
+      "public_path": null,
+      "status": "downloaded"
+    },
+    {
+      "source_id": "rcforge/src/core/multirotor.ts",
+      "url": "https://raw.githubusercontent.com/adithya-s-k/RCForge/560365528303906b1db96b312e90ffcebbe2da08/src/core/multirotor.ts",
+      "bytes": 1269,
+      "sha256": "f737dc7659d057e359c3cf561773d1ff88f681153af19d93dcb996473edc19e1",
+      "public_path": null,
+      "status": "downloaded"
+    },
+    {
+      "source_id": "rcforge/docs/multirotors.md",
+      "url": "https://raw.githubusercontent.com/adithya-s-k/RCForge/560365528303906b1db96b312e90ffcebbe2da08/docs/multirotors.md",
+      "bytes": 7049,
+      "sha256": "c096408addf17df4e375ba6cbc4149c7c02715cd17dc0ba716172b87e95618d8",
+      "public_path": null,
+      "status": "downloaded"
+    },
+    {
+      "source_id": "rcforge/docs/benchmarks/2026-09-08.json",
+      "url": "https://raw.githubusercontent.com/adithya-s-k/RCForge/560365528303906b1db96b312e90ffcebbe2da08/docs/benchmarks/2026-09-08.json",
+      "bytes": 37265,
+      "sha256": "480001f7a942173ca31694c6f52704ff462dca4cb99dcd9fe20a443ef3a142f2",
+      "public_path": "validation/rcforge-2026-09-08.json",
+      "status": "downloaded"
+    },
+    {
+      "source_id": "rcforge/LICENSE",
+      "url": "https://raw.githubusercontent.com/adithya-s-k/RCForge/560365528303906b1db96b312e90ffcebbe2da08/LICENSE",
+      "bytes": 1077,
+      "sha256": "ba177dab45a82cc18ed130c658eb527becbe5e72e186b0a40d2bd28cf00a4ad5",
+      "public_path": "models/rcforge/LICENSE.upstream",
+      "status": "downloaded"
+    },
+    {
+      "source_id": "pybullet/gym_pybullet_drones/assets/cf2x.urdf",
+      "url": "https://raw.githubusercontent.com/learnsyslab/gym-pybullet-drones/7ebad1ecabd28a7000add2d05f888aa2e837c2cc/gym_pybullet_drones/assets/cf2x.urdf",
+      "bytes": 2836,
+      "sha256": "81494018056df2995351da62b9365d2ef4e1512112feaf73e88f9203e20c884b",
+      "public_path": "models/pybullet/cf2x.urdf",
+      "status": "downloaded"
+    },
+    {
+      "source_id": "pybullet/gym_pybullet_drones/assets/cf2p.urdf",
+      "url": "https://raw.githubusercontent.com/learnsyslab/gym-pybullet-drones/7ebad1ecabd28a7000add2d05f888aa2e837c2cc/gym_pybullet_drones/assets/cf2p.urdf",
+      "bytes": 2830,
+      "sha256": "9c6acd425307103bb2f40e93afc5c951811eed77ee85a7baa246a265d845f2b9",
+      "public_path": "models/pybullet/cf2p.urdf",
+      "status": "downloaded"
+    },
+    {
+      "source_id": "pybullet/gym_pybullet_drones/assets/racer.urdf",
+      "url": "https://raw.githubusercontent.com/learnsyslab/gym-pybullet-drones/7ebad1ecabd28a7000add2d05f888aa2e837c2cc/gym_pybullet_drones/assets/racer.urdf",
+      "bytes": 2565,
+      "sha256": "4ddcd3a8edd4a31654b3dde5d315490688545efdf79a40c434fdad3d4863d5c4",
+      "public_path": "models/pybullet/racer.urdf",
+      "status": "downloaded"
+    },
+    {
+      "source_id": "pybullet/gym_pybullet_drones/envs/BaseAviary.py",
+      "url": "https://raw.githubusercontent.com/learnsyslab/gym-pybullet-drones/7ebad1ecabd28a7000add2d05f888aa2e837c2cc/gym_pybullet_drones/envs/BaseAviary.py",
+      "bytes": 54902,
+      "sha256": "729e6a51e30b81ba4ace4625d6ca1be1815b56c3e55de96a81380f749bf34023",
+      "public_path": null,
+      "status": "downloaded"
+    },
+    {
+      "source_id": "pybullet/LICENSE",
+      "url": "https://raw.githubusercontent.com/learnsyslab/gym-pybullet-drones/7ebad1ecabd28a7000add2d05f888aa2e837c2cc/LICENSE",
+      "bytes": 1072,
+      "sha256": "d49cdc3020dfe0615515277ff96e2f5ca471750248a7505c9bb288be84af4591",
+      "public_path": "models/pybullet/LICENSE.upstream",
+      "status": "downloaded"
+    },
+    {
+      "source_id": "px4/models/x500_base/model.sdf",
+      "url": "https://raw.githubusercontent.com/PX4/PX4-gazebo-models/a15af9628536914ff7201c992fce5e3cb5d70db9/models/x500_base/model.sdf",
+      "bytes": 17726,
+      "sha256": "6eccbff824a0e1ceaaf3bc12fe18cd0eb3ece890bf995a2607b477c3d2ae5772",
+      "public_path": "models/px4/x500_base.sdf",
+      "status": "downloaded"
+    },
+    {
+      "source_id": "px4/LICENSE",
+      "url": "https://raw.githubusercontent.com/PX4/PX4-gazebo-models/a15af9628536914ff7201c992fce5e3cb5d70db9/LICENSE",
+      "bytes": 1532,
+      "sha256": "5fcb2a52fc0390cc8c7eccaa0cde9316c810f38811efb357e1ede7858e26e289",
+      "public_path": "models/px4/LICENSE.upstream",
+      "status": "downloaded"
+    },
+    {
+      "source_id": "fpv_sim/index.html",
+      "url": "https://raw.githubusercontent.com/AristidesAI/FPV.Sim/370b10d20ff5f912156f69e8f61efb375101d0f9/index.html",
+      "bytes": 76770,
+      "sha256": "b43751f582bfa8ea4f78e052129de546efc987815cf05bbe30d1443f17da4c81",
+      "public_path": null,
+      "status": "downloaded"
+    },
+    {
+      "source_id": "fpv_sim/LICENSE",
+      "url": "https://raw.githubusercontent.com/AristidesAI/FPV.Sim/370b10d20ff5f912156f69e8f61efb375101d0f9/LICENSE",
+      "bytes": 1076,
+      "sha256": "c3a0ac9ec0409d5aa4414185edcc5316bf6cfd8c4528d3028912a937be1ec049",
+      "public_path": "models/fpv_sim/LICENSE.upstream",
+      "status": "downloaded"
+    },
+    {
+      "source_id": "propwash/configs/default.json5",
+      "url": "https://raw.githubusercontent.com/mqnc/propwash/396b91b6979d19f7b18332b0de9c8ad407aea4cd/configs/default.json5",
+      "bytes": 4414,
+      "sha256": "f3a11218f72900e13f148edc3d218578c597ece3641cb5bee3b54edc971e28b3",
+      "public_path": "scene_configs/propwash/default.json5",
+      "status": "downloaded"
+    },
+    {
+      "source_id": "propwash/configs/playground.json5",
+      "url": "https://raw.githubusercontent.com/mqnc/propwash/396b91b6979d19f7b18332b0de9c8ad407aea4cd/configs/playground.json5",
+      "bytes": 950,
+      "sha256": "ea9a325af5cab8b6f8c0cac7fd11527919afef2d8458e30daef6a009cbb1dc17",
+      "public_path": "scene_configs/propwash/playground.json5",
+      "status": "downloaded"
+    },
+    {
+      "source_id": "propwash/configs/issum.json5",
+      "url": "https://raw.githubusercontent.com/mqnc/propwash/396b91b6979d19f7b18332b0de9c8ad407aea4cd/configs/issum.json5",
+      "bytes": 990,
+      "sha256": "1be9c3b857d56ce3d09227e93712203e5a0d78d34ce9db208b7c032116cd2a22",
+      "public_path": "scene_configs/propwash/issum.json5",
+      "status": "downloaded"
+    },
+    {
+      "source_id": "propwash/LICENSE",
+      "url": "https://raw.githubusercontent.com/mqnc/propwash/396b91b6979d19f7b18332b0de9c8ad407aea4cd/LICENSE",
+      "bytes": 1286,
+      "sha256": "e73d971b9ce90e8a6f588046c4a21b25617e7a839f5e1a0b482138e01f9bf5c6",
+      "public_path": "models/propwash/LICENSE.upstream",
+      "status": "downloaded"
+    },
+    {
+      "source_id": "px4/models/x500/model.sdf",
+      "url": "https://raw.githubusercontent.com/PX4/PX4-gazebo-models/a15af9628536914ff7201c992fce5e3cb5d70db9/models/x500/model.sdf",
+      "status": "downloaded",
+      "bytes": 3533,
+      "sha256": "cb76a4afd439f253a8c516b1fcd3528f80347619cfa46bebb620557054fbf125",
+      "public_path": "models/px4/x500.sdf"
+    },
+    {
+      "source_id": "user-provided/UIUC_LSAT_空气动力学数据.md",
+      "url": null,
+      "status": "retained_user_reference",
+      "bytes": 4638,
+      "sha256": "6281838ef02d01851b1a499a4ce1f129706cb7a2091d863769927e3486a1fd14",
+      "public_path": "references/UIUC_LSAT_空气动力学数据.md",
+      "review": "references/REVIEW.md; unverified claims remain in original reference"
+    },
+    {
+      "source_id": "uiuc/volume01.zip::volume01/GPL.TXT",
+      "url": "https://m-selig.ae.illinois.edu/pd/pub/lsat/volume01.zip",
+      "status": "extracted_unmodified",
+      "bytes": 18657,
+      "sha256": "ac88d8b5251b5b4e8340aad3abfc9eb01e91ce4d8564c4b883047d9b23e601b2",
+      "public_path": "measured/airfoils/GPL.TXT"
+    },
+    {
+      "source_id": "uiuc/volume01.zip::volume01/MANIFEST.TXT",
+      "url": "https://m-selig.ae.illinois.edu/pd/pub/lsat/volume01.zip",
+      "status": "extracted_unmodified",
+      "bytes": 11516,
+      "sha256": "6a3afb2beec4a01c3e1bfb1dfb2ec1a11c732ad2108faaa04522dd42b4c6037a",
+      "public_path": "measured/airfoils/MANIFEST.TXT"
+    },
+    {
+      "source_id": "uiuc/volume01.zip::volume01/BOOK01.TXT",
+      "url": "https://m-selig.ae.illinois.edu/pd/pub/lsat/volume01.zip",
+      "status": "extracted_unmodified",
+      "bytes": 1951,
+      "sha256": "f23092e02c705a8d86f191e54a071441adbf23efacc4311276764d8a9825636b",
+      "public_path": "measured/airfoils/BOOK01.TXT"
+    },
+    {
+      "source_id": "uiuc/volume01.zip::volume01/FORMAT01.TXT",
+      "url": "https://m-selig.ae.illinois.edu/pd/pub/lsat/volume01.zip",
+      "status": "extracted_unmodified",
+      "bytes": 6989,
+      "sha256": "070c40f0a526f192cb87ea238176506732af9f9d9d0f8a428bacab316543c959",
+      "public_path": "measured/airfoils/FORMAT01.TXT"
+    }
+  ],
+  "derived": {
+    "e387_csv": {
+      "source": "uiuc/volume04.zip",
+      "member": "volume04/e387_c_drg.txt",
+      "rows": 112,
+      "method": "first three numeric columns per Reynolds block; retained source line; no interpolation"
+    },
+    "propeller_catalog": {
+      "source": "uiuc/UIUC-propDB.zip",
+      "files": 1994,
+      "mirrored_data": false
+    },
+    "parameter_csv": {
+      "rows": 147,
+      "method": "direct JSON/XML extraction, units documented separately"
+    }
+  }
+}

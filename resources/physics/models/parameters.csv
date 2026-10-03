@@ -1,0 +1,148 @@
+project,file,parameter,value,unit,evidence
+pybullet,cf2p.urdf,arm,0.0397,m,upstream preset; not target-drone calibration
+pybullet,cf2p.urdf,kf,3.16e-10,N/RPM²,upstream preset; not target-drone calibration
+pybullet,cf2p.urdf,km,7.94e-12,N m/RPM²,upstream preset; not target-drone calibration
+pybullet,cf2p.urdf,thrust2weight,2.25,model-specific,upstream preset; not target-drone calibration
+pybullet,cf2p.urdf,max_speed_kmh,30,km/h,upstream preset; not target-drone calibration
+pybullet,cf2p.urdf,gnd_eff_coeff,11.36859,model-specific,upstream preset; not target-drone calibration
+pybullet,cf2p.urdf,prop_radius,2.31348e-2,m,upstream preset; not target-drone calibration
+pybullet,cf2p.urdf,drag_coeff_xy,9.1785e-7,model coefficient,upstream preset; not target-drone calibration
+pybullet,cf2p.urdf,drag_coeff_z,10.311e-7,model coefficient,upstream preset; not target-drone calibration
+pybullet,cf2p.urdf,dw_coeff_1,2267.18,model-specific,upstream preset; not target-drone calibration
+pybullet,cf2p.urdf,dw_coeff_2,.16,model-specific,upstream preset; not target-drone calibration
+pybullet,cf2p.urdf,dw_coeff_3,-.11,model-specific,upstream preset; not target-drone calibration
+pybullet,cf2p.urdf,base_mass,0.027,kg,base-link mass
+pybullet,cf2p.urdf,ixx,2.3951e-5,kg m²,base-link inertia
+pybullet,cf2p.urdf,ixy,0.0,kg m²,base-link inertia
+pybullet,cf2p.urdf,ixz,0.0,kg m²,base-link inertia
+pybullet,cf2p.urdf,iyy,2.3951e-5,kg m²,base-link inertia
+pybullet,cf2p.urdf,iyz,0.0,kg m²,base-link inertia
+pybullet,cf2p.urdf,izz,3.2347e-5,kg m²,base-link inertia
+pybullet,cf2x.urdf,arm,0.0397,m,upstream preset; not target-drone calibration
+pybullet,cf2x.urdf,kf,3.16e-10,N/RPM²,upstream preset; not target-drone calibration
+pybullet,cf2x.urdf,km,7.94e-12,N m/RPM²,upstream preset; not target-drone calibration
+pybullet,cf2x.urdf,thrust2weight,2.25,model-specific,upstream preset; not target-drone calibration
+pybullet,cf2x.urdf,max_speed_kmh,30,km/h,upstream preset; not target-drone calibration
+pybullet,cf2x.urdf,gnd_eff_coeff,11.36859,model-specific,upstream preset; not target-drone calibration
+pybullet,cf2x.urdf,prop_radius,2.31348e-2,m,upstream preset; not target-drone calibration
+pybullet,cf2x.urdf,drag_coeff_xy,9.1785e-7,model coefficient,upstream preset; not target-drone calibration
+pybullet,cf2x.urdf,drag_coeff_z,10.311e-7,model coefficient,upstream preset; not target-drone calibration
+pybullet,cf2x.urdf,dw_coeff_1,2267.18,model-specific,upstream preset; not target-drone calibration
+pybullet,cf2x.urdf,dw_coeff_2,.16,model-specific,upstream preset; not target-drone calibration
+pybullet,cf2x.urdf,dw_coeff_3,-.11,model-specific,upstream preset; not target-drone calibration
+pybullet,cf2x.urdf,base_mass,0.027,kg,base-link mass
+pybullet,cf2x.urdf,ixx,1.4e-5,kg m²,base-link inertia
+pybullet,cf2x.urdf,ixy,0.0,kg m²,base-link inertia
+pybullet,cf2x.urdf,ixz,0.0,kg m²,base-link inertia
+pybullet,cf2x.urdf,iyy,1.4e-5,kg m²,base-link inertia
+pybullet,cf2x.urdf,iyz,0.0,kg m²,base-link inertia
+pybullet,cf2x.urdf,izz,2.17e-5,kg m²,base-link inertia
+pybullet,racer.urdf,arm,0.109,m,upstream preset; not target-drone calibration
+pybullet,racer.urdf,kf,8.47e-9,N/RPM²,upstream preset; not target-drone calibration
+pybullet,racer.urdf,km,2.13e-11,N m/RPM²,upstream preset; not target-drone calibration
+pybullet,racer.urdf,thrust2weight,4.17,model-specific,upstream preset; not target-drone calibration
+pybullet,racer.urdf,max_speed_kmh,200,km/h,upstream preset; not target-drone calibration
+pybullet,racer.urdf,gnd_eff_coeff,11.36859,model-specific,upstream preset; not target-drone calibration
+pybullet,racer.urdf,prop_radius,12.7e-2,m,upstream preset; not target-drone calibration
+pybullet,racer.urdf,drag_coeff_xy,9.1785e-7,model coefficient,upstream preset; not target-drone calibration
+pybullet,racer.urdf,drag_coeff_z,10.311e-7,model coefficient,upstream preset; not target-drone calibration
+pybullet,racer.urdf,dw_coeff_1,2267.18,model-specific,upstream preset; not target-drone calibration
+pybullet,racer.urdf,dw_coeff_2,.16,model-specific,upstream preset; not target-drone calibration
+pybullet,racer.urdf,dw_coeff_3,-.11,model-specific,upstream preset; not target-drone calibration
+pybullet,racer.urdf,base_mass,0.830,kg,base-link mass
+pybullet,racer.urdf,ixx,.003113,kg m²,base-link inertia
+pybullet,racer.urdf,ixy,0.0,kg m²,base-link inertia
+pybullet,racer.urdf,ixz,0.0,kg m²,base-link inertia
+pybullet,racer.urdf,iyy,.003113,kg m²,base-link inertia
+pybullet,racer.urdf,iyz,0.0,kg m²,base-link inertia
+pybullet,racer.urdf,izz,.003113,kg m²,base-link inertia
+rcforge,quad-x-450.json,sum_parts_mass,1.0070000000000001,kg,summed mass ledger
+rcforge,quad-x-450.json,bodyDragAreaM2[0],0.024,m²,effective Cd*A; estimate
+rcforge,quad-x-450.json,bodyDragAreaM2[1],0.03,m²,effective Cd*A; estimate
+rcforge,quad-x-450.json,bodyDragAreaM2[2],0.07,m²,effective Cd*A; estimate
+rcforge,quad-x-450.json,motor[0].maxThrustN,6.276256,N,preset; inspect provenance
+rcforge,quad-x-450.json,motor[0].responseSeconds,0.085,s,preset; inspect provenance
+rcforge,quad-x-450.json,motor[0].propDiameterM,0.254,m,preset; inspect provenance
+rcforge,quad-x-450.json,motor[0].torquePerThrustM,0.018,m,preset; inspect provenance
+rcforge,quad-x-450.json,motor[1].maxThrustN,6.276256,N,preset; inspect provenance
+rcforge,quad-x-450.json,motor[1].responseSeconds,0.085,s,preset; inspect provenance
+rcforge,quad-x-450.json,motor[1].propDiameterM,0.254,m,preset; inspect provenance
+rcforge,quad-x-450.json,motor[1].torquePerThrustM,0.018,m,preset; inspect provenance
+rcforge,quad-x-450.json,motor[2].maxThrustN,6.276256,N,preset; inspect provenance
+rcforge,quad-x-450.json,motor[2].responseSeconds,0.085,s,preset; inspect provenance
+rcforge,quad-x-450.json,motor[2].propDiameterM,0.254,m,preset; inspect provenance
+rcforge,quad-x-450.json,motor[2].torquePerThrustM,0.018,m,preset; inspect provenance
+rcforge,quad-x-450.json,motor[3].maxThrustN,6.276256,N,preset; inspect provenance
+rcforge,quad-x-450.json,motor[3].responseSeconds,0.085,s,preset; inspect provenance
+rcforge,quad-x-450.json,motor[3].propDiameterM,0.254,m,preset; inspect provenance
+rcforge,quad-x-450.json,motor[3].torquePerThrustM,0.018,m,preset; inspect provenance
+rcforge,quad-x-5inch.json,sum_parts_mass,0.65,kg,summed mass ledger
+rcforge,quad-x-5inch.json,motor[0].maxThrustN,8,N,preset; inspect provenance
+rcforge,quad-x-5inch.json,motor[0].responseSeconds,0.04,s,preset; inspect provenance
+rcforge,quad-x-5inch.json,motor[0].propDiameterM,0.127,m,preset; inspect provenance
+rcforge,quad-x-5inch.json,motor[0].torquePerThrustM,0.015,m,preset; inspect provenance
+rcforge,quad-x-5inch.json,motor[1].maxThrustN,8,N,preset; inspect provenance
+rcforge,quad-x-5inch.json,motor[1].responseSeconds,0.04,s,preset; inspect provenance
+rcforge,quad-x-5inch.json,motor[1].propDiameterM,0.127,m,preset; inspect provenance
+rcforge,quad-x-5inch.json,motor[1].torquePerThrustM,0.015,m,preset; inspect provenance
+rcforge,quad-x-5inch.json,motor[2].maxThrustN,8,N,preset; inspect provenance
+rcforge,quad-x-5inch.json,motor[2].responseSeconds,0.04,s,preset; inspect provenance
+rcforge,quad-x-5inch.json,motor[2].propDiameterM,0.127,m,preset; inspect provenance
+rcforge,quad-x-5inch.json,motor[2].torquePerThrustM,0.015,m,preset; inspect provenance
+rcforge,quad-x-5inch.json,motor[3].maxThrustN,8,N,preset; inspect provenance
+rcforge,quad-x-5inch.json,motor[3].responseSeconds,0.04,s,preset; inspect provenance
+rcforge,quad-x-5inch.json,motor[3].propDiameterM,0.127,m,preset; inspect provenance
+rcforge,quad-x-5inch.json,motor[3].torquePerThrustM,0.015,m,preset; inspect provenance
+rcforge,quad-x-6s.json,sum_parts_mass,0.65,kg,summed mass ledger
+rcforge,quad-x-6s.json,bodyDragAreaM2[0],0.008,m²,effective Cd*A; estimate
+rcforge,quad-x-6s.json,bodyDragAreaM2[1],0.012,m²,effective Cd*A; estimate
+rcforge,quad-x-6s.json,bodyDragAreaM2[2],0.025,m²,effective Cd*A; estimate
+rcforge,quad-x-6s.json,motor[0].maxThrustN,8,N,preset; inspect provenance
+rcforge,quad-x-6s.json,motor[0].responseSeconds,0.04,s,preset; inspect provenance
+rcforge,quad-x-6s.json,motor[0].propDiameterM,0.127,m,preset; inspect provenance
+rcforge,quad-x-6s.json,motor[0].torquePerThrustM,0.015,m,preset; inspect provenance
+rcforge,quad-x-6s.json,motor[1].maxThrustN,8,N,preset; inspect provenance
+rcforge,quad-x-6s.json,motor[1].responseSeconds,0.04,s,preset; inspect provenance
+rcforge,quad-x-6s.json,motor[1].propDiameterM,0.127,m,preset; inspect provenance
+rcforge,quad-x-6s.json,motor[1].torquePerThrustM,0.015,m,preset; inspect provenance
+rcforge,quad-x-6s.json,motor[2].maxThrustN,8,N,preset; inspect provenance
+rcforge,quad-x-6s.json,motor[2].responseSeconds,0.04,s,preset; inspect provenance
+rcforge,quad-x-6s.json,motor[2].propDiameterM,0.127,m,preset; inspect provenance
+rcforge,quad-x-6s.json,motor[2].torquePerThrustM,0.015,m,preset; inspect provenance
+rcforge,quad-x-6s.json,motor[3].maxThrustN,8,N,preset; inspect provenance
+rcforge,quad-x-6s.json,motor[3].responseSeconds,0.04,s,preset; inspect provenance
+rcforge,quad-x-6s.json,motor[3].propDiameterM,0.127,m,preset; inspect provenance
+rcforge,quad-x-6s.json,motor[3].torquePerThrustM,0.015,m,preset; inspect provenance
+px4,x500_base.sdf,base_link.mass,2.0,kg,link mass; not assembled total
+px4,x500_base.sdf,rotor_0.mass,0.016076923076923075,kg,link mass; not assembled total
+px4,x500_base.sdf,rotor_1.mass,0.016076923076923075,kg,link mass; not assembled total
+px4,x500_base.sdf,rotor_2.mass,0.016076923076923075,kg,link mass; not assembled total
+px4,x500_base.sdf,rotor_3.mass,0.016076923076923075,kg,link mass; not assembled total
+px4,x500.sdf,rotor_0.timeConstantUp,0.0125,s,preset; not target-drone measurement
+px4,x500.sdf,rotor_0.timeConstantDown,0.025,s,preset; not target-drone measurement
+px4,x500.sdf,rotor_0.maxRotVelocity,1000.0,rad/s,preset; not target-drone measurement
+px4,x500.sdf,rotor_0.motorConstant,8.54858e-06,N/(rad/s)²,preset; not target-drone measurement
+px4,x500.sdf,rotor_0.momentConstant,0.016,m,preset; not target-drone measurement
+px4,x500.sdf,rotor_0.rotorDragCoefficient,8.06428e-05,Gazebo plugin convention,preset; not target-drone measurement
+px4,x500.sdf,rotor_0.rollingMomentCoefficient,1e-06,Gazebo plugin convention,preset; not target-drone measurement
+px4,x500.sdf,rotor_1.timeConstantUp,0.0125,s,preset; not target-drone measurement
+px4,x500.sdf,rotor_1.timeConstantDown,0.025,s,preset; not target-drone measurement
+px4,x500.sdf,rotor_1.maxRotVelocity,1000.0,rad/s,preset; not target-drone measurement
+px4,x500.sdf,rotor_1.motorConstant,8.54858e-06,N/(rad/s)²,preset; not target-drone measurement
+px4,x500.sdf,rotor_1.momentConstant,0.016,m,preset; not target-drone measurement
+px4,x500.sdf,rotor_1.rotorDragCoefficient,8.06428e-05,Gazebo plugin convention,preset; not target-drone measurement
+px4,x500.sdf,rotor_1.rollingMomentCoefficient,1e-06,Gazebo plugin convention,preset; not target-drone measurement
+px4,x500.sdf,rotor_2.timeConstantUp,0.0125,s,preset; not target-drone measurement
+px4,x500.sdf,rotor_2.timeConstantDown,0.025,s,preset; not target-drone measurement
+px4,x500.sdf,rotor_2.maxRotVelocity,1000.0,rad/s,preset; not target-drone measurement
+px4,x500.sdf,rotor_2.motorConstant,8.54858e-06,N/(rad/s)²,preset; not target-drone measurement
+px4,x500.sdf,rotor_2.momentConstant,0.016,m,preset; not target-drone measurement
+px4,x500.sdf,rotor_2.rotorDragCoefficient,8.06428e-05,Gazebo plugin convention,preset; not target-drone measurement
+px4,x500.sdf,rotor_2.rollingMomentCoefficient,1e-06,Gazebo plugin convention,preset; not target-drone measurement
+px4,x500.sdf,rotor_3.timeConstantUp,0.0125,s,preset; not target-drone measurement
+px4,x500.sdf,rotor_3.timeConstantDown,0.025,s,preset; not target-drone measurement
+px4,x500.sdf,rotor_3.maxRotVelocity,1000.0,rad/s,preset; not target-drone measurement
+px4,x500.sdf,rotor_3.motorConstant,8.54858e-06,N/(rad/s)²,preset; not target-drone measurement
+px4,x500.sdf,rotor_3.momentConstant,0.016,m,preset; not target-drone measurement
+px4,x500.sdf,rotor_3.rotorDragCoefficient,8.06428e-05,Gazebo plugin convention,preset; not target-drone measurement
+px4,x500.sdf,rotor_3.rollingMomentCoefficient,1e-06,Gazebo plugin convention,preset; not target-drone measurement

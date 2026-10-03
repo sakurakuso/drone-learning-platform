@@ -1,0 +1,118 @@
+{
+    version: 1.0,
+
+    settings: {
+        debug: false,
+        composerResolutionScale: 2.0, // virtual image before fisheye effect
+        rendererResolutionScale: 1.0, // final rendering
+        antiAlias: true,
+    },
+
+    aircraft: {
+        type: "quadcopter", // only quadcopter for now
+        model: {
+            path: "assets/drones/racing_drone_lite_graphics_version.glb",
+            position: [ 0.0, 0.0, 0.0, ], // m
+            rollPitchYaw: [ -90.0, 0.0, 90.0, ], // deg
+            scale: [ 0.03, 0.03, 0.03, ],
+        },
+        wheelbase: 0.22, // m
+        mass: 0.4, // kg
+        propSize: 5.0, // inch
+        boundingBox: {
+            position: [ 0.0, 0.0, 0.0, ], // m
+            size: [ 0.3, 0.3, 0.08, ], // m
+        },
+        maxCombinedThrust: 30.0, // N
+        dragForceOverSpeed: [ 0.0, 0.0, 0.0, ], // N/(m/s)
+        dragForceOverSpeedSquared: [ 0.005, 0.005, 0.05, ], // N/(m/s)^2
+        maxRollRate: 250.0, // deg/s
+        rollTimeConstant: 0.05, // s
+        maxPitchRate: 250.0, // deg/s
+        pitchTimeConstant: 0.05, // s
+        maxYawRate: 200.0, // deg/s
+        yawTimeConstant: 0.05, // s
+
+        // return turn rate proportional to tilt angle
+        stabilization: 0.0, // (deg/s)/deg, 0 for no stabilization
+
+        // commanded turn rate is reduced at 90% of angleLimit and cut off at 110%
+        angleLimit: 180.0, // deg, >=180 for no limit
+
+        propSound: {
+            path: "assets/sound/prop_loop.mp3",
+            recordingFrequency: 900, // Hz
+            volume: 0.03,
+            numBlades: 3,
+            maxThrustRPM: 20000,
+            tiltDeltaRPM: 1500, // per motor when fast rolling/pitching/yawing
+            oscillateRPM: 300, // random oscillation amplitude
+        },
+        camera: {
+            firstPerson: {
+                position: [ 0.2, 0.0, 0.0, ], // m
+                rollPitchYaw: [ 0.0, 40.0, 0.0, ], // deg
+                fieldOfView: 150, // deg diagonal
+                fishEyeStrength: 1.0, // 0 = perspective .. 1 = stereographic
+                shutterSpeed: 480, // 1/s (Infinity for no motion blur)
+                poseTimeConstant: 0.0001, // first order smoothing
+            },
+            thirdPerson: {
+                position: [ -1.0, 0.0, 0.6, ], // m
+                rollPitchYaw: [ 0.0, 40.0, 0.0, ], // deg
+                fieldOfView: 90, // deg diagonal
+                fishEyeStrength: 1.0, // 0 = perspective .. 1 = stereographic
+                shutterSpeed: 480, // 1/s (Infinity for no motion blur)
+                poseTimeConstant: 0.01, // first order smoothing
+            },
+            preselected: "firstPerson",
+        },
+    },
+
+    map: {
+        model: {
+            path: "assets/maps/playground_2b.glb",
+            position: [ 0.0, 0.0, 0.0, ], // m
+            rollPitchYaw: [ -90.0, 0.0, 90.0, ], // deg
+            scale: [ 1.0, 1.0, 1.0, ],
+        },
+        spawn: {
+            position: [ 0.0, 0.0, -1.0, ], // m
+            rollPitchYaw: [ 0.0, 0.0, 0.0, ], // deg
+        },
+        gravity: [ 0.0, 0.0, 9.81, ], // m/s^2
+        timeScale: 1.0,
+        mission: {
+            type: "freestyle", // no mission
+            // type: "race",
+            // mode: "sequence", // all checkpoints in specified order
+            // mode: "random", // all checkpoints in arbitrary order
+            // mode: {laps: 5}, // lap through all checkpoints in order 5 times, ends at start
+            // checkpoints: [ "checkpoint1", "checkpoint2", "checkpoint3", ],
+            exclude: [ ], // regexes for excluding objects from other missions
+            checkpointScale: 1.0,
+            checkpointSound: {
+                path: "assets/sound/406266__anthousai__hit-hollow-03.wav",
+                volume: 0.6,
+            },
+        },
+    },
+
+    background: {
+        // https://github.com/mrdoob/three.js/issues/33003
+        backgroundMap: { // background image
+            path: "assets/envs/pretoria_gardens_1k.hdr",
+            intensity: 1.0,
+            rollPitchYaw: [ -90.0, 0.0, 0.0, ], // deg
+        },
+        environmentMap: { // lighting and reflections for objects
+            path: "assets/envs/pretoria_gardens_1k.hdr",
+            intensity: 1.0,
+            rollPitchYaw: [ -90.0, 0.0, 0.0, ], // deg
+        },
+        music: {
+            path: "assets/music/fsm-team-escp-magenta-metropolis.mp3",
+            volume: 0.15,
+        },
+    },
+}
