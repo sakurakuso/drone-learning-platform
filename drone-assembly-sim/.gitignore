@@ -17,3 +17,6 @@ outputs/*
 src/scene/verification.png
 src/scene/verification-results.json
 src/scene/target-presentation.png
+
+!outputs/magnetic-acceptance.json
+!outputs/magnetic-assembly.jpg

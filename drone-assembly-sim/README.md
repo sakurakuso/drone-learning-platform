@@ -26,50 +26,44 @@ Open <http://127.0.0.1:4173>. `preview.command` runs those two commands. Wait fo
 
 Keep the local server running for normal use. Offline cache is a convenience for an already visited production origin, not a distributable application installer. Changing the host or port creates a new origin that needs its own initial visit. Development HMR is not cached. After rebuilding, allow the updated service worker to activate and refresh again if the old build is still visible.
 
-## Assembly workflow / 使用流程
+## Assembly workflow / 磁力吸附安装流程
 
-1. Start with the named mounting point already visible in the 3D scene, or press **Start: locate the main frame / 开始：定位主机架**. Click a target label, a library part or a marker in the top-view mounting map to select it. Selection alone never moves or installs a part. Each instance has its own stable ID.
-2. **Locate mounting point / 定位安装位** frames the selected component and its target. The blue FRONT arrow defines aircraft front; LEFT/RIGHT are aircraft sides. The guide describes the seat, direction and any prerequisites, with clickable prerequisite navigation. Drag the part or the translation axes. Choose **Rotate / 旋转** to use the rotation rings. The collapsed **Advanced: position & rotation / 高级调整** accepts X/Y/Z positions and Euler angles in degrees; click **Apply transform / 应用位置与旋转** to commit one action.
-3. **Align to target / 对齐安装位置** offers teaching assistance. It only moves the part; it does not install it or bypass dependency checks.
-4. **Check & install / 检查并安装** checks prerequisites, scale, position and angle tolerance, then snaps a valid component to the assumed target.
-5. Guided assembly recommends seven stages. Free assembly lets you choose the order while preserving the same dependency and tolerance rules.
-6. **Disassemble / 拆卸** rejects removal when installed components depend on the selected part. Remove dependent components first. A detached component remains at its installation position and becomes movable.
-7. **Undo / 撤销** restores one assembly action. Selection, camera, mode and exploded-view settings do not consume assembly history. Up to 100 snapshots are saved; reset is also undoable.
-8. **Exploded view / 爆炸图** changes the presentation only. Its slider controls separation from 1% to 100%; **Isolate part / 隔离零件** and **Hide guards / 隐藏保护架** aid inspection. These display settings do not create assembly history. Refresh retains exploded mode with full separation and restores normal visibility.  Real component transforms and installation flags stay unchanged. Editing and installation controls are disabled until you return to assembly view.
+1. Select a solid part, a library item or its mounting label. Selection does not install it. **Locate mounting point / 定位安装位** frames the part and its matching target without changing its position.
+2. Choose **Move / 移动**, drag the part toward its named seat, and release inside the **0.9 teaching-unit capture radius**. The target turns green while eligible. Release automatically snaps to the exact catalog position, corrects orientation, installs and locks the component. The 280 ms arrival animation is presentation only; persisted transforms are already exact. Reduced-motion preferences skip it.
+3. A part only captures at its own target. The distance is three-dimensional, including height. Missing prerequisites, invalid transforms, incorrect scale, installed locks and exploded mode prevent capture. A distant release or a prerequisite-blocked release remains a loose placement.
+4. Optional **Snap into place / 自动吸附到位** performs one-click assisted installation. It is disabled until prerequisites are installed. There is no separate confirmation button.
+5. The entire drag-and-install is one history entry. **Undo / 撤销** restores the previous position, orientation and installation flag in one step. Selection, camera and display settings do not create history or trigger installation. Undo, reload and a mere click do not re-install a loose component.
+6. **Disassemble / 拆卸** unlocks a component at its installed position; installed dependents must be removed first. Guided mode recommends seven phases; Free mode preserves prerequisites and capture checks.
+7. **Exploded view / 爆炸图** is inspection-only and locks editing. Isolate and hide-guard controls affect visibility. Default labels show the current phase and selection; **All mounting points / 全部安装位** shows remaining targets.
 
-The default scene shows the current step plus the explicit selection. **All mounting points / 全部安装位** shows remaining targets, with a scrollable label dock when they cannot fit without overlap. Blue outlines invite alignment, amber labels explain missing prerequisites, and green labels confirm readiness or installation. Text and symbols accompany colors. The dashed path and scene readout update during a drag; the inspector compares the committed transform after release. Target position and tolerance are read from the same catalog and numerical helpers as the installation rules.
-
-Narrow browser panels stack the complete canvas above the library and inspector, rather than cutting it off horizontally.
-
-Camera: drag empty space to orbit, scroll to zoom, right-drag to pan. Presets: Perspective, Top, Front and Side. Installed components are locked against movement. The frame counter reports measured rendered FPS for this Mac and browser; it is not a performance guarantee for other devices.
+Blue means move closer; green means release to capture or already installed; amber means prerequisites are missing. Words and symbols accompany colors. The dashed path and scene readout update while dragging. The inspector shows the committed distance and explains automatic orientation correction.
 
 ## Detailed controls / 详细操作说明
 
-The **How to operate / 操作说明** button above the scene opens a bilingual guide. It explains selection, free dragging, axis and plane handles, rotation rings, camera controls, numeric input, installation, locks and recovery. A contextual hint below the toolbar changes with selection, Move/Rotate mode, installed state and exploded view.
+The **How to operate / 操作说明** button opens a bilingual five-section guide. Contextual instructions above the canvas change with selection, Move/Rotate mode, installed state and exploded view.
 
-### 移动器件
+### 移动器件与自动吸附
 
-1. 点击零件库中的器件或场景中的实体器件，再点击上方 **移动**。点击 **定位安装位** 可同时看见器件和安装目标；它只调整镜头。
-2. 把鼠标放在实体器件上，按住左键拖动，松开提交。拖动在当前镜头的屏幕平面内进行，可能改变高度；拖空白处则转动镜头。安装位的半透明轮廓不能作为实体器件拖动。
-3. 精确调整时，按住红 **X**、绿 **Y**、蓝 **Z** 箭头的轴杆或尖端拖动，只沿该轴移动；拖两轴之间的小方块则在两轴平面内移动。X 为左右，Y 为上下，Z 为前后。机头 FRONT 为 −Z，飞机左为 −X，右为 +X；视角转动不会改变这些方向。
-4. 例如把左前动力组件拖到目标附近，用绿 Y 调高度，再用红 X、蓝 Z 调整左右和前后。结合俯视、侧视检查，避免一个视角看似重合却存在高度误差。
-5. 拖动过程中看场景虚线和距离，松开后看安装位指南的数值。一次完整拖动只记录一次装配操作，拖错可 **撤销**。自由拖动不会自动吸附或安装。
+1. 从零件库按名称和编号选择器件，再点击 **移动**。找不到实体时点击 **定位安装位**；它只移动镜头。
+2. 左键按住实体器件表面拖动，接近自己的安装位后松开。自由拖动沿当前镜头的屏幕平面进行，可能改变高度。拖空白处会转镜头；半透明安装轮廓不是实体。
+3. 拖红 **X**、绿 **Y**、蓝 **Z** 箭头的轴杆或尖端可沿单轴移动；拖两轴之间的小方块可在对应平面内移动。X 左右、Y 上下、Z 前后；机头 FRONT 为 −Z，飞机左为 −X，右为 +X。镜头转动不会改变飞机方向。
+4. 例如把左前动力组件拖到左前电机座附近，用绿 Y 调整高度，红 X、蓝 Z 调整左右和前后。进入 0.9 教学单位的三维吸附范围、且前置齐全时，位点变绿。
+5. 松手后自动精准定位、校正朝向并安装，无需手动精调角度。远离位点松手则保持散件。误操作点一次 **撤销**，即可恢复整次拖动和安装。
+6. 也可点 **自动吸附到位** 一键安装。前置不齐时按钮不可用，指南会列出必须先安装的器件。
 
-### 旋转与数值调整
+### 自由旋转与数值调整
 
-点击 **旋转**，按住彩色旋转环沿圆周拖动，松开提交。红/绿/蓝环分别绕 X/Y/Z 轴旋转；绿色 Y 环可改变水平朝向。在旋转模式直接拖实体不会平移。位置合格但方向不合格时，调整旋转环直到角度进入容差。展开 **高级调整：位置与旋转** 可输入位置和旋转角（度）；必须点击 **应用位置与旋转** 才生效。
+**旋转** 模式中，按住彩色旋转环沿圆周拖动，松开提交；红/绿/蓝环对应 X/Y/Z 轴。在此模式直接拖实体不会平移。旋转用于自由观察与练习，安装时朝向由吸附自动校正。展开 **高级调整：位置与旋转** 可输入位置和角度（度）；点击 **应用位置与旋转** 后才生效，若输入位置在吸附范围内也会自动安装。
 
-### 镜头与安装
+### 镜头与拖不动时
 
-空白处左键拖动环绕，滚轮缩放，右键拖动平移；用菜单切换透视、俯视、正视、侧视。镜头操作不改变器件变换。手动对齐后，或用 **对齐安装位置** 辅助后，仍需点 **检查并安装**。前置零件未安装时不会通过；点击指南内的前置零件可选择并定位它。
+空白处左键拖动环绕，滚轮缩放，右键拖动平移。用菜单切换透视、俯视、正视、侧视；这些操作不改变器件位置，也不触发安装。已安装件先 **拆卸**；有已安装的依赖件时先拆依赖件。爆炸图中操作锁定，退出后继续。确认器件未隐藏、选对编号且处于移动模式。重置可以撤销；刷新恢复和保存按当前浏览器地址区分。
 
-### 拖不动时
-
-已安装件先 **拆卸**；有已安装的依赖件时先拆依赖件。爆炸图中操作锁定，退出后继续。确认已选择正确编号、处于移动模式、器件未被隐藏；重叠时从零件库选择。重置可以撤销；保存与刷新恢复仍按当前浏览器地址区分。
+Narrow panels retain the complete canvas above the inspector/library. The frame counter is a local sample, not a performance guarantee.
 
 ## Parts, references and state / 零件、参考与保存
 
-The first model has 17 parts: 1 main frame, 2 landing skids, 4 motors, 4 propellers, 4 guards, 1 flight controller and 1 battery. Teaching position tolerance is 0.18 units and angle tolerance is 10°. Y is up; quaternions use `[x,y,z,w]`.
+The first model has 17 parts: 1 main frame, 2 landing skids, 4 motors, 4 propellers, 4 guards, 1 flight controller and 1 battery. Magnetic capture uses 0.9 teaching units and automatically corrects orientation. Legacy strict checks retain 0.18-unit and 10° tolerances for module integrations; they are not the UI installation workflow. Y is up; quaternions use `[x,y,z,w]`.
 
 The separate bilingual [17-component list](PARTS_LIST.md) provides every stable ID and source reference. The full catalog is defined in `src/data/parts.ts`.
 
@@ -97,4 +91,4 @@ npm audit
 
 ## Limits / 边界
 
-This is an educational assembly demonstration. It has no CAD constraint solver, collision checking, screw/thread simulation, electrical validation, real aircraft calibration or flight simulation. Similar-looking instances are distinguished by IDs and their assumed target positions. Align assistance can make placement immediate, but all installation rules still run. Real hardware assembly and flight require validated engineering references outside this demo.
+This is an educational assembly demonstration. It has no CAD constraint solver, collision checking, screw/thread simulation, electrical validation, real aircraft calibration or flight simulation. Similar-looking instances are distinguished by IDs and their assumed target positions. Automatic capture checks prerequisites and locks, then stores the exact target pose. Real hardware assembly and flight require validated engineering references outside this demo.

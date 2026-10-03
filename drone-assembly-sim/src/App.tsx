@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { AssemblyAction, AssemblyState, InstallationCheckResult, PartCategory, SceneMetrics, ViewPreset } from './contracts';
 import { categories, MODEL_ASSUMPTION, MODEL_ASSUMPTION_EN, MODEL_NOTICE, MODEL_NOTICE_EN, partDefinitions } from './data/parts';
+import { snapEligibility } from './assembly/snapping';
 import { teachingSteps } from './data/steps';
 import { createAssemblyRules, integrationReady } from './integration/modules';
 import { loadProgress, saveProgress, type LoadStatus } from './state/persistence';
@@ -35,12 +36,18 @@ export default function App() {
   const c = guidanceCopy[language];
   const dispatch = useCallback((action: AssemblyAction) => {
     const before = currentState.current;
-    const result = rules.apply(before, action);
+    const placement = action.type === 'SET_TRANSFORM' ? { ...action, type: 'PLACE_PART' as const } : action;
+    const result = rules.apply(before, placement);
     currentState.current = result.state; setState(result.state);
     if (result.feedback && !result.feedback.ok) setNotice({ check: result.feedback, tone: 'error' });
-    else if (action.type === 'INSTALL_PART') setNotice({ check: result.feedback, message: 'checked', tone: 'success' });
+    else if (action.type === 'INSTALL_PART' || placement.type === 'PLACE_PART' && result.state.parts[placement.partId]?.installed) setNotice({ check: result.feedback, message: 'checked', tone: 'success' });
     else if (action.type === 'REMOVE_PART') setNotice({ check: result.feedback, message: 'removed', tone: 'success' });
-    else if (action.type === 'SET_TRANSFORM' && result.state !== before) setNotice({ message: 'moved', tone: 'success' });
+    else if (placement.type === 'PLACE_PART') {
+      const definition = partDefinitions.find(p => p.id === placement.partId);
+      const snap = definition && snapEligibility(definition, before, placement.transform);
+      if (snap?.near && snap.missing.length) setNotice({ check: rules.checkInstall(result.state, placement.partId), tone: 'error' });
+      else if (result.state !== before) setNotice({ message: 'moved', tone: 'success' });
+    }
     else if (action.type === 'UNDO' && result.state !== before) setNotice({ message: 'undoDone', tone: 'success' });
     else if (action.type === 'RESET') setNotice({ message: 'resetDone', tone: 'success' });
     else if (action.type === 'SELECT_PART') setNotice({ tone: 'neutral' });
@@ -62,7 +69,7 @@ export default function App() {
   const filtered = partDefinitions.filter(p => (category === 'all' || category === p.category) && `${p.name} ${p.nameEn} ${p.id}`.toLowerCase().includes(query.toLowerCase()));
   const name = (id: string) => { const p = partDefinitions.find(p => p.id === id); return p ? language === 'en' ? p.nameEn : p.name : id; };
   const editable = !!selectedState && !selectedState.installed && !state.exploded;
-  const align = () => { if (!selected) return; dispatch({ type: 'SET_TRANSFORM', partId: selected.id, transform: structuredClone(selected.targetTransform) }); if (editable) setNotice({ message: 'aligned', tone: 'success' }); };
+  const align = () => { if (!selected) return; dispatch({ type: 'SET_TRANSFORM', partId: selected.id, transform: structuredClone(selected.targetTransform) });  };
   const selectAndLocate = (id: string) => { dispatch({ type: 'SELECT_PART', partId: id }); setFocusRequest(n => n + 1); };
   return <div className="app" data-assembly-signature={JSON.stringify(state.parts)} data-history-length={state.history.length} data-installed-count={installedCount} data-revision={state.revision} data-mode={state.mode}>
     <header className="app-header"><div className="brand-mark">D<span>↗</span></div><div className="brand"><div className="eyebrow">{s.subtitle}</div><h1>{s.title}</h1></div><div className="header-meta"><span className="local-badge" title={import.meta.env.PROD ? offlineReady ? s.offlineReady : s.offlinePreparing : s.local}><i/>{import.meta.env.PROD && offlineReady ? s.offlineReady : s.local}</span><span className="count-badge">{partDefinitions.length} {s.pieces}</span><div className="language-toggle" aria-label="Language / 语言"><button className={language === 'en' ? 'active' : ''} onClick={() => setLanguage('en')}>EN</button><button className={language === 'zh' ? 'active' : ''} onClick={() => setLanguage('zh')}>中文</button></div></div></header>
@@ -91,7 +98,7 @@ export default function App() {
               {selectedState.installed && suggestedId && !state.exploded && <button className="button primary full next-part-cta" onClick={() => selectAndLocate(suggestedId)}>{c.next}: {name(suggestedId)} →</button>}
               <PlacementGuide part={selected} definitions={partDefinitions} state={state} language={language} onLocate={() => setFocusRequest(n => n + 1)} onSelect={selectAndLocate}/>
               {(state.exploded || selectedState.installed) && <p className="lock-hint">{state.exploded ? s.explosionLock : s.lock}</p>}
-              <div className="install-actions"><button className="button subtle full" onClick={align} disabled={!editable}>{s.align} <span>⌖</span></button><button className="button primary full" onClick={() => dispatch({ type: 'INSTALL_PART', partId: selected.id })} disabled={selectedState.installed || state.exploded}>{s.install} <span>→</span></button><button className="button danger full" onClick={() => dispatch({ type: 'REMOVE_PART', partId: selected.id })} disabled={!selectedState.installed || state.exploded}>{s.remove}</button></div>
+              <div className="install-actions"><button className="button subtle full" onClick={align} disabled={!editable || selected.prerequisites.some(id => !state.parts[id]?.installed)}>{s.align} <span>⌖</span></button><button className="button danger full" onClick={() => dispatch({ type: 'REMOVE_PART', partId: selected.id })} disabled={!selectedState.installed || state.exploded}>{s.remove}</button></div>
               <details className="advanced-transform" key={selected.id}><summary>{c.advanced}</summary><TransformEditor transform={selectedState.transform} language={language} disabled={!editable} onApply={transform => dispatch({ type: 'SET_TRANSFORM', partId: selected.id, transform })}/></details>
               <details className="references"><summary>{s.reference}</summary>{selected.referenceFiles.map(file => <p key={file}>{file.split('/').at(-1)}</p>)}</details>
             </> : <div className="select-empty"><span>⌖</span><strong>{s.select}</strong><p>{s.selectHint}</p><button className="button primary full start-assembly" disabled={state.exploded || !suggestedId} onClick={() => suggestedId && selectAndLocate(suggestedId)}>{installedCount === 0 ? c.start : c.resume} →</button>{state.exploded && <p>{s.explosionLock}</p>}</div>}

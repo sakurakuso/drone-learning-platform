@@ -58,3 +58,7 @@
 各窗口结束后在本窗口给出文件清单与验证结果，主控读取其最终回复；不要主动向其他聊天发送消息，也不要发布 GitHub。主控完成整合后才统一验收和展示。
 
 - v1.4 / 2026-10-03：按用户指示移除未使用的外部网站参考扩展类型、空注册表和扩展说明。应用仅保留本地组装、场景、保存与安装引导接口；没有接入第三方网站服务。
+
+## v1.6 — Magnetic placement (2026-10-03)
+
+The integrated UI maps completed SET_TRANSFORM operations to the new PLACE_PART rule action. A shared 0.9-unit capture radius, prerequisites, scale/validity and locking determine capture; orientation is corrected at installation. Placement and installation are recorded atomically. Legacy SET_TRANSFORM/INSTALL_PART/checkInstall remain unchanged for module callers. The separate manual confirmation button is removed. Scene animation is presentation only, lasts 280 ms and respects reduced motion; its resources cancel on update/dispose.

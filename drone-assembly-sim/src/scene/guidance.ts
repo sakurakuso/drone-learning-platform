@@ -1,5 +1,6 @@
 import type { AssemblyState, PartDefinition, TeachingStep, Transform } from '../contracts';
 import { equalScale, isValidTransform, positionDistance, quaternionAngle, withinTolerance } from '../assembly/math';
+import { snapEligibility } from '../assembly/snapping';
 
 export type PlacementStatus = 'installed' | 'inspection' | 'invalid' | 'blocked' | 'move' | 'rotate' | 'scale' | 'ready';
 export function placementGuide(part: PartDefinition, state: AssemblyState, transform: Transform = state.parts[part.id].transform) {
@@ -11,6 +12,14 @@ export function placementGuide(part: PartDefinition, state: AssemblyState, trans
   const scaleOK = equalScale(transform, part.targetTransform);
   const status: PlacementStatus = state.parts[part.id].installed ? 'installed' : state.exploded ? 'inspection' : !isValidTransform(transform) ? 'invalid' : missing.length ? 'blocked' : !scaleOK ? 'scale' : !positionOK ? 'move' : !angleOK ? 'rotate' : 'ready';
   return { status, missing, distance, angle, positionOK, angleOK, scaleOK };
+}
+
+/** Magnetic UI assistance; the strict helper remains available for manual rule checks. */
+export function magneticPlacementGuide(part: PartDefinition, state: AssemblyState, transform: Transform = state.parts[part.id].transform) {
+  const guide = placementGuide(part, state, transform);
+  const snap = snapEligibility(part, state, transform);
+  const status: PlacementStatus = state.parts[part.id].installed ? 'installed' : state.exploded ? 'inspection' : !isValidTransform(transform) ? 'invalid' : snap.missing.length ? 'blocked' : !snap.scaleOK ? 'scale' : snap.near ? 'ready' : 'move';
+  return { ...guide, status, positionOK: snap.near, angleOK: true };
 }
 
 /** Current teaching phase plus the explicit selection. No independently stored slot positions. */

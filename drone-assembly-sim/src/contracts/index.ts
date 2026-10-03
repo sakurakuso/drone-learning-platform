@@ -46,6 +46,8 @@ export interface InstallationCheckResult {
 export type AssemblyAction =
   | { type: 'SELECT_PART'; partId: PartId | null }
   | { type: 'SET_TRANSFORM'; partId: PartId; transform: Transform }
+  /** Released placement: move normally, or atomically snap and install when eligible. */
+  | { type: 'PLACE_PART'; partId: PartId; transform: Transform }
   | { type: 'INSTALL_PART'; partId: PartId }
   | { type: 'REMOVE_PART'; partId: PartId }
   | { type: 'UNDO' }

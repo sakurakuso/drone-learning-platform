@@ -1,14 +1,15 @@
 import * as THREE from 'three';
 import type { AssemblyState, PartDefinition, TeachingStep, Transform } from '../contracts';
 import { applyTransform, disposeObject } from './geometry';
-import { guideTargets, placementGuide } from './guidance';
+import { guideTargets, magneticPlacementGuide as placementGuide } from './guidance';
+import { SNAP_RADIUS } from '../assembly/snapping';
 import type { PlacementStatus } from './guidance';
 
 const colors = { invalid: '#ba293b', blocked: '#ae6507', move: '#1471c8', rotate: '#1471c8', scale: '#1471c8', ready: '#168145', installed: '#168145', inspection: '#60798b' };
 export const placementColor = (status: PlacementStatus) => colors[status];
 const words: Record<PlacementStatus, [string, string]> = {
   blocked: ['🔒 Prerequisites missing', '🔒 前置零件未安装'], move: ['↗ Move to target', '↗ 移到安装位'], rotate: ['↻ Adjust orientation', '↻ 调整朝向'],
-  scale: ['↔ Check scale', '↔ 检查缩放'], ready: ['✓ Ready — check installation', '✓ 已对齐，请检查安装'], installed: ['✓ Installed', '✓ 已安装'], inspection: ['Inspection only', '仅观察'],
+  scale: ['↔ Check scale', '↔ 检查缩放'], ready: ['🧲 Release to snap & install', '🧲 松手吸附并安装'], installed: ['✓ Snapped & installed', '✓ 已吸附安装'], inspection: ['Inspection only', '仅观察'],
   invalid: ['⚠ Invalid transform', '⚠ 变换数据无效'],
 };
 interface Marker {
@@ -168,7 +169,7 @@ export class TargetPresentation {
     (this.path.material as THREE.LineDashedMaterial).color.set(colors[guide.status]);
     const zh = this.language === 'zh';
     const heading = `${zh ? marker.definition.name : marker.definition.nameEn} · ${words[guide.status][zh ? 1 : 0]}`;
-    const numeric = `${zh ? '距离' : 'Distance'} ${guide.distance.toFixed(3)} / ${marker.definition.tolerances.position.toFixed(3)} ${zh ? '教学单位' : 'teaching units'}  ·  ${zh ? '角度' : 'Angle'} ${(guide.angle * 180 / Math.PI).toFixed(1)}° / ${(marker.definition.tolerances.angleRadians * 180 / Math.PI).toFixed(1)}°`;
+    const numeric = `${zh ? '距离 / 吸附范围' : 'Distance / capture range'} ${guide.distance.toFixed(3)} / ${SNAP_RADIUS.toFixed(2)} ${zh ? '教学单位 · 朝向自动校正' : 'teaching units · automatic orientation'}`;
     const message = `${heading}\n${numeric}`;
     if (this.card.textContent !== message) this.card.textContent = message;
     this.card.style.borderColor = colors[guide.status];

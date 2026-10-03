@@ -97,3 +97,5 @@
 .operation-help-note{padding:12px 15px;margin:0 15px 15px;border-left:3px solid #7bd9c2;background:#24423e;color:#c0e2d6;font-size:13px}
 .operation-help-dismiss{color:#91aebe;font-size:12px;margin-top:16px}
 @media(max-width:599px){.operation-help-dialog>header{padding:14px 13px;gap:8px}.operation-help-dialog h2{font-size:17px}.operation-help-dialog header span{font-size:8px}.operation-help-dialog header button{font-size:10px;padding:8px}.operation-help-body{padding:13px;font-size:13px}.operation-help-body summary{font-size:14px;padding:11px 12px}.operation-help-body ol{padding-left:32px;padding-right:14px}.operation-axis-key{font-size:12px}.operation-hint{font-size:11px;padding:8px 10px}}
+
+.tolerance-comparison{grid-template-columns:1fr}.auto-orientation{display:flex;justify-content:space-between;gap:8px;margin-top:9px;font-size:10px;color:#91dbc4;line-height:1.6}.auto-orientation strong{font-weight:500;color:#b3c9d7}

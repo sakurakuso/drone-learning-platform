@@ -3,7 +3,7 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { TransformControls } from 'three/addons/controls/TransformControls.js';
 import type { AssemblyState, PartDefinition, SceneAdapter, SceneAdapterFactory, SceneAdapterOptions, SceneUserOperation, Transform, ViewPreset } from '../contracts';
 import { applyTransform, createPartGeometry, disposeObject, highlightPart, readTransform } from './geometry';
-import { guideTargets, placementGuide } from './guidance';
+import { guideTargets, magneticPlacementGuide as placementGuide } from './guidance';
 import { teachingSteps } from '../data/steps';
 import { placementColor, TargetPresentation } from './targetPresentation';
 
@@ -43,6 +43,8 @@ class Workbench implements WorkbenchSceneAdapter {
   private failed = false;
   private contextLost = false;
   private gesture?: Gesture;
+  private pendingPlacement?: { id: string; transform: Transform };
+  private readonly snapAnimations = new Map<string, { from: Transform; to: Transform; start: number }>();
   private selected: string | null;
   private explosionAmount = 0;
   private isolated = false;
@@ -228,6 +230,10 @@ class Workbench implements WorkbenchSceneAdapter {
         && state.viewPreset === this.state.viewPreset
         && (state.revision === this.state.revision || state.revision === this.state.revision + 1);
       if (selectionEcho) { this.state = state; this.selected = state.selectedPartId; return; }
+      const newlyInstalled = definitions.filter(d => this.parts.has(d.id) && state.parts[d.id]?.installed && !this.state.parts[d.id]?.installed);
+      const starts = newlyInstalled.map(d => ({ id: d.id, from: this.pendingPlacement?.id === d.id ? this.pendingPlacement.transform : readTransform(this.parts.get(d.id)!.object), to: state.parts[d.id].transform }));
+      this.pendingPlacement = undefined;
+      this.snapAnimations.clear();
       // External updates cancel an in-flight gesture: never commit a stale transform.
       if (this.gesture) this.cancelGesture();
       const viewChanged = state.viewPreset !== this.state.viewPreset;
@@ -235,6 +241,10 @@ class Workbench implements WorkbenchSceneAdapter {
       this.state = state; this.definitions = definitions; this.selected = state.selectedPartId;
       if (explodedChanged) this.explosionAmount = state.exploded ? 1 : 0;
       this.reconcileDefinitions(definitions); this.applyState();
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && !state.exploded) {
+        for (const item of starts) this.snapAnimations.set(item.id, { ...item, start: performance.now() });
+        this.advanceSnapAnimations();
+      }
       if (viewChanged) this.setViewPreset(state.viewPreset);
     } catch (error) { this.fail(`${this.language === 'en' ? 'Scene state failed to load: ' : '场景状态加载失败：'}${error instanceof Error ? error.message : String(error)}`); }
   }
@@ -365,7 +375,10 @@ class Workbench implements WorkbenchSceneAdapter {
     this.releasePointer(gesture.pointerId);
     if (this.orbit) this.orbit.enabled = true;
     this.applyState(); // The rules' next update is the only accepted persistent position.
-    if (gesture.moved && changed) this.emit({ type: 'SET_TRANSFORM', partId: gesture.id, transform: desired });
+    if (gesture.moved && changed) {
+      this.pendingPlacement = { id: gesture.id, transform: desired };
+      this.emit({ type: 'SET_TRANSFORM', partId: gesture.id, transform: desired });
+    }
   }
 
   private cancelGesture = () => {
@@ -453,6 +466,7 @@ class Workbench implements WorkbenchSceneAdapter {
     if (this.disposed || this.failed || this.contextLost) return;
     try {
       if (!this.gesture) this.orbit?.update();
+      this.advanceSnapAnimations();
       this.renderer!.render(this.scene, this.camera);
       this.targetPresentation?.project(this.camera, this.size.width, this.size.height);
       this.frames++;
@@ -465,6 +479,21 @@ class Workbench implements WorkbenchSceneAdapter {
       this.frame = requestAnimationFrame(this.animate);
     } catch (error) { this.fail(`${this.language === 'en' ? '3D rendering failed: ' : '3D 渲染失败：'}${error instanceof Error ? error.message : String(error)}`); }
   };
+
+  /** Presentation only; authoritative transforms are already exact and undoable. */
+  private advanceSnapAnimations() {
+    const now = performance.now();
+    for (const [id, animation] of this.snapAnimations) {
+      const object = this.parts.get(id)?.object;
+      if (!object) { this.snapAnimations.delete(id); continue; }
+      const t = Math.min(1, Math.max(0, (now - animation.start) / 280));
+      const ease = 1 - (1 - t) ** 3;
+      object.position.fromArray(animation.from.position).lerp(new THREE.Vector3(...animation.to.position), ease);
+      object.quaternion.fromArray(animation.from.rotation).slerp(new THREE.Quaternion(...animation.to.rotation), ease);
+      if (t === 1) { applyTransform(object, animation.to); this.snapAnimations.delete(id); }
+    }
+    this.root.dataset.snapAnimating = [...this.snapAnimations.keys()].join(',');
+  }
 
   private showError(message: string) {
     this.alert.textContent = message; this.alert.style.display = 'block';
@@ -482,6 +511,7 @@ class Workbench implements WorkbenchSceneAdapter {
   }
 
   private releaseResources() {
+    this.snapAnimations.clear(); this.pendingPlacement = undefined;
     cancelAnimationFrame(this.frame); this.observer?.disconnect(); this.events.abort();
     this.cleanups.splice(0).forEach(cleanup => cleanup());
     this.targetPresentation?.dispose();

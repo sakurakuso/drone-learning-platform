@@ -1,5 +1,6 @@
 import type { AssemblyState, PartDefinition } from '../contracts';
-import { mountingDescription, placementGuide } from '../scene/guidance';
+import { mountingDescription, magneticPlacementGuide as placementGuide } from '../scene/guidance';
+import { SNAP_RADIUS } from '../assembly/snapping';
 import { guidanceCopy } from './guidanceCopy';
 import type { Language } from './i18n';
 
@@ -30,12 +31,13 @@ export function PlacementGuide({ part, definitions, state, language, onLocate, o
     <div className="placement-status" role="status" aria-live="polite"><span aria-hidden="true">{status === 'ready' || status === 'installed' ? '✓' : status === 'blocked' || status === 'scale' ? '!' : '→'}</span>{c.status[status]}</div>
     {!state.exploded && <>
       <div className="tolerance-comparison">
-        {[{label:c.position, value:guide.distance, limit:part.tolerances.position, ok:guide.positionOK, unit:''}, {label:c.angle, value:guide.angle * 180 / Math.PI, limit:part.tolerances.angleRadians * 180 / Math.PI, ok:guide.angleOK, unit:'°'}].map(item => <div className={`tolerance-row ${item.ok ? 'passed' : 'outside'}`} key={item.label}>
+        {[{label:c.position, value:guide.distance, limit:SNAP_RADIUS, ok:guide.positionOK, unit:''}].map(item => <div className={`tolerance-row ${item.ok ? 'passed' : 'outside'}`} key={item.label}>
           <div><strong>{item.label}</strong><span>{item.ok ? '✓' : '→'} {item.ok ? c.within : c.outside}</span></div>
           <div className="tolerance-meter"><span style={{width:`${Number.isFinite(item.value) ? Math.min(100, item.value / item.limit * 50) : 100}%`}}/><i/></div>
           <small>{Number.isFinite(item.value) ? item.value.toFixed(item.unit ? 1 : 3) : '—'}{item.unit} / {c.limit} {item.limit.toFixed(item.unit ? 0 : 2)}{item.unit}</small>
         </div>)}
       </div>
+      <div className="auto-orientation"><strong>{c.angle}</strong><span>{language === 'zh' ? '吸附时自动校正' : 'Corrected automatically on snap'}</span></div>
       <p className="comparison-note">{c.committed}</p>
     </>}
     {guide.missing.length > 0 && !state.exploded && <div className="mount-prerequisites"><strong>{c.prerequisites}</strong>{guide.missing.map(id => { const required = definitions.find(p => p.id === id); return <button className="button compact" type="button" key={id} onClick={() => onSelect(id)}><span>{required ? language === 'zh' ? required.name : required.nameEn : id}<small>{id}</small></span> →</button>; })}</div>}

@@ -2,6 +2,7 @@ import type { AssemblyAction, AssemblySnapshot, AssemblyState, AssemblyTransitio
 import { cloneSnapshot, createCatalog } from './catalog';
 import { cloneTransform, equalScale, isValidTransform, positionDistance, quaternionAngle, sameTransform, withinTolerance } from './math';
 import { createPersistence } from './serialization';
+import { snapEligibility } from './snapping';
 import type { AssemblyEngine, DetailedCheckResult, DragSession, SlotCheckResult } from './types';
 
 export interface EngineOptions { historyLimit?: number }
@@ -83,11 +84,17 @@ export function createAssemblyRules(definitions: readonly PartDefinition[], step
       case 'SELECT_PART':
         if (action.partId !== null && !hasPart(state, action.partId)) return { state, feedback: result(action.partId, 'UNKNOWN_PART') };
         return action.partId === state.selectedPartId ? { state } : { state: { ...state, selectedPartId: action.partId, revision: state.revision + 1 } };
-      case 'SET_TRANSFORM': {
+      case 'SET_TRANSFORM':
+      case 'PLACE_PART': {
         if (!hasPart(state, action.partId)) return { state, feedback: result(action.partId, 'UNKNOWN_PART') };
         if (state.parts[action.partId].installed) return { state, feedback: result(action.partId, 'PART_LOCKED') };
         if (state.exploded) return { state, feedback: result(action.partId, 'EXPLODED_VIEW_ACTIVE') };
         if (!isValidTransform(action.transform)) return { state, feedback: result(action.partId, 'INVALID_TRANSFORM') };
+        const definition = catalog.byId.get(action.partId)!;
+        if (action.type === 'PLACE_PART' && snapEligibility(definition, state, action.transform).canSnap) {
+          const parts = { ...state.parts, [action.partId]: { installed: true, transform: cloneTransform(definition.targetTransform) } };
+          return { state: record(state, { ...cloneSnapshot(state), parts }), feedback: result(action.partId, 'OK') };
+        }
         if (sameTransform(state.parts[action.partId].transform, action.transform)) return { state };
         const parts = { ...state.parts, [action.partId]: { installed: false, transform: cloneTransform(action.transform) } };
         return { state: record(state, { ...cloneSnapshot(state), parts }) };
