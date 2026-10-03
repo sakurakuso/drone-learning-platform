@@ -1,0 +1,43 @@
+{
+  "organized_on": "2026-10-03",
+  "official_url": "https://m-selig.ae.illinois.edu/uiuc_lsat/Stec8.zip",
+  "official_archive_sha256": "11ae99c9c16fae4cc947875889491e3dfce9678114ef1fbbe5d822cfe1ffd47f",
+  "supplied_archive_repo_path": "UIUC_空气动力学数据.zip",
+  "supplied_archive_sha256": "81543691a76d481663b5b705b9a6bb16075a37bca64de575f0d3ec4082b1c533",
+  "license_status": "No independent license text found in supplied or official archive; do not inherit GPL from other UIUC volumes.",
+  "counts": {
+    "original_files": 193,
+    "coordinate_files": 53,
+    "raw_lift_files": 135,
+    "supplied_csv_files": 110,
+    "supplied_csv_nonempty": 107,
+    "supplied_csv_rows": 12602,
+    "derived_lift_rows": 15565,
+    "polar_configuration_blocks": 127,
+    "polar_curves": 538,
+    "polar_declared_points": 7762,
+    "polar_usable_rows": 7761,
+    "polar_excluded_rows": 1
+  },
+  "originals_byte_identical": true,
+  "supplied_csv_equivalence_checked": true,
+  "numeric_processing": "No interpolation, sorting, deduplication, zero filling or repair. Original sequence and source line preserved. One malformed polar row excluded with audit record.",
+  "ignored_metadata": "One __MACOSX AppleDouble file remains in original archive; not copied to classified files.",
+  "derived_files": [
+    {
+      "path": "derived/lift.csv",
+      "bytes": 1035843,
+      "sha256": "9322ea15eea92d6e571734b9defae21194359206588b5faee5a5274c81fa51a6"
+    },
+    {
+      "path": "derived/polar_curves.csv",
+      "bytes": 42582,
+      "sha256": "bc87e7d7dcade37fdcae1c511ab58d6baa260e356861118a39aa9c3f0430839c"
+    },
+    {
+      "path": "derived/polars.csv",
+      "bytes": 711308,
+      "sha256": "0cfd8a5aae995bd3ec0382f34e38aeb97da31ab23758bf7052c838cf9fb5780c"
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+source_file,source_line,curve_id,airfoil_label,reynolds_actual,raw_line_escaped,reason
+polars/raw/ALL.PD,551,ST8-PD-007-04,DF103,203200.,"""0.372 0.01\u00180   1.67""",non-numeric field; retained unchanged; no guessed correction

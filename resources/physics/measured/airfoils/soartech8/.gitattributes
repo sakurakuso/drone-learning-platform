@@ -1,0 +1,8 @@
+# Preserve upstream bytes including legacy CRLF and control characters.
+*.csv text eol=lf
+geometry/** -text
+lift/raw/** -text
+lift/supplied_csv/** -text
+polars/raw/** -text
+quarantine/empty_csv/** -text
+references/** -text

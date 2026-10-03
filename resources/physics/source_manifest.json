@@ -77,7 +77,9 @@
       "bytes": 194797,
       "sha256": "11ae99c9c16fae4cc947875889491e3dfce9678114ef1fbbe5d822cfe1ffd47f",
       "public_path": null,
-      "status": "downloaded"
+      "status": "downloaded",
+      "public_dataset_path": "measured/airfoils/soartech8/",
+      "note": "193 original members extracted from supplied archive and verified byte-identical; independent license unresolved"
     },
     {
       "source_id": "uiuc/UIUC-propDB.zip",
@@ -336,6 +338,21 @@
     "parameter_csv": {
       "rows": 147,
       "method": "direct JSON/XML extraction, units documented separately"
+    },
+    "soartech8": {
+      "manifest_path": "measured/airfoils/soartech8/dataset_manifest.json",
+      "original_files": 193,
+      "coordinate_files": 53,
+      "raw_lift_files": 135,
+      "supplied_csv_files": 110,
+      "supplied_csv_nonempty": 107,
+      "supplied_csv_rows": 12602,
+      "derived_lift_rows": 15565,
+      "polar_configuration_blocks": 127,
+      "polar_curves": 538,
+      "polar_declared_points": 7762,
+      "polar_usable_rows": 7761,
+      "polar_excluded_rows": 1
     }
   }
 }
