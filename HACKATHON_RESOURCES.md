@@ -90,5 +90,80 @@ Pitch 建议用“新手练习后不知道为什么失败”引入，演示一�
 
 本次自研价值是把课程、训练数据和个性化练习串成教学流程。未来再验证仿真与实飞的对应关系、增加装配校验和教练管理功能。
 
+
+## 7 可直接复用的场景数据
+
+以下为已检查的仓库文件和说明，尚未在本项目中运行。直接加载指在原模拟器中使用；迁移到另一引擎时仍需处理尺度、坐标、碰撞、出生点和任务逻辑。
+
+| 项目 | 场景及数据形式 | 接入方式与限制 |
+| --- | --- | --- |
+| propwash | Issum 城镇、Playground、Bando 废弃城市、游乐园、低多边形城市；GLB 模型配套 JSON5 配置 | 最适合快速复用现成 FPV 场景；保留原项目加载流程能减少迁移工作。模型可导入 Three.js，但碰撞与评分并不会随模型自动迁移 |
+| RCForge | Northfield club、Alpine meadow、Desert mesa；程序生成场景、纹理与地形高度 JSON | 可直接使用自带机场练习高度控制。树木、建筑和地形碰撞未实现，模拟着陆面仍为平面，不能直接用于可靠的避障评分 |
+| FPV.Sim | 城市与障碍物主要由 index.html 中代码生成 | 适合随原项目复用；独立迁移需要提取场景生成和碰撞逻辑 |
+
+### 现成地图与配置链接
+
+| 文件 | 内容与建议用途 |
+| --- | --- |
+| [playground_2b.glb](https://github.com/mqnc/propwash/blob/main/assets/maps/playground_2b.glb) | Playground 地图，优先评估基础飞行与绕障演示 |
+| [issum_challenges.glb](https://github.com/mqnc/propwash/blob/main/assets/maps/issum_challenges.glb) | Issum 城镇；上游提供城堡、气球与自由飞行任务 |
+| [post-apocalyptic_city.glb](https://github.com/mqnc/propwash/blob/main/assets/maps/post-apocalyptic_city.glb) | Bando 废弃城市，适合复杂 FPV 场景演示 |
+| [playground.json5](https://github.com/mqnc/propwash/blob/main/configs/playground.json5) | 已配置模型路径、位置等参数，可参考加载方式 |
+| [propwash configs](https://github.com/mqnc/propwash/tree/main/configs) | 地图、难度与任务配置集合 |
+| [RCForge scenery.ts](https://github.com/adithya-s-k/RCForge/blob/main/src/core/scenery.ts) | 三种环境的气温、海拔、材质和随机种子等参数 |
+| [RCForge 地形数据](https://github.com/adithya-s-k/RCForge/tree/main/src/view/data) | Alpine 与 Mesa 的高度采样；上游说明为 129 × 129 网格、12 km 范围 |
+
+propwash 的上游署名表将 Playground、Issum 和废弃城市对应模型列为 CC BY 4.0；应保留作者、来源、许可证并注明修改。游乐园为 CC BY-NC-SA 4.0，面向商业化的原型优先采用其他地图。[propwash 资产来源与许可](https://github.com/mqnc/propwash#attributions)
+
+RCForge 的摄影纹理主要来自 CC0 资源；植被图集为项目生成资产，地形采样另有来源与署名要求，不能把全部数据一概标为 MIT。高度数据改善视觉地貌，不代表真实机场复原或具备地形碰撞。[RCForge 场景数据与来源说明](https://github.com/adithya-s-k/RCForge/blob/main/public/scenery/README.md)
+
+## 8 空气动力学与物理数据分析
+
+**RCForge 已有物理阻力模型；整机实飞精度尚未验证。** 应分别说明物理模型、参数来源、数值验证和实测校准，避免把计算一致性当成真实机型精度。
+
+| 资源 | 已有物理能力 | 数据依据与边界 |
+| --- | --- | --- |
+| RCForge | 相对气流、方向性机身阻力、重力、质量与惯性、推力与力矩；固定翼支持升力、阻力及力矩系数表 | 四旋翼多项参数仍为估计；450 mm 预设使用部分厂商推力与电流数据，但整机未校准。翼面系数表功能属于固定翼建模，不能等同四旋翼旋翼气动 |
+| gym-pybullet-drones | 刚体动力学、旋翼推力与反扭矩；可选阻力、地效和下洗模型 | 阻力代码引用 Forster 2015 的 Crazyflie 系统辨识；地效与下洗采用简化模型。需选择启用相应效果的 physics 模式，且参数不能直接通用于任意 FPV 机型 |
+| UIUC 螺旋桨数据库 | 小型无人机与模型飞机螺旋桨的风洞性能测量，可用于推力与功率建模 | 需要匹配具体桨型、转速和来流条件；它不是整机阻力或飞行日志数据集 |
+| UIUC 低速翼型数据 | 低雷诺数翼型的风洞性能数据 | 更适合固定翼升阻力研究；翼型数据不等同有限翼或整个四旋翼的气动参数，数据有专门分发与署名条件 |
+
+### RCForge 的空气阻力实现
+
+机体各轴的方向性阻力使用以下形式：
+
+```text
+v_rel = v_vehicle - v_wind
+F_drag,i = -0.5 × rho × (CdA)_i × abs(v_rel,i) × v_rel,i
+```
+
+这里的相对气流先转换到机体系；rho 为空气密度，(CdA)_i 为各轴有效阻力面积，结合阻力系数与参考面积。阻力与该轴相对速度的平方相关、方向相反。代码字段为 bodyDragAreaM2。
+
+这属于实时使用的简化气动模型，没有直接根据 CAD 外形求解完整空气流场。准确程度依赖阻力、推进、惯性等参数的测量与校准；CAD 外形本身不足以确定这些参数。[RCForge 实现源码](https://github.com/adithya-s-k/RCForge/blob/main/src/core/simulation.ts)
+
+RCForge 的固定翼翼面模型还能按迎角和雷诺数插值 CL、CD、CM 系数，并报告超出数据范围的情况；这需要用户提供适用的气动表。[翼面系数实现](https://github.com/adithya-s-k/RCForge/blob/main/src/core/aerodynamics.ts)
+
+### 已有验证与尚缺的证据
+
+RCForge 发布了数值验证与外部引擎对照报告，包含解析物理案例、匹配假设下的 JSBSim 对照和 NASA 无外力矩旋转参考。这些检验可以发现积分、坐标和受力实现错误；没有证明预设机型与真实飞机一致。报告为 2026-09-08 的上游快照，本项目尚未重新运行。NASA 对照检验的是旋转计算，不能作为空气动力精度证明。[上游验证报告](https://github.com/adithya-s-k/RCForge/blob/main/docs/benchmarks.md)
+
+四旋翼仍缺少旋翼干扰、气动地效、完整电调与传感器延迟等模型，控制器也不是 Betaflight 固件仿真。预设中的油门命令不能直接理解为校准后的实际 ESC 百分比。[四旋翼模型及限制](https://github.com/adithya-s-k/RCForge/blob/main/docs/multirotors.md)
+
+### 物理代码与实测数据入口
+
+- [gym-pybullet-drones BaseAviary.py](https://github.com/learnsyslab/gym-pybullet-drones/blob/main/gym_pybullet_drones/envs/BaseAviary.py)：查看 _drag、_groundEffect、_downwash 的具体公式与来源。
+- [UIUC 螺旋桨数据库](https://m-selig.web.engr.illinois.edu/props/propDB.html)：可下载实验数据；按页面推荐格式引用，并检查下载数据的使用条款。
+- [UIUC 低速翼型风洞数据](https://m-selig.web.engr.illinois.edu/pd.html)：提供多卷数据；页面要求署名并随数据分发许可等材料，不能当作无条件 CC0 数据。
+
+## 9 本次原型的物理分析建议
+
+**建议增加一个轻量物理分析面板**：显示相对空速、模型估算的空气阻力、推力、姿态和高度变化。受力值属于模型计算结果，界面应明确标注；若现有遥测未提供，需要从物理核心额外接出，不能假定 CSV 已包含所有量。
+
+演示可在相同任务下比较无风与固定侧风条件，保留操纵、姿态与轨迹记录。AI 结合真实记录解释观察到的偏移和操纵变化；若缺乏证据则给出可能原因与诊断练习。可重复的单一风条件更便于展示，不应将简化阵风称为经过验证的湍流模型。
+
+本次交付范围建议只增加一个场景、一种风条件和物理面板，暂缓完整流场 CFD。验收时检查单位、坐标、风向与受力方向，以及每项教学判断对应的日志证据；不得将演示结果宣传为已达到实飞训练精度。接入与上述验收仍属于后续工作。
+
+对外可表述为“基于物理模型的训练模拟与数据分析”。后续若要声称特定机型精度，应测量质量、重心、惯性、推进曲线和气动参数，并用未参与拟合的独立实飞日志报告误差与适用范围。
+
 **Recommended implementation model:** GPT-6.1 Sol — Medium  
 **Why:** 剩余工作是按明确范围接入模拟器、训练日志与 AI 复盘，适合有边界的实现任务。
