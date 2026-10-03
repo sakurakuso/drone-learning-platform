@@ -1,0 +1,52 @@
+#!/bin/bash
+
+# Drone Learning Platform 启动脚本
+# 用法: ./start
+
+PROJECT_DIR="$(cd "$(dirname "$0")" && pwd)"
+cd "$PROJECT_DIR"
+
+echo "=========================================="
+echo "  🚁 穿越机教育平台启动中..."
+echo "=========================================="
+echo ""
+
+# 检查并创建虚拟环境
+if [ ! -d "venv" ] || [ ! -f "venv/bin/activate" ]; then
+    echo "📦 创建虚拟环境..."
+    python3 -m venv venv
+fi
+
+echo "📦 安装后端依赖..."
+source venv/bin/activate
+python3 -m pip install -q -r requirements.txt
+echo "✅ 后端依赖安装完成"
+
+# 检查前端依赖
+if [ ! -d "frontend/node_modules" ]; then
+    echo "📦 安装前端依赖..."
+    cd frontend && npm install -q && cd ..
+    echo "✅ 前端依赖安装完成"
+fi
+
+echo ""
+echo "🌐 启动 Django 后端 (http://localhost:8000)..."
+echo "💻 启动 Vue 前端 (http://localhost:5173)"
+echo ""
+echo "按 Ctrl+C 停止所有服务"
+echo "=========================================="
+
+# 启动 Django 后端
+source venv/bin/activate
+python3 manage.py runserver 0.0.0.0:8000 &
+DJANGO_PID=$!
+
+# 启动 Vue 前端
+cd frontend
+npm run dev &
+VUE_PID=$!
+cd ..
+
+# 等待任意一个进程退出
+trap "echo '正在停止服务...'; kill $DJANGO_PID $VUE_PID 2>/dev/null; exit" INT TERM
+wait
