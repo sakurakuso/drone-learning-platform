@@ -95,3 +95,7 @@ Evidence files:
 4. Project `AGENTS.md` was absent on every check, including handoff. The supplied global instructions and `COORDINATION.md` v1/v1.1 were followed.
 
 No new dependency or contract change is requested. **已停止编辑 src/scene/，主控可开始集成。**
+
+## 2026-10-03 material upgrade
+
+Detailed procedural geometry and owned PBR textures are implemented in `geometry.ts` and `materials.ts`. Runtime reflections use bundled RoomEnvironment/PMREM, with ACES tone mapping and a 2048-square soft-filtered directional shadow map. Palette textures, environment render targets and shadow resources are disposed on unmount. Ghosts use lightweight untextured silhouettes. Earlier performance numbers above refer to the earlier geometry; current acceptance is in the project-root VERIFICATION.md.

@@ -2,7 +2,7 @@
 
 Local, interactive 3D drone assembly teaching demo. English is the default UI; use **中文** to switch instantly. React + TypeScript + Vite + Three.js; all runtime dependencies and geometry are local.
 
-**Simplified educational model based on existing component references / 基于现有部件资料的简化教学模型。** CAD is not converted or parsed. Every dimension, orientation, installation position, prerequisite and tolerance is an explicit teaching assumption. This demo does not accurately reproduce the source aircraft's dimensions or assembly relationships, and is not an engineering assembly guide.
+**Real-world references · Detailed teaching model / 实物参考 · 精细材质教学模型。** CAD is not converted or parsed. Every dimension, orientation, installation position, prerequisite and tolerance is an explicit teaching assumption. This demo does not accurately reproduce the source aircraft's dimensions or assembly relationships, and is not an engineering assembly guide.
 
 ## Run locally / 本地启动
 
@@ -60,6 +60,14 @@ The **How to operate / 操作说明** button opens a bilingual five-section guid
 空白处左键拖动环绕，滚轮缩放，右键拖动平移。用菜单切换透视、俯视、正视、侧视；这些操作不改变器件位置，也不触发安装。已安装件先 **拆卸**；有已安装的依赖件时先拆依赖件。爆炸图中操作锁定，退出后继续。确认器件未隐藏、选对编号且处于移动模式。重置可以撤销；刷新恢复和保存按当前浏览器地址区分。
 
 Narrow panels retain the complete canvas above the inspector/library. The frame counter is a local sample, not a performance guarantee.
+
+## Model detail and materials / 部件细节与材质
+
+The model includes layered carbon decks, arm clamps, hex fasteners, motor ribs and copper windings, tapered twisted blade surfaces, curved metal skids, reinforced nylon guards, controller headers and a status LED, and a battery pack with woven straps, buckles, connector and printed markings. Carbon weave, brushed-metal grain, fabric and labels are generated locally. No remote texture service or HDR download is required.
+
+Physical materials use different roughness and metalness values, with clearcoat on carbon surfaces. A local studio reflection environment, warm key light, cool fill, rim lighting, ACES tone mapping and soft shadow filtering make the surfaces easier to distinguish. Selection adds only a subtle tint; a controller LED retains its own emission. This is real-time rasterized rendering rather than offline ray tracing.
+
+**显示选项 → 安装位辅助 / Display options → Target assistance** temporarily hides scene labels and target rings for inspecting materials. It defaults on, does not change installed transforms or history, and can be restored at any time. **Locate mounting point**, isolate and hide-guard controls help inspect an individual part. See [material design and references](MATERIALS.md) for the appearance assumptions and reference sources.
 
 ## Parts, references and state / 零件、参考与保存
 

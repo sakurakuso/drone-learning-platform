@@ -71,4 +71,50 @@ describe('shared teaching geometry', () => {
     disposeObject(group);
     expect(released).toBe(2);
   });
+  it('releases owned surface textures once, including unused palette surfaces', () => {
+    const object = createPartGeometry(partDefinitions[0]);
+    const textures = new Set<THREE.Texture>();
+    const materials = object.userData.ownedMaterials as THREE.Material[];
+    materials.forEach(m => Object.values(m).forEach(value => { if (value instanceof THREE.Texture) textures.add(value); }));
+    expect(textures.size).toBeGreaterThanOrEqual(3);
+    let released = 0;
+    textures.forEach(t => t.addEventListener('dispose', () => released++));
+    disposeObject(object);
+    expect(released).toBe(textures.size);
+  });
+  it('preserves status LED emission across selection and restores other surfaces', () => {
+    const object = createPartGeometry(partDefinitions.find(d => d.geometry.kind === 'controller')!);
+    const materials = object.userData.ownedMaterials as THREE.MeshStandardMaterial[];
+    const led = materials.find(m => m.name === 'led')!;
+    const originalColor = led.emissive.getHex(), originalIntensity = led.emissiveIntensity;
+    highlightPart(object, true); highlightPart(object, false);
+    expect(led.emissive.getHex()).toBe(originalColor);
+    expect(led.emissiveIntensity).toBe(originalIntensity);
+    expect(materials.find(m => m.name === 'nylon')!.emissive.getHex()).toBe(0);
+    expect(materials.find(m => m.name === 'nylon')!.emissiveIntensity).toBe(0);
+    disposeObject(object);
+  });
+  it('creates finite curved blade surfaces with a closed indexed perimeter', () => {
+    const object = createPartGeometry(partDefinitions.find(d => d.geometry.kind === 'propeller')!);
+    const blades = object.children.filter((child): child is THREE.Mesh => child instanceof THREE.Mesh && child.geometry.type === 'BufferGeometry');
+    expect(blades.length).toBe(2);
+    blades.forEach(blade => {
+      const positions = blade.geometry.getAttribute('position');
+      expect(Array.from(positions.array).every(Number.isFinite)).toBe(true);
+      expect(Array.from(blade.geometry.getAttribute('normal').array).every(Number.isFinite)).toBe(true);
+      const heights = new Set(Array.from({ length: positions.count }, (_, i) => positions.getY(i).toFixed(5)));
+      expect(heights.size).toBeGreaterThan(20);
+      const edges = new Map<string, number>();
+      const index = blade.geometry.getIndex()!;
+      for (let i = 0; i < index.count; i += 3) {
+        const triangle = [index.getX(i), index.getX(i + 1), index.getX(i + 2)];
+        triangle.forEach((a, j) => {
+          const b = triangle[(j + 1) % 3], key = [a, b].sort((u, v) => u - v).join(':');
+          edges.set(key, (edges.get(key) ?? 0) + 1);
+        });
+      }
+      expect([...edges.values()].every(count => count === 2)).toBe(true);
+    });
+    disposeObject(object);
+  });
 });

@@ -68,6 +68,7 @@ export class TargetPresentation {
   sync(definitions: readonly PartDefinition[], steps: readonly TeachingStep[], state: AssemblyState, selected: string | null, all: boolean, visible: boolean, language: 'en' | 'zh') {
     if (this.disposed) return;
     this.state = state; this.selected = selected; this.language = language; this.hidden = !visible;
+    this.root.visible = visible; this.layer.hidden = !visible;
     const ids = new Set(definitions.map(d => d.id));
     for (const [id, marker] of this.markers) if (!ids.has(id)) this.remove(marker);
     for (const definition of definitions) {

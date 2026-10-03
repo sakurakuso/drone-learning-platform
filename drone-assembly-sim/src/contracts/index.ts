@@ -84,6 +84,7 @@ export interface SceneAdapter {
   setExplosionAmount?(amount: number): void;
   setIsolation?(enabled: boolean): void;
   setHideOuter?(enabled: boolean): void;
+  setTargetPreview?(enabled: boolean): void;
   setShowAllTargets?(enabled: boolean): void;
   focusTarget?(): void;
   resize(width: number, height: number): void;

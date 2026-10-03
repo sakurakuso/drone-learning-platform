@@ -2,8 +2,8 @@ import type { PartCategory, PartDefinition, Quaternion, Transform, Vector3 } fro
 const IDENTITY: Quaternion = [0, 0, 0, 1];
 const quarterTurn: Quaternion = [0, Math.SQRT1_2, 0, Math.SQRT1_2];
 export const transform = (position: Vector3, rotation: Quaternion = IDENTITY): Transform => ({ position: [...position], rotation: [...rotation], scale: [1, 1, 1] });
-export const MODEL_NOTICE = '基于现有部件资料的简化教学模型';
-export const MODEL_NOTICE_EN = 'Simplified educational model based on existing component references';
+export const MODEL_NOTICE = '实物参考 · 精细材质教学模型';
+export const MODEL_NOTICE_EN = 'Real-world references · Detailed teaching model';
 export const MODEL_ASSUMPTION = '全部尺寸、四旋翼布局、安装位置、朝向、前置关系和容差为教学假设；未解析 CAD，不代表原机尺寸或真实装配关系。';
 export const MODEL_ASSUMPTION_EN = 'All dimensions, quadcopter layout, target positions, orientations, prerequisites and tolerances are teaching assumptions. CAD is not parsed; this is not an accurate reconstruction.';
 const refs = {
