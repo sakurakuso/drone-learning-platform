@@ -1,0 +1,402 @@
+{
+  "checks": {
+    "dragUndoRestoresAllTransforms": true,
+    "desktopDirectionLabelOverlapCount": 0,
+    "productionInstallCount": 17,
+    "browserErrorCount": 0
+  },
+  "observations": [
+    {
+      "label": "battery prerequisites blocked",
+      "feedback": "MISSING_PREREQUISITES",
+      "history": "0",
+      "installed": "0",
+      "live": "电池 · 🔒 前置零件未安装\n距离 4.524 / 0.180 教学单位  ·  角度 90.0° / 10.0°",
+      "pageWidth": 1280,
+      "parts": "{\"FRAME-01\":{\"transform\":{\"position\":[-5.7,0.45,0],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"LEG-L\":{\"transform\":{\"position\":[-6,0.9,-3.4],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"LEG-R\":{\"transform\":{\"position\":[-6,0.9,3.4],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"MOTOR-FL\":{\"transform\":{\"position\":[5,0.5,-4.5],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"MOTOR-FR\":{\"transform\":{\"position\":[6.9,0.5,-4.5],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"MOTOR-RL\":{\"transform\":{\"position\":[5,0.5,-2.7],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"MOTOR-RR\":{\"transform\":{\"position\":[6.9,0.5,-2.7],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"PROP-FL\":{\"transform\":{\"position\":[5,0.3,-0.6],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"PROP-FR\":{\"transform\":{\"position\":[7,0.3,-0.6],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"PROP-RL\":{\"transform\":{\"position\":[5,0.3,0.9],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"PROP-RR\":{\"transform\":{\"position\":[7,0.3,0.9],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"GUARD-FL\":{\"transform\":{\"position\":[4.7,0.35,3],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"GUARD-FR\":{\"transform\":{\"position\":[7.35,0.35,3],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"GUARD-RL\":{\"transform\":{\"position\":[4.7,0.35,5.65],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"GUARD-RR\":{\"transform\":{\"position\":[7.35,0.35,5.65],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"CTRL-01\":{\"transform\":{\"position\":[-3.2,0.3,-3.2],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"BAT-01\":{\"transform\":{\"position\":[-3.2,0.4,3.2],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false}}",
+      "targets": [
+        {
+          "id": "FRAME-01",
+          "state": "move"
+        },
+        {
+          "id": "BAT-01",
+          "state": "blocked"
+        }
+      ],
+      "viewport": [
+        1280,
+        900
+      ]
+    },
+    {
+      "label": "frame aligned ready",
+      "feedback": "",
+      "history": "1",
+      "installed": "0",
+      "live": "主机架 · ✓ 已对齐，请检查安装\n距离 0.000 / 0.180 教学单位  ·  角度 0.0° / 10.0°",
+      "pageWidth": 1280,
+      "parts": "{\"FRAME-01\":{\"installed\":false,\"transform\":{\"position\":[0,2,0],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"LEG-L\":{\"transform\":{\"position\":[-6,0.9,-3.4],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"LEG-R\":{\"transform\":{\"position\":[-6,0.9,3.4],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"MOTOR-FL\":{\"transform\":{\"position\":[5,0.5,-4.5],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"MOTOR-FR\":{\"transform\":{\"position\":[6.9,0.5,-4.5],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"MOTOR-RL\":{\"transform\":{\"position\":[5,0.5,-2.7],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"MOTOR-RR\":{\"transform\":{\"position\":[6.9,0.5,-2.7],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"PROP-FL\":{\"transform\":{\"position\":[5,0.3,-0.6],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"PROP-FR\":{\"transform\":{\"position\":[7,0.3,-0.6],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"PROP-RL\":{\"transform\":{\"position\":[5,0.3,0.9],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"PROP-RR\":{\"transform\":{\"position\":[7,0.3,0.9],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"GUARD-FL\":{\"transform\":{\"position\":[4.7,0.35,3],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"GUARD-FR\":{\"transform\":{\"position\":[7.35,0.35,3],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"GUARD-RL\":{\"transform\":{\"position\":[4.7,0.35,5.65],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"GUARD-RR\":{\"transform\":{\"position\":[7.35,0.35,5.65],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"CTRL-01\":{\"transform\":{\"position\":[-3.2,0.3,-3.2],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"BAT-01\":{\"transform\":{\"position\":[-3.2,0.4,3.2],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false}}",
+      "targets": [
+        {
+          "id": "FRAME-01",
+          "state": "ready"
+        }
+      ],
+      "viewport": [
+        1280,
+        900
+      ]
+    },
+    {
+      "label": "orientation warning and rejection",
+      "feedback": "ANGLE_OUT_OF_TOLERANCE",
+      "history": "2",
+      "installed": "0",
+      "live": "主机架 · ↻ 调整朝向\n距离 0.000 / 0.180 教学单位  ·  角度 20.0° / 10.0°",
+      "pageWidth": 1280,
+      "parts": "{\"FRAME-01\":{\"installed\":false,\"transform\":{\"position\":[0,2,0],\"rotation\":[0,0.17364817766693033,0,0.984807753012208],\"scale\":[1,1,1]}},\"LEG-L\":{\"transform\":{\"position\":[-6,0.9,-3.4],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"LEG-R\":{\"transform\":{\"position\":[-6,0.9,3.4],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"MOTOR-FL\":{\"transform\":{\"position\":[5,0.5,-4.5],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"MOTOR-FR\":{\"transform\":{\"position\":[6.9,0.5,-4.5],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"MOTOR-RL\":{\"transform\":{\"position\":[5,0.5,-2.7],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"MOTOR-RR\":{\"transform\":{\"position\":[6.9,0.5,-2.7],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"PROP-FL\":{\"transform\":{\"position\":[5,0.3,-0.6],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"PROP-FR\":{\"transform\":{\"position\":[7,0.3,-0.6],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"PROP-RL\":{\"transform\":{\"position\":[5,0.3,0.9],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"PROP-RR\":{\"transform\":{\"position\":[7,0.3,0.9],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"GUARD-FL\":{\"transform\":{\"position\":[4.7,0.35,3],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"GUARD-FR\":{\"transform\":{\"position\":[7.35,0.35,3],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"GUARD-RL\":{\"transform\":{\"position\":[4.7,0.35,5.65],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"GUARD-RR\":{\"transform\":{\"position\":[7.35,0.35,5.65],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"CTRL-01\":{\"transform\":{\"position\":[-3.2,0.3,-3.2],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"BAT-01\":{\"transform\":{\"position\":[-3.2,0.4,3.2],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false}}",
+      "targets": [
+        {
+          "id": "FRAME-01",
+          "state": "rotate"
+        }
+      ],
+      "viewport": [
+        1280,
+        900
+      ]
+    },
+    {
+      "label": "frame installed and skid targets shown",
+      "feedback": "OK",
+      "history": "4",
+      "installed": "1",
+      "live": "主机架 · ✓ 已安装\n距离 0.000 / 0.180 教学单位  ·  角度 0.0° / 10.0°",
+      "pageWidth": 1280,
+      "parts": "{\"FRAME-01\":{\"installed\":true,\"transform\":{\"position\":[0,2,0],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"LEG-L\":{\"transform\":{\"position\":[-6,0.9,-3.4],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"LEG-R\":{\"transform\":{\"position\":[-6,0.9,3.4],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"MOTOR-FL\":{\"transform\":{\"position\":[5,0.5,-4.5],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"MOTOR-FR\":{\"transform\":{\"position\":[6.9,0.5,-4.5],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"MOTOR-RL\":{\"transform\":{\"position\":[5,0.5,-2.7],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"MOTOR-RR\":{\"transform\":{\"position\":[6.9,0.5,-2.7],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"PROP-FL\":{\"transform\":{\"position\":[5,0.3,-0.6],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"PROP-FR\":{\"transform\":{\"position\":[7,0.3,-0.6],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"PROP-RL\":{\"transform\":{\"position\":[5,0.3,0.9],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"PROP-RR\":{\"transform\":{\"position\":[7,0.3,0.9],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"GUARD-FL\":{\"transform\":{\"position\":[4.7,0.35,3],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"GUARD-FR\":{\"transform\":{\"position\":[7.35,0.35,3],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"GUARD-RL\":{\"transform\":{\"position\":[4.7,0.35,5.65],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"GUARD-RR\":{\"transform\":{\"position\":[7.35,0.35,5.65],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"CTRL-01\":{\"transform\":{\"position\":[-3.2,0.3,-3.2],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"BAT-01\":{\"transform\":{\"position\":[-3.2,0.4,3.2],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false}}",
+      "targets": [
+        {
+          "id": "FRAME-01",
+          "state": "installed"
+        },
+        {
+          "id": "LEG-L",
+          "state": "move"
+        },
+        {
+          "id": "LEG-R",
+          "state": "move"
+        }
+      ],
+      "viewport": [
+        1280,
+        900
+      ]
+    },
+    {
+      "label": "four distinct motor mounting points",
+      "feedback": "",
+      "history": "8",
+      "installed": "3",
+      "live": "左前动力组件 · ↗ 移到安装位\n距离 7.784 / 0.180 教学单位  ·  角度 90.0° / 10.0°",
+      "pageWidth": 1280,
+      "parts": "{\"FRAME-01\":{\"installed\":true,\"transform\":{\"position\":[0,2,0],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"LEG-L\":{\"installed\":true,\"transform\":{\"position\":[-1.15,1.05,0],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"LEG-R\":{\"installed\":true,\"transform\":{\"position\":[1.15,1.05,0],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"MOTOR-FL\":{\"transform\":{\"position\":[5,0.5,-4.5],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"MOTOR-FR\":{\"transform\":{\"position\":[6.9,0.5,-4.5],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"MOTOR-RL\":{\"transform\":{\"position\":[5,0.5,-2.7],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"MOTOR-RR\":{\"transform\":{\"position\":[6.9,0.5,-2.7],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"PROP-FL\":{\"transform\":{\"position\":[5,0.3,-0.6],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"PROP-FR\":{\"transform\":{\"position\":[7,0.3,-0.6],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"PROP-RL\":{\"transform\":{\"position\":[5,0.3,0.9],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"PROP-RR\":{\"transform\":{\"position\":[7,0.3,0.9],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"GUARD-FL\":{\"transform\":{\"position\":[4.7,0.35,3],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"GUARD-FR\":{\"transform\":{\"position\":[7.35,0.35,3],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"GUARD-RL\":{\"transform\":{\"position\":[4.7,0.35,5.65],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"GUARD-RR\":{\"transform\":{\"position\":[7.35,0.35,5.65],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"CTRL-01\":{\"transform\":{\"position\":[-3.2,0.3,-3.2],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"BAT-01\":{\"transform\":{\"position\":[-3.2,0.4,3.2],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false}}",
+      "targets": [
+        {
+          "id": "MOTOR-FL",
+          "state": "move"
+        },
+        {
+          "id": "MOTOR-FR",
+          "state": "move"
+        },
+        {
+          "id": "MOTOR-RL",
+          "state": "move"
+        },
+        {
+          "id": "MOTOR-RR",
+          "state": "move"
+        }
+      ],
+      "viewport": [
+        1280,
+        900
+      ]
+    },
+    {
+      "label": "actual motor drag",
+      "feedback": "",
+      "history": "9",
+      "installed": "3",
+      "live": "左前动力组件 · ↗ 移到安装位\n距离 8.671 / 0.180 教学单位  ·  角度 90.0° / 10.0°",
+      "pageWidth": 1280,
+      "parts": "{\"FRAME-01\":{\"installed\":true,\"transform\":{\"position\":[0,2,0],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"LEG-L\":{\"installed\":true,\"transform\":{\"position\":[-1.15,1.05,0],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"LEG-R\":{\"installed\":true,\"transform\":{\"position\":[1.15,1.05,0],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"MOTOR-FL\":{\"installed\":false,\"transform\":{\"position\":[5,0.5,-6.659162763792555],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]}},\"MOTOR-FR\":{\"transform\":{\"position\":[6.9,0.5,-4.5],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"MOTOR-RL\":{\"transform\":{\"position\":[5,0.5,-2.7],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"MOTOR-RR\":{\"transform\":{\"position\":[6.9,0.5,-2.7],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"PROP-FL\":{\"transform\":{\"position\":[5,0.3,-0.6],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"PROP-FR\":{\"transform\":{\"position\":[7,0.3,-0.6],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"PROP-RL\":{\"transform\":{\"position\":[5,0.3,0.9],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"PROP-RR\":{\"transform\":{\"position\":[7,0.3,0.9],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"GUARD-FL\":{\"transform\":{\"position\":[4.7,0.35,3],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"GUARD-FR\":{\"transform\":{\"position\":[7.35,0.35,3],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"GUARD-RL\":{\"transform\":{\"position\":[4.7,0.35,5.65],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"GUARD-RR\":{\"transform\":{\"position\":[7.35,0.35,5.65],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"CTRL-01\":{\"transform\":{\"position\":[-3.2,0.3,-3.2],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"BAT-01\":{\"transform\":{\"position\":[-3.2,0.4,3.2],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false}}",
+      "targets": [
+        {
+          "id": "MOTOR-FL",
+          "state": "move"
+        },
+        {
+          "id": "MOTOR-FR",
+          "state": "move"
+        },
+        {
+          "id": "MOTOR-RL",
+          "state": "move"
+        },
+        {
+          "id": "MOTOR-RR",
+          "state": "move"
+        }
+      ],
+      "viewport": [
+        1280,
+        900
+      ]
+    },
+    {
+      "label": "single undo restores drag",
+      "feedback": "",
+      "history": "8",
+      "installed": "3",
+      "live": "左前动力组件 · ↗ 移到安装位\n距离 7.784 / 0.180 教学单位  ·  角度 90.0° / 10.0°",
+      "pageWidth": 1280,
+      "parts": "{\"FRAME-01\":{\"installed\":true,\"transform\":{\"position\":[0,2,0],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"LEG-L\":{\"installed\":true,\"transform\":{\"position\":[-1.15,1.05,0],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"LEG-R\":{\"installed\":true,\"transform\":{\"position\":[1.15,1.05,0],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"MOTOR-FL\":{\"installed\":false,\"transform\":{\"position\":[5,0.5,-4.5],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]}},\"MOTOR-FR\":{\"installed\":false,\"transform\":{\"position\":[6.9,0.5,-4.5],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]}},\"MOTOR-RL\":{\"installed\":false,\"transform\":{\"position\":[5,0.5,-2.7],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]}},\"MOTOR-RR\":{\"installed\":false,\"transform\":{\"position\":[6.9,0.5,-2.7],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]}},\"PROP-FL\":{\"installed\":false,\"transform\":{\"position\":[5,0.3,-0.6],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]}},\"PROP-FR\":{\"installed\":false,\"transform\":{\"position\":[7,0.3,-0.6],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]}},\"PROP-RL\":{\"installed\":false,\"transform\":{\"position\":[5,0.3,0.9],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]}},\"PROP-RR\":{\"installed\":false,\"transform\":{\"position\":[7,0.3,0.9],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]}},\"GUARD-FL\":{\"installed\":false,\"transform\":{\"position\":[4.7,0.35,3],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]}},\"GUARD-FR\":{\"installed\":false,\"transform\":{\"position\":[7.35,0.35,3],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]}},\"GUARD-RL\":{\"installed\":false,\"transform\":{\"position\":[4.7,0.35,5.65],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]}},\"GUARD-RR\":{\"installed\":false,\"transform\":{\"position\":[7.35,0.35,5.65],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]}},\"CTRL-01\":{\"installed\":false,\"transform\":{\"position\":[-3.2,0.3,-3.2],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]}},\"BAT-01\":{\"installed\":false,\"transform\":{\"position\":[-3.2,0.4,3.2],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]}}}",
+      "targets": [
+        {
+          "id": "MOTOR-FL",
+          "state": "move"
+        },
+        {
+          "id": "MOTOR-FR",
+          "state": "move"
+        },
+        {
+          "id": "MOTOR-RL",
+          "state": "move"
+        },
+        {
+          "id": "MOTOR-RR",
+          "state": "move"
+        }
+      ],
+      "viewport": [
+        1280,
+        900
+      ]
+    },
+    {
+      "label": "all remaining mounting points",
+      "feedback": "",
+      "history": "8",
+      "installed": "3",
+      "live": "左前动力组件 · ↗ 移到安装位\n距离 7.784 / 0.180 教学单位  ·  角度 90.0° / 10.0°",
+      "pageWidth": 1280,
+      "parts": "{\"FRAME-01\":{\"installed\":true,\"transform\":{\"position\":[0,2,0],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"LEG-L\":{\"installed\":true,\"transform\":{\"position\":[-1.15,1.05,0],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"LEG-R\":{\"installed\":true,\"transform\":{\"position\":[1.15,1.05,0],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"MOTOR-FL\":{\"installed\":false,\"transform\":{\"position\":[5,0.5,-4.5],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]}},\"MOTOR-FR\":{\"installed\":false,\"transform\":{\"position\":[6.9,0.5,-4.5],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]}},\"MOTOR-RL\":{\"installed\":false,\"transform\":{\"position\":[5,0.5,-2.7],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]}},\"MOTOR-RR\":{\"installed\":false,\"transform\":{\"position\":[6.9,0.5,-2.7],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]}},\"PROP-FL\":{\"installed\":false,\"transform\":{\"position\":[5,0.3,-0.6],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]}},\"PROP-FR\":{\"installed\":false,\"transform\":{\"position\":[7,0.3,-0.6],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]}},\"PROP-RL\":{\"installed\":false,\"transform\":{\"position\":[5,0.3,0.9],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]}},\"PROP-RR\":{\"installed\":false,\"transform\":{\"position\":[7,0.3,0.9],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]}},\"GUARD-FL\":{\"installed\":false,\"transform\":{\"position\":[4.7,0.35,3],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]}},\"GUARD-FR\":{\"installed\":false,\"transform\":{\"position\":[7.35,0.35,3],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]}},\"GUARD-RL\":{\"installed\":false,\"transform\":{\"position\":[4.7,0.35,5.65],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]}},\"GUARD-RR\":{\"installed\":false,\"transform\":{\"position\":[7.35,0.35,5.65],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]}},\"CTRL-01\":{\"installed\":false,\"transform\":{\"position\":[-3.2,0.3,-3.2],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]}},\"BAT-01\":{\"installed\":false,\"transform\":{\"position\":[-3.2,0.4,3.2],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]}}}",
+      "targets": [
+        {
+          "id": "MOTOR-FL",
+          "state": "move"
+        },
+        {
+          "id": "MOTOR-FR",
+          "state": "move"
+        },
+        {
+          "id": "MOTOR-RL",
+          "state": "move"
+        },
+        {
+          "id": "MOTOR-RR",
+          "state": "move"
+        },
+        {
+          "id": "PROP-FL",
+          "state": "blocked"
+        },
+        {
+          "id": "PROP-FR",
+          "state": "blocked"
+        },
+        {
+          "id": "PROP-RL",
+          "state": "blocked"
+        },
+        {
+          "id": "PROP-RR",
+          "state": "blocked"
+        },
+        {
+          "id": "GUARD-FL",
+          "state": "blocked"
+        },
+        {
+          "id": "GUARD-FR",
+          "state": "blocked"
+        },
+        {
+          "id": "GUARD-RL",
+          "state": "blocked"
+        },
+        {
+          "id": "GUARD-RR",
+          "state": "blocked"
+        },
+        {
+          "id": "CTRL-01",
+          "state": "move"
+        },
+        {
+          "id": "BAT-01",
+          "state": "blocked"
+        }
+      ],
+      "viewport": [
+        1280,
+        900
+      ]
+    },
+    {
+      "label": "complete 17 of 17 via actual UI",
+      "feedback": "OK",
+      "history": "36",
+      "installed": "17",
+      "live": "电池 · ✓ 已安装\n距离 0.000 / 0.180 教学单位  ·  角度 0.0° / 10.0°",
+      "pageWidth": 1280,
+      "parts": "{\"FRAME-01\":{\"installed\":true,\"transform\":{\"position\":[0,2,0],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"LEG-L\":{\"installed\":true,\"transform\":{\"position\":[-1.15,1.05,0],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"LEG-R\":{\"installed\":true,\"transform\":{\"position\":[1.15,1.05,0],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"MOTOR-FL\":{\"installed\":true,\"transform\":{\"position\":[-2.2,2.36,-2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"MOTOR-FR\":{\"installed\":true,\"transform\":{\"position\":[2.2,2.36,-2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"MOTOR-RL\":{\"installed\":true,\"transform\":{\"position\":[-2.2,2.36,2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"MOTOR-RR\":{\"installed\":true,\"transform\":{\"position\":[2.2,2.36,2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"PROP-FL\":{\"installed\":true,\"transform\":{\"position\":[-2.2,2.72,-2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"PROP-FR\":{\"installed\":true,\"transform\":{\"position\":[2.2,2.72,-2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"PROP-RL\":{\"installed\":true,\"transform\":{\"position\":[-2.2,2.72,2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"PROP-RR\":{\"installed\":true,\"transform\":{\"position\":[2.2,2.72,2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"GUARD-FL\":{\"installed\":true,\"transform\":{\"position\":[-2.2,2.72,-2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"GUARD-FR\":{\"installed\":true,\"transform\":{\"position\":[2.2,2.72,-2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"GUARD-RL\":{\"installed\":true,\"transform\":{\"position\":[-2.2,2.72,2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"GUARD-RR\":{\"installed\":true,\"transform\":{\"position\":[2.2,2.72,2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"CTRL-01\":{\"installed\":true,\"transform\":{\"position\":[0,2.32,-0.65],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"BAT-01\":{\"installed\":true,\"transform\":{\"position\":[0,2.42,0.72],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}}}",
+      "targets": [
+        {
+          "id": "BAT-01",
+          "state": "installed"
+        }
+      ],
+      "viewport": [
+        1280,
+        900
+      ]
+    },
+    {
+      "label": "English guidance",
+      "feedback": "OK",
+      "history": "36",
+      "installed": "17",
+      "live": "Battery · ✓ Installed\nDistance 0.000 / 0.180 teaching units  ·  Angle 0.0° / 10.0°",
+      "pageWidth": 1280,
+      "parts": "{\"FRAME-01\":{\"installed\":true,\"transform\":{\"position\":[0,2,0],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"LEG-L\":{\"installed\":true,\"transform\":{\"position\":[-1.15,1.05,0],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"LEG-R\":{\"installed\":true,\"transform\":{\"position\":[1.15,1.05,0],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"MOTOR-FL\":{\"installed\":true,\"transform\":{\"position\":[-2.2,2.36,-2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"MOTOR-FR\":{\"installed\":true,\"transform\":{\"position\":[2.2,2.36,-2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"MOTOR-RL\":{\"installed\":true,\"transform\":{\"position\":[-2.2,2.36,2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"MOTOR-RR\":{\"installed\":true,\"transform\":{\"position\":[2.2,2.36,2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"PROP-FL\":{\"installed\":true,\"transform\":{\"position\":[-2.2,2.72,-2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"PROP-FR\":{\"installed\":true,\"transform\":{\"position\":[2.2,2.72,-2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"PROP-RL\":{\"installed\":true,\"transform\":{\"position\":[-2.2,2.72,2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"PROP-RR\":{\"installed\":true,\"transform\":{\"position\":[2.2,2.72,2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"GUARD-FL\":{\"installed\":true,\"transform\":{\"position\":[-2.2,2.72,-2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"GUARD-FR\":{\"installed\":true,\"transform\":{\"position\":[2.2,2.72,-2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"GUARD-RL\":{\"installed\":true,\"transform\":{\"position\":[-2.2,2.72,2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"GUARD-RR\":{\"installed\":true,\"transform\":{\"position\":[2.2,2.72,2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"CTRL-01\":{\"installed\":true,\"transform\":{\"position\":[0,2.32,-0.65],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"BAT-01\":{\"installed\":true,\"transform\":{\"position\":[0,2.42,0.72],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}}}",
+      "targets": [
+        {
+          "id": "BAT-01",
+          "state": "installed"
+        }
+      ],
+      "viewport": [
+        1280,
+        900
+      ]
+    },
+    {
+      "label": "exploded view hides installation invitations",
+      "feedback": "OK",
+      "history": "36",
+      "installed": "17",
+      "live": "电池 · ✓ 已安装\n距离 0.000 / 0.180 教学单位  ·  角度 0.0° / 10.0°",
+      "pageWidth": 1280,
+      "parts": "{\"FRAME-01\":{\"installed\":true,\"transform\":{\"position\":[0,2,0],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"LEG-L\":{\"installed\":true,\"transform\":{\"position\":[-1.15,1.05,0],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"LEG-R\":{\"installed\":true,\"transform\":{\"position\":[1.15,1.05,0],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"MOTOR-FL\":{\"installed\":true,\"transform\":{\"position\":[-2.2,2.36,-2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"MOTOR-FR\":{\"installed\":true,\"transform\":{\"position\":[2.2,2.36,-2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"MOTOR-RL\":{\"installed\":true,\"transform\":{\"position\":[-2.2,2.36,2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"MOTOR-RR\":{\"installed\":true,\"transform\":{\"position\":[2.2,2.36,2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"PROP-FL\":{\"installed\":true,\"transform\":{\"position\":[-2.2,2.72,-2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"PROP-FR\":{\"installed\":true,\"transform\":{\"position\":[2.2,2.72,-2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"PROP-RL\":{\"installed\":true,\"transform\":{\"position\":[-2.2,2.72,2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"PROP-RR\":{\"installed\":true,\"transform\":{\"position\":[2.2,2.72,2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"GUARD-FL\":{\"installed\":true,\"transform\":{\"position\":[-2.2,2.72,-2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"GUARD-FR\":{\"installed\":true,\"transform\":{\"position\":[2.2,2.72,-2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"GUARD-RL\":{\"installed\":true,\"transform\":{\"position\":[-2.2,2.72,2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"GUARD-RR\":{\"installed\":true,\"transform\":{\"position\":[2.2,2.72,2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"CTRL-01\":{\"installed\":true,\"transform\":{\"position\":[0,2.32,-0.65],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"BAT-01\":{\"installed\":true,\"transform\":{\"position\":[0,2.42,0.72],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}}}",
+      "targets": [],
+      "viewport": [
+        1280,
+        900
+      ]
+    },
+    {
+      "label": "refresh retains all installed parts",
+      "feedback": "",
+      "history": "36",
+      "installed": "17",
+      "live": "电池 · ✓ 已安装\n距离 0.000 / 0.180 教学单位  ·  角度 0.0° / 10.0°",
+      "pageWidth": 1280,
+      "parts": "{\"FRAME-01\":{\"installed\":true,\"transform\":{\"position\":[0,2,0],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"LEG-L\":{\"installed\":true,\"transform\":{\"position\":[-1.15,1.05,0],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"LEG-R\":{\"installed\":true,\"transform\":{\"position\":[1.15,1.05,0],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"MOTOR-FL\":{\"installed\":true,\"transform\":{\"position\":[-2.2,2.36,-2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"MOTOR-FR\":{\"installed\":true,\"transform\":{\"position\":[2.2,2.36,-2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"MOTOR-RL\":{\"installed\":true,\"transform\":{\"position\":[-2.2,2.36,2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"MOTOR-RR\":{\"installed\":true,\"transform\":{\"position\":[2.2,2.36,2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"PROP-FL\":{\"installed\":true,\"transform\":{\"position\":[-2.2,2.72,-2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"PROP-FR\":{\"installed\":true,\"transform\":{\"position\":[2.2,2.72,-2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"PROP-RL\":{\"installed\":true,\"transform\":{\"position\":[-2.2,2.72,2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"PROP-RR\":{\"installed\":true,\"transform\":{\"position\":[2.2,2.72,2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"GUARD-FL\":{\"installed\":true,\"transform\":{\"position\":[-2.2,2.72,-2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"GUARD-FR\":{\"installed\":true,\"transform\":{\"position\":[2.2,2.72,-2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"GUARD-RL\":{\"installed\":true,\"transform\":{\"position\":[-2.2,2.72,2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"GUARD-RR\":{\"installed\":true,\"transform\":{\"position\":[2.2,2.72,2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"CTRL-01\":{\"installed\":true,\"transform\":{\"position\":[0,2.32,-0.65],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"BAT-01\":{\"installed\":true,\"transform\":{\"position\":[0,2.42,0.72],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}}}",
+      "targets": [
+        {
+          "id": "BAT-01",
+          "state": "installed"
+        }
+      ],
+      "viewport": [
+        1280,
+        900
+      ]
+    },
+    {
+      "label": "production motor sites and label selection",
+      "feedback": "",
+      "history": "6",
+      "installed": "3",
+      "live": "左前动力组件 · ↗ 移到安装位\n距离 7.784 / 0.180 教学单位  ·  角度 90.0° / 10.0°",
+      "pageWidth": 1280,
+      "parts": "{\"FRAME-01\":{\"installed\":true,\"transform\":{\"position\":[0,2,0],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"LEG-L\":{\"installed\":true,\"transform\":{\"position\":[-1.15,1.05,0],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"LEG-R\":{\"installed\":true,\"transform\":{\"position\":[1.15,1.05,0],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"MOTOR-FL\":{\"transform\":{\"position\":[5,0.5,-4.5],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"MOTOR-FR\":{\"transform\":{\"position\":[6.9,0.5,-4.5],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"MOTOR-RL\":{\"transform\":{\"position\":[5,0.5,-2.7],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"MOTOR-RR\":{\"transform\":{\"position\":[6.9,0.5,-2.7],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"PROP-FL\":{\"transform\":{\"position\":[5,0.3,-0.6],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"PROP-FR\":{\"transform\":{\"position\":[7,0.3,-0.6],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"PROP-RL\":{\"transform\":{\"position\":[5,0.3,0.9],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"PROP-RR\":{\"transform\":{\"position\":[7,0.3,0.9],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"GUARD-FL\":{\"transform\":{\"position\":[4.7,0.35,3],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"GUARD-FR\":{\"transform\":{\"position\":[7.35,0.35,3],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"GUARD-RL\":{\"transform\":{\"position\":[4.7,0.35,5.65],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"GUARD-RR\":{\"transform\":{\"position\":[7.35,0.35,5.65],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"CTRL-01\":{\"transform\":{\"position\":[-3.2,0.3,-3.2],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false},\"BAT-01\":{\"transform\":{\"position\":[-3.2,0.4,3.2],\"rotation\":[0,0.7071067811865476,0,0.7071067811865476],\"scale\":[1,1,1]},\"installed\":false}}",
+      "targets": [
+        {
+          "id": "MOTOR-FL",
+          "state": "move"
+        },
+        {
+          "id": "MOTOR-FR",
+          "state": "move"
+        },
+        {
+          "id": "MOTOR-RL",
+          "state": "move"
+        },
+        {
+          "id": "MOTOR-RR",
+          "state": "move"
+        }
+      ],
+      "viewport": [
+        1280,
+        900
+      ]
+    },
+    {
+      "label": "production complete 17 of 17",
+      "feedback": "OK",
+      "history": "34",
+      "installed": "17",
+      "live": "电池 · ✓ 已安装\n距离 0.000 / 0.180 教学单位  ·  角度 0.0° / 10.0°",
+      "pageWidth": 1280,
+      "parts": "{\"FRAME-01\":{\"installed\":true,\"transform\":{\"position\":[0,2,0],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"LEG-L\":{\"installed\":true,\"transform\":{\"position\":[-1.15,1.05,0],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"LEG-R\":{\"installed\":true,\"transform\":{\"position\":[1.15,1.05,0],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"MOTOR-FL\":{\"installed\":true,\"transform\":{\"position\":[-2.2,2.36,-2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"MOTOR-FR\":{\"installed\":true,\"transform\":{\"position\":[2.2,2.36,-2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"MOTOR-RL\":{\"installed\":true,\"transform\":{\"position\":[-2.2,2.36,2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"MOTOR-RR\":{\"installed\":true,\"transform\":{\"position\":[2.2,2.36,2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"PROP-FL\":{\"installed\":true,\"transform\":{\"position\":[-2.2,2.72,-2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"PROP-FR\":{\"installed\":true,\"transform\":{\"position\":[2.2,2.72,-2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"PROP-RL\":{\"installed\":true,\"transform\":{\"position\":[-2.2,2.72,2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"PROP-RR\":{\"installed\":true,\"transform\":{\"position\":[2.2,2.72,2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"GUARD-FL\":{\"installed\":true,\"transform\":{\"position\":[-2.2,2.72,-2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"GUARD-FR\":{\"installed\":true,\"transform\":{\"position\":[2.2,2.72,-2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"GUARD-RL\":{\"installed\":true,\"transform\":{\"position\":[-2.2,2.72,2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"GUARD-RR\":{\"installed\":true,\"transform\":{\"position\":[2.2,2.72,2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"CTRL-01\":{\"installed\":true,\"transform\":{\"position\":[0,2.32,-0.65],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"BAT-01\":{\"installed\":true,\"transform\":{\"position\":[0,2.42,0.72],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}}}",
+      "targets": [
+        {
+          "id": "BAT-01",
+          "state": "installed"
+        }
+      ],
+      "viewport": [
+        1280,
+        900
+      ]
+    },
+    {
+      "label": "production refresh restores 17 and selected target",
+      "feedback": "",
+      "history": "34",
+      "installed": "17",
+      "live": "电池 · ✓ 已安装\n距离 0.000 / 0.180 教学单位  ·  角度 0.0° / 10.0°",
+      "pageWidth": 1280,
+      "parts": "{\"FRAME-01\":{\"installed\":true,\"transform\":{\"position\":[0,2,0],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"LEG-L\":{\"installed\":true,\"transform\":{\"position\":[-1.15,1.05,0],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"LEG-R\":{\"installed\":true,\"transform\":{\"position\":[1.15,1.05,0],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"MOTOR-FL\":{\"installed\":true,\"transform\":{\"position\":[-2.2,2.36,-2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"MOTOR-FR\":{\"installed\":true,\"transform\":{\"position\":[2.2,2.36,-2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"MOTOR-RL\":{\"installed\":true,\"transform\":{\"position\":[-2.2,2.36,2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"MOTOR-RR\":{\"installed\":true,\"transform\":{\"position\":[2.2,2.36,2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"PROP-FL\":{\"installed\":true,\"transform\":{\"position\":[-2.2,2.72,-2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"PROP-FR\":{\"installed\":true,\"transform\":{\"position\":[2.2,2.72,-2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"PROP-RL\":{\"installed\":true,\"transform\":{\"position\":[-2.2,2.72,2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"PROP-RR\":{\"installed\":true,\"transform\":{\"position\":[2.2,2.72,2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"GUARD-FL\":{\"installed\":true,\"transform\":{\"position\":[-2.2,2.72,-2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"GUARD-FR\":{\"installed\":true,\"transform\":{\"position\":[2.2,2.72,-2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"GUARD-RL\":{\"installed\":true,\"transform\":{\"position\":[-2.2,2.72,2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"GUARD-RR\":{\"installed\":true,\"transform\":{\"position\":[2.2,2.72,2.2],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"CTRL-01\":{\"installed\":true,\"transform\":{\"position\":[0,2.32,-0.65],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}},\"BAT-01\":{\"installed\":true,\"transform\":{\"position\":[0,2.42,0.72],\"rotation\":[0,0,0,1],\"scale\":[1,1,1]}}}",
+      "targets": [
+        {
+          "id": "BAT-01",
+          "state": "installed"
+        }
+      ],
+      "viewport": [
+        1280,
+        900
+      ]
+    }
+  ]
+}

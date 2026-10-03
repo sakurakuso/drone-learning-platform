@@ -1,39 +1,38 @@
-# Final acceptance / 最终验收
+# Mounting guidance acceptance / 安装位体验验收
 
-Verified on 2026-10-03, Asia/Hong_Kong, using the integrated production build in Chrome on the development Mac.
+Verified on 2026-10-03, Asia/Hong_Kong. This replaces the earlier first-release acceptance summary; earlier evidence remains in the development workspace.
 
-## Result
+## Change and result
 
-Accepted as a simplified educational assembly demonstration. All geometry, dimensions, quadcopter layout, positions, orientations, dependencies and tolerances remain teaching assumptions. CAD was not converted. Flight simulation, hardware integration and AI assessment are not implemented.
+The previous model only previewed a target after selecting a part. The new scene shows named mounting sites before selection, with outlines, rings, crosshairs, aircraft FRONT/LEFT/RIGHT references and clickable labels. The current teaching phase and selected part are shown by default; the all-sites view uses a scrollable label dock when necessary. A dashed path, distance and orientation readout assist placement. Camera location, prerequisite navigation, a three-stage guide and a top-view map explain what to do next. Numeric transform controls are collapsed by default.
 
-## Corrections made during final review
+The central deck, arms, motor seats, screws, motor vents, controller chip/pins, battery straps and guard supports are schematic teaching details, not converted CAD or engineering fits. All original target positions and installation tolerances are retained.
 
-- Connected the scene module's explosion slider, selected-part isolation and guard visibility controls to the main bilingual interface.
-- Tightened saved-state validation: installed parts must remain at the exact snapped target, rather than merely within loose-part placement tolerance. Added a regression check for shifted and rotated installed parts.
+The unused reference-site extension types, empty registry and EXTENSIONS.md were removed at the user's request. They had never connected to a third-party service. Runtime source contains no outbound API, socket or third-party website integration. SVG namespace strings identify SVG elements and do not make network requests.
 
-## Checks performed
+## Checks
 
-- Five test files, **101 tests passed**.
-- A clean source-only export installed from the local npm cache and passed the same 101 tests and production build without CAD, website snapshots or original workspace files.
-- TypeScript and Vite production build passed.
-- npm audit reported **0 vulnerabilities** at review time.
-- All seven retained CAD reference files and their original files matched the recorded SHA-256 digests. CAD references and the website snapshot remain local and are excluded from the GitHub repository.
-- Actual browser controls completed **17/17** parts; missing prerequisites, wrong position and wrong orientation were rejected.
-- Actual canvas dragging created one history entry; Undo restored the original parts.
-- Dependent removal was rejected; battery removal and Undo succeeded.
-- Free assembly reinstall, reset cancellation, reset and Undo, bilingual switching and camera presets succeeded.
-- Explosion slider responded to actual keyboard input; isolation and guard hiding changed the rendered scene without changing assembly parts or history. Refresh retained parts, history and exploded mode; display-only settings reset as documented.
-- With the review preview server stopped and its local endpoint unreachable, cached reload, battery removal and Undo succeeded. This verifies cached local-origin operation, not a system-wide Wi-Fi isolation test. Earlier browser network isolation evidence remains in the local development workspace.
-- Chrome console inspection returned no errors or warnings during the final run.
+- **148 tests passed in 6 source test files.** A dedicated Vitest configuration excludes copied release checkouts so tests are counted once.
+- TypeScript and Vite production build passed. JavaScript is about 849 kB, 235 kB gzip; Vite reports its non-blocking bundle-size advisory.
+- Existing geometry-envelope checks pass for all 17 parts. Ordinary Line resources added for paths/arrows are disposed, with a regression check.
+- 46 mounting-guidance regressions compare against public installation rules, covering all 17 target poses, boundaries, q/-q, small angles, scale, prerequisites, invalid previews, phase changes and undo/reset.
+- Actual Chrome UI completed **17/17** in both development and the production preview at port 4181. Production reload restored all 17 installed components and selection.
+- Missing battery prerequisites were rejected and displayed as clickable required components. Clicking a prerequisite selected it without installation.
+- An exactly aligned frame showed ready. A 20-degree yaw with correct position showed a separate direction warning; installation was rejected. Alignment assistance moved the part but did not install it.
+- Actual motor dragging created one history entry. A single Undo restored every component's installation flag and all transform values; object-key serialization order is immaterial.
+- With three components installed, the scene showed four distinct motor sites. The all-sites control showed all 14 remaining targets with blocked prerequisites labeled.
+- Production desktop testing at 1280 x 900 found **zero overlaps** among the four motor labels and the FRONT/LEFT/RIGHT direction labels. The temporary desktop viewport override was used for breakpoint validation.
+- Actual 365- and 744-pixel browser panels displayed the complete canvas after a responsive-layout correction. Narrow layout stacks the canvas above the library/inspector rather than clipping it sideways.
+- Explosion mode hid mounting invitations and disabled installation; its guide explicitly remained inspection-only. Returning to assembly restored the mounting hints.
+- English/Chinese switching and camera presets worked. Browser console inspection returned no errors or warnings during normal online operation.
+- The scene window additionally verified target selection, first-gesture dragging, isolation/guard hiding retaining targets, repeated mount/dispose and cleanup: target DOM removed, geometry/texture counts zero and no scene-listener residue.
 
-Current foreground UI samples reported about **120 FPS / 8.3 ms** during this review, above the 30 FPS target. This is the app's frame counter on this Mac and viewport, not a sustained benchmark or a guarantee for other devices.
+During the foreground UI checks, the frame counter generally showed approximately 118–121 FPS on this Mac. This is a local sample, not a sustained benchmark or a guarantee on other hardware. Transient drag guidance shares the rule's numerical checks; the inspector explicitly reports the committed transform after release.
 
-## Evidence
+## Evidence and scope
 
-- [Final browser checks](outputs/final-acceptance.json)
-- [Final assembled workbench](outputs/final-acceptance.jpg)
-- Reproducible scene harness: `npm run dev`, then `/src/scene/verification.html`.
+- [Browser observations](outputs/guidance-acceptance.json)
+- [Four motor sites and direction references](outputs/guidance-motor-targets.jpg)
+- Local scene harness: start the development server and open `/src/scene/verification.html`.
 
-The production bundle is approximately 818 kB (225 kB gzip), producing Vite's non-blocking size warning. Runtime resources are local; install dependencies once with `npm ci --cache .npm-cache` before local use. Offline cache requires a successful first production visit at the same origin.
-
-Repository scope: source, lock file, configuration, tests, startup scripts, documentation and final app-only verification evidence. Source CAD, copied website content, dependencies, caches and unrelated project files are excluded.
+No new dependencies were added. The published update contains simulator source, configuration, lock file, documentation and app-only evidence. Original CAD, copied reference sources, the supplied archive's database and runtime environments, caches, dependencies and private notes are excluded. The existing course platform is separate. This iteration does not convert CAD or implement flight physics, collision, hardware linkage or AI assessment. Prior offline-cache checks belong to the first-release evidence; this iteration retains the local cache mechanism.

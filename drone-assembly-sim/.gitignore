@@ -12,5 +12,8 @@ outputs/*
 !outputs/final-acceptance.json
 !outputs/final-acceptance.jpg
 !outputs/github-publication.jpg
+!outputs/guidance-acceptance.json
+!outputs/guidance-motor-targets.jpg
 src/scene/verification.png
 src/scene/verification-results.json
+src/scene/target-presentation.png

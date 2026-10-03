@@ -61,4 +61,14 @@ describe('shared teaching geometry', () => {
     expect(geometryDisposals).toBe(geometries.size);
     expect(materialDisposals).toBe(materials.size);
   });
+  it('releases the lines used by installation paths and direction arrows', () => {
+    const group = new THREE.Group();
+    const line = new THREE.Line(new THREE.BufferGeometry(), new THREE.LineDashedMaterial());
+    group.add(line);
+    let released = 0;
+    line.geometry.addEventListener('dispose', () => released++);
+    (line.material as THREE.Material).addEventListener('dispose', () => released++);
+    disposeObject(group);
+    expect(released).toBe(2);
+  });
 });

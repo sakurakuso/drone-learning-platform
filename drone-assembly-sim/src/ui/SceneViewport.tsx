@@ -3,7 +3,7 @@ import type { AssemblyState, SceneMetrics, SceneUserOperation } from '../contrac
 import { partDefinitions } from '../data/parts';
 import { createSceneAdapter } from '../integration/modules';
 import type { Language } from './i18n';
-export function SceneViewport({ state, language, explosionAmount, isolated, hideGuards, onOperation, onMetrics, onError }: { state: AssemblyState; language: Language; explosionAmount: number; isolated: boolean; hideGuards: boolean; onOperation: (operation: SceneUserOperation) => void; onMetrics: (metrics: SceneMetrics) => void; onError: (message: string) => void }) {
+export function SceneViewport({ state, language, explosionAmount, isolated, hideGuards, showAllTargets, focusRequest, onOperation, onMetrics, onError }: { state: AssemblyState; language: Language; explosionAmount: number; isolated: boolean; hideGuards: boolean; showAllTargets: boolean; focusRequest: number; onOperation: (operation: SceneUserOperation) => void; onMetrics: (metrics: SceneMetrics) => void; onError: (message: string) => void }) {
   const container = useRef<HTMLDivElement>(null);
   const adapter = useRef<ReturnType<typeof createSceneAdapter> | null>(null);
   const callbacks = useRef({ onOperation, onMetrics, onError }); callbacks.current = { onOperation, onMetrics, onError };
@@ -23,5 +23,7 @@ export function SceneViewport({ state, language, explosionAmount, isolated, hide
   useEffect(() => { adapter.current?.setExplosionAmount?.(state.exploded ? explosionAmount : 0); }, [state.exploded, explosionAmount]);
   useEffect(() => { adapter.current?.setIsolation?.(isolated); }, [isolated]);
   useEffect(() => { adapter.current?.setHideOuter?.(hideGuards); }, [hideGuards]);
+  useEffect(() => { adapter.current?.setShowAllTargets?.(showAllTargets); }, [showAllTargets]);
+  useEffect(() => { if (focusRequest > 0) adapter.current?.focusTarget?.(); }, [focusRequest]);
   return <div className="scene-canvas" ref={container} aria-label="Interactive 3D drone workbench / 交互式三维无人机工作台" />;
 }

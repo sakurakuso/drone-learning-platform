@@ -3,6 +3,9 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { TransformControls } from 'three/addons/controls/TransformControls.js';
 import type { AssemblyState, PartDefinition, SceneAdapter, SceneAdapterFactory, SceneAdapterOptions, SceneUserOperation, Transform, ViewPreset } from '../contracts';
 import { applyTransform, createPartGeometry, disposeObject, highlightPart, readTransform } from './geometry';
+import { guideTargets, placementGuide } from './guidance';
+import { teachingSteps } from '../data/steps';
+import { placementColor, TargetPresentation } from './targetPresentation';
 
 interface PartVisual { definition: PartDefinition; signature: string; object: THREE.Group; ghost: THREE.Group }
 interface Gesture { id: string; pointerId?: number; start: Transform; point?: THREE.Vector3; plane?: THREE.Plane; moved: boolean }
@@ -14,6 +17,8 @@ export interface WorkbenchSceneAdapter extends SceneAdapter {
   setTargetPreview(enabled: boolean): void;
   setLanguage(language: 'en' | 'zh'): void;
   setCameraNavigationMode(mode: 'orbit' | 'pan'): void;
+  setShowAllTargets(enabled: boolean): void;
+  focusTarget(): void;
   /** Optional camera preview; authoritative viewPreset changes still take priority. */
   setViewPreset(preset: ViewPreset): void;
   getDiagnostics(): ReturnType<Workbench['getDiagnostics']>;
@@ -43,6 +48,8 @@ class Workbench implements WorkbenchSceneAdapter {
   private isolated = false;
   private hideOuter = false;
   private targetPreview = true;
+  private showAllTargets = false;
+  private targetPresentation?: TargetPresentation;
   private frames = 0;
   private sampleStart = performance.now();
   private rendererName = 'WebGL';
@@ -136,6 +143,7 @@ class Workbench implements WorkbenchSceneAdapter {
     const debug = gl.getExtension('WEBGL_debug_renderer_info');
     this.rendererName = debug ? String(gl.getParameter(debug.UNMASKED_RENDERER_WEBGL)) : String(gl.getParameter(gl.RENDERER));
     if (this.options.showBuiltinControls !== false) this.addToolbar();
+    this.targetPresentation = new TargetPresentation(this.scene, this.root, id => this.select(id));
     this.reconcileDefinitions(this.definitions);
     this.applyState();
     this.setLanguage(this.language);
@@ -210,6 +218,16 @@ class Workbench implements WorkbenchSceneAdapter {
   update(state: AssemblyState, definitions: readonly PartDefinition[]) {
     if (this.disposed || this.failed) return;
     try {
+      // A SELECT_PART echo from React can arrive after pointerdown already began
+      // dragging. Preserve that gesture only if the immutable assembly and controls
+      // are unchanged; any actual external mutation still cancels the drag.
+      const selectionEcho = this.gesture && state.selectedPartId === this.gesture.id
+        && definitions === this.definitions && state.parts === this.state.parts
+        && state.history === this.state.history && state.mode === this.state.mode
+        && state.exploded === this.state.exploded && state.interactionMode === this.state.interactionMode
+        && state.viewPreset === this.state.viewPreset
+        && (state.revision === this.state.revision || state.revision === this.state.revision + 1);
+      if (selectionEcho) { this.state = state; this.selected = state.selectedPartId; return; }
       // External updates cancel an in-flight gesture: never commit a stale transform.
       if (this.gesture) this.cancelGesture();
       const viewChanged = state.viewPreset !== this.state.viewPreset;
@@ -222,6 +240,9 @@ class Workbench implements WorkbenchSceneAdapter {
   }
 
   private applyState() {
+    const displayState = { ...this.state, selectedPartId: this.selected };
+    const targetIds = new Set(guideTargets(this.definitions, teachingSteps, displayState, this.showAllTargets).map(d => d.id));
+    const showTargets = this.targetPreview && this.explosionAmount === 0 && !this.state.exploded;
     for (const [id, visual] of this.parts) {
       const part = this.state.parts[id];
       if (!part) throw new Error(`缺少共享零件状态：${id}`);
@@ -230,14 +251,28 @@ class Workbench implements WorkbenchSceneAdapter {
       visual.object.visible = (!this.isolated || !this.selected || id === this.selected) && (!this.hideOuter || visual.definition.category !== 'guard');
       highlightPart(visual.object, id === this.selected);
       applyTransform(visual.ghost, visual.definition.targetTransform);
-      visual.ghost.visible = this.targetPreview && id === this.selected && !part.installed && visual.object.visible && this.explosionAmount === 0 && !this.state.exploded;
+      // Slot hints must survive part isolation and outer-component hiding.
+      visual.ghost.visible = showTargets && targetIds.has(id) && !part.installed;
+      const guide = placementGuide(visual.definition, displayState);
+      this.tintGhost(visual, guide.status);
     }
+    this.targetPresentation?.sync(this.definitions, teachingSteps, displayState, this.selected, this.showAllTargets, showTargets, this.language);
     this.explosionInput.value = String(this.explosionAmount);
     this.attachControls();
     const locked = this.explosionAmount > 0 || this.state.exploded;
     this.hint.textContent = this.language === 'zh'
       ? locked ? '爆炸展示中 · 零件操作已锁定' : this.state.parts[this.selected ?? '']?.installed ? '已安装零件锁定 · 可检查视角' : this.state.interactionMode === 'rotate' ? '拖动旋转环调整朝向 · 空白处旋转镜头，滚轮缩放，右键平移' : '点击选择 · 拖动零件自由移动，轴控件精确移动 · 空白处旋转镜头，滚轮缩放，右键平移'
       : locked ? 'Exploded display · manipulation locked' : this.state.parts[this.selected ?? '']?.installed ? 'Installed part locked · inspect with camera controls' : this.state.interactionMode === 'rotate' ? 'Drag rotation rings · orbit on empty space, scroll to zoom, right drag to pan' : 'Click to select · drag a part freely or use axes · orbit on empty space, scroll to zoom, right drag to pan';
+  }
+
+  private tintGhost(visual: PartVisual, status: ReturnType<typeof placementGuide>['status']) {
+    visual.ghost.traverse(o => { if (o instanceof THREE.Mesh) (o.material as THREE.MeshStandardMaterial).color.set(placementColor(status)); });
+  }
+  private updateLiveGuidance(id: string) {
+    const visual = this.parts.get(id);
+    if (!visual) return;
+    const guide = this.targetPresentation?.updateLive(readTransform(visual.object));
+    if (guide) this.tintGhost(visual, guide.status);
   }
 
   private attachControls() {
@@ -297,6 +332,7 @@ class Workbench implements WorkbenchSceneAdapter {
     const delta = point.sub(gesture.point);
     gesture.moved = delta.lengthSq() > 1e-8;
     this.parts.get(gesture.id)!.object.position.fromArray(gesture.start.position).add(delta);
+    this.updateLiveGuidance(gesture.id);
   };
 
   private pointerUp = (event: PointerEvent) => {
@@ -311,7 +347,12 @@ class Workbench implements WorkbenchSceneAdapter {
     this.gesture = { id: this.selected, start: readTransform(this.transform.object), moved: false };
     this.orbit!.enabled = false;
   };
-  private gizmoChange = () => { if (this.gesture) this.gesture.moved = true; };
+  private gizmoChange = () => {
+    if (this.gesture) {
+      this.gesture.moved = true;
+      this.updateLiveGuidance(this.gesture.id);
+    }
+  };
   private gizmoEnd = () => this.finishGesture();
   private lostCapture = () => { if (this.gesture) this.cancelGesture(); };
 
@@ -356,6 +397,22 @@ class Workbench implements WorkbenchSceneAdapter {
   setIsolation(enabled: boolean) { if (this.disposed || this.failed) return; this.cancelGesture(); this.isolated = enabled; this.applyState(); }
   setHideOuter(enabled: boolean) { if (this.disposed || this.failed) return; this.cancelGesture(); this.hideOuter = enabled; this.applyState(); }
   setTargetPreview(enabled: boolean) { if (this.disposed || this.failed) return; this.targetPreview = enabled; this.applyState(); }
+  setShowAllTargets(enabled: boolean) { if (this.disposed || this.failed) return; this.showAllTargets = enabled; this.applyState(); }
+  focusTarget() {
+    if (this.disposed || this.failed || !this.orbit || !this.selected) return;
+    this.cancelGesture();
+    const visual = this.parts.get(this.selected);
+    if (!visual) return;
+    const bounds = new THREE.Box3().setFromObject(visual.object);
+    bounds.expandByObject(visual.ghost);
+    const center = bounds.getCenter(new THREE.Vector3());
+    const radius = bounds.getSize(new THREE.Vector3()).length() / 2;
+    const distance = Math.max(3, radius * 1.35 / Math.sin(THREE.MathUtils.degToRad(this.camera.fov / 2)) / Math.min(this.camera.aspect, 1));
+    const direction = this.camera.position.clone().sub(this.orbit.target).normalize();
+    if (direction.lengthSq() === 0) direction.set(0.85, 0.85, 1).normalize();
+    this.camera.position.copy(center).addScaledVector(direction, Math.min(170, distance));
+    this.orbit.target.copy(center); this.orbit.update();
+  }
   setLanguage(language: 'en' | 'zh') {
     if (this.disposed || this.failed) return;
     this.language = language;
@@ -397,6 +454,7 @@ class Workbench implements WorkbenchSceneAdapter {
     try {
       if (!this.gesture) this.orbit?.update();
       this.renderer!.render(this.scene, this.camera);
+      this.targetPresentation?.project(this.camera, this.size.width, this.size.height);
       this.frames++;
       const now = performance.now(), elapsed = now - this.sampleStart;
       if (elapsed >= 1000) {
@@ -420,12 +478,13 @@ class Workbench implements WorkbenchSceneAdapter {
       const screen = v.object.position.clone().project(this.camera);
       objects[id] = { position: v.object.position.toArray(), rotation: v.object.quaternion.toArray(), visible: v.object.visible, ghostVisible: v.ghost.visible, screen: { x: (screen.x + 1) / 2 * this.size.width, y: (1 - screen.y) / 2 * this.size.height } };
     });
-    return { disposed: this.disposed, failed: this.failed, contextLost: this.contextLost, cameraEnabled: this.orbit?.enabled ?? false, manipulating: Boolean(this.gesture), explosionAmount: this.explosionAmount, size: { ...this.size }, cameraPosition: this.camera.position.toArray(), cameraTarget: this.orbit?.target.toArray(), metrics: { ...this.lastMetrics }, objects, resources: this.renderer ? { ...this.renderer.info.memory } : null };
+    return { disposed: this.disposed, failed: this.failed, contextLost: this.contextLost, cameraEnabled: this.orbit?.enabled ?? false, manipulating: Boolean(this.gesture), explosionAmount: this.explosionAmount, size: { ...this.size }, cameraPosition: this.camera.position.toArray(), cameraTarget: this.orbit?.target.toArray(), metrics: { ...this.lastMetrics }, targets: this.targetPresentation?.diagnostics(), objects, resources: this.renderer ? { ...this.renderer.info.memory } : null };
   }
 
   private releaseResources() {
     cancelAnimationFrame(this.frame); this.observer?.disconnect(); this.events.abort();
     this.cleanups.splice(0).forEach(cleanup => cleanup());
+    this.targetPresentation?.dispose();
     this.transform?.dispose(); this.transform?.getHelper().removeFromParent();
     // Three 0.180 removes its normal listeners in dispose, but a held Control key
     // can leave the temporary root keyup listener. Remove that known implementation hook.

@@ -35,7 +35,6 @@
 
 - v1.1 / 2026-10-03：SceneAdapterOptions 新增可选 language、showBuiltinControls，SceneAdapter 新增可选 setLanguage；集成 UI 接管工具条，避免双工具条和爆炸滑块导致显示/状态不同步。装配契约不变。
 
-- v1.2 / 2026-10-03：按用户新参考需求增加独立 `src/contracts/extensions.ts` 与 `src/extensions/index.ts`。为实验场景、设备联动、飞行训练、训练评估保留类型化接口和空注册表；不改装配/场景 v1.1，不启用硬件或云服务。详见 EXTENSIONS.md。
 
 ## 最终交付与接入
 
@@ -45,3 +44,17 @@
 - UI 保存层保留完整撤销历史，使用独立版本化 localStorage 封装；暂不调用规则模块的无历史存档扩展。显式多槽位安装、级联拆卸不进入首版 UI；按基础接口执行逐件检查和逆依赖拆卸。
 
 - v1.3 / 2026-10-03：最终验收将场景已有 setExplosionAmount/setIsolation/setHideOuter 方法暴露为可选共享接口，主界面接入滑块、隔离零件、隐藏保护架。三项仅影响展示；隐藏/隔离和展开程度不写入装配历史，刷新恢复爆炸模式时使用完整展开。保存校验要求已安装件保持精确吸附目标。
+# 2026-10-03 安装位体验迭代：窗口分工
+
+用户已授权统筹现有三个实现窗口协作。共享同一工作区，不创建重复项目。
+
+- 主控「规划」：`src/contracts/index.ts`、`src/scene/guidance.ts`、`src/scene/geometry.ts`；整合、最终浏览器验收、文档。已新增 `guideTargets` / `placementGuide` / `mountingDescription` 并补充可选 `setShowAllTargets` / `focusTarget` 接口。
+- 「实现无人机交互式 3D 场景」：只写 `src/scene/index.ts` 及新建 scene 安装位展示辅助文件（不得改 guidance/geometry/test）。负责安装位标记、投影可点击标签、机头方向、拖动路径与镜头定位。
+- 「实现无人机组装模拟器」：只写 `src/App.tsx`、`src/ui/`、`src/styles.css`。负责新手流程、安装位说明/状态、前置零件跳转、辅助开关与定位按钮。
+- 「实现装配规则与状态引擎」：只写 `src/scene/guidance.test.ts` 及自己的新建验证报告。审查引导状态和正式规则一致性，不修改规则实现、契约或其他窗口文件。
+
+参考保留在 `inputs/references/drone-learning-platform-20261003/`（五个前端文件）；不执行参考包程序，不保留/上传其数据库、运行环境。默认显示本步安装位与显式选中位；完整安装位可切换。提示位置统一取共享 `targetTransform`，不维护另一份坐标。爆炸图只观察，不邀请安装。安装仍经正式规则确认；不降低容差，不声称真实 CAD 配合。
+
+各窗口结束后在本窗口给出文件清单与验证结果，主控读取其最终回复；不要主动向其他聊天发送消息，也不要发布 GitHub。主控完成整合后才统一验收和展示。
+
+- v1.4 / 2026-10-03：按用户指示移除未使用的外部网站参考扩展类型、空注册表和扩展说明。应用仅保留本地组装、场景、保存与安装引导接口；没有接入第三方网站服务。

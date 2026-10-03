@@ -29,13 +29,39 @@ export function createPartGeometry(definition: PartDefinition, ghost = false): T
     item.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), delta.normalize());
   }
   switch (kind) {
-    case 'frame':
-      mesh(new THREE.BoxGeometry(w, h, d));
+    case 'frame': {
+      // A readable central deck, four arms and mounting pads within the shared envelope.
+      mesh(new THREE.BoxGeometry(w * 0.44, h * 0.72, d * 0.66));
+      for (const x of [-1, 1]) for (const z of [-1, 1]) {
+        const end = new THREE.Vector3(x * (w / 2 - 0.1), 0, z * (d / 2 - 0.1));
+        tube(new THREE.Vector3(x * w * 0.13, 0, z * d * 0.13), end, h * 0.32);
+        mesh(new THREE.CylinderGeometry(0.09, 0.09, h * 0.72, 16), end);
+      }
+      for (const x of [-1, 1]) for (const z of [-1, 1]) {
+        const screw = mesh(new THREE.CylinderGeometry(0.055, 0.055, h * 0.1, 12), new THREE.Vector3(x * w * 0.17, h * 0.45, z * d * 0.18));
+        screw.material = base.clone(); (screw.material as THREE.MeshStandardMaterial).color.set('#bdced8');
+      }
+      if (!ghost) {
+        for (const [z, depth, tint] of [[-0.65, 0.7, '#49a8e8'], [0.72, 1.45, '#c18768']] as const) {
+          const seat = mesh(new THREE.BoxGeometry(z < 0 ? 0.94 : 1.2, h * 0.02, depth), new THREE.Vector3(0, h * 0.37, z));
+          seat.material = base.clone(); (seat.material as THREE.MeshStandardMaterial).color.set(tint);
+        }
+      }
+      const direction = mesh(new THREE.ConeGeometry(0.17, 0.45, 3), new THREE.Vector3(0, h * 0.42, -d * 0.16));
+      direction.scale.z = 0.07; direction.rotation.x = -Math.PI/2;
+      direction.material = base.clone(); (direction.material as THREE.MeshStandardMaterial).color.set('#52c9ff');
       break;
+    }
     case 'motor': {
       const r = Math.min(radius ?? Math.min(w, d) / 2, w / 2, d / 2);
       mesh(new THREE.CylinderGeometry(r, r, h * 0.8, 20), new THREE.Vector3(0, -h * 0.1, 0));
       mesh(new THREE.CylinderGeometry(r * 0.18, r * 0.18, h * 0.2, 12), new THREE.Vector3(0, h * 0.4, 0));
+      if (!ghost) for (let i = 0; i < 8; i++) {
+        const theta = i * Math.PI / 4;
+        const vent = mesh(new THREE.BoxGeometry(r * 0.16, h * 0.43, r * 0.09), new THREE.Vector3(Math.sin(theta) * r * 0.9, -h * 0.08, Math.cos(theta) * r * 0.9));
+        vent.rotation.y = theta;
+        vent.material = base.clone(); (vent.material as THREE.MeshStandardMaterial).color.set('#223541');
+      }
       break;
     }
     case 'propeller': {
@@ -60,6 +86,7 @@ export function createPartGeometry(definition: PartDefinition, ghost = false): T
       const x = w / 2 - r, z = d / 2 - r;
       const points = [new THREE.Vector3(-x, 0, -z), new THREE.Vector3(x, 0, -z), new THREE.Vector3(x, 0, z), new THREE.Vector3(-x, 0, z)];
       points.forEach((a, i) => tube(a, points[(i + 1) % 4], r));
+      points.forEach(a => tube(new THREE.Vector3(0, 0, 0), a.clone().multiplyScalar(0.94), r * 0.35));
       break;
     }
     case 'controller':
@@ -68,6 +95,21 @@ export function createPartGeometry(definition: PartDefinition, ghost = false): T
       const cap = mesh(new THREE.BoxGeometry(w * 0.7, h * 0.14, d * 0.65), new THREE.Vector3(0, h * 0.43, 0));
       cap.material = base.clone();
       (cap.material as THREE.MeshStandardMaterial).color.multiplyScalar(kind === 'battery' ? 0.55 : 1.3);
+      if (!ghost && kind === 'controller') {
+        const chip = mesh(new THREE.BoxGeometry(w * 0.3, h * 0.08, d * 0.3), new THREE.Vector3(0, h * 0.46, 0));
+        chip.material = base.clone(); (chip.material as THREE.MeshStandardMaterial).color.set('#142937');
+        const arrow = mesh(new THREE.ConeGeometry(w * 0.06, d * 0.18, 3), new THREE.Vector3(0, h * 0.46, -d * 0.24));
+        arrow.scale.z = 0.08; arrow.rotation.x = -Math.PI/2;
+        arrow.material = base.clone(); (arrow.material as THREE.MeshStandardMaterial).color.set('#dbf3ff');
+        for (const sign of [-1, 1]) for (let i = 0; i < 4; i++) {
+          const pin = mesh(new THREE.BoxGeometry(w * 0.05, h * 0.1, d * 0.055), new THREE.Vector3(sign * w * 0.4, h * 0.36, (i - 1.5) * d * 0.17));
+          pin.material = base.clone(); (pin.material as THREE.MeshStandardMaterial).color.set('#e4c57a');
+        }
+      }
+      if (!ghost && kind === 'battery') for (const sign of [-1, 1]) {
+        const strap = mesh(new THREE.BoxGeometry(w * 0.96, h * 0.03, d * 0.12), new THREE.Vector3(0, h * 0.485, sign * d * 0.23));
+        strap.material = base.clone(); (strap.material as THREE.MeshStandardMaterial).color.set('#233440');
+      }
       break;
     }
     default:
@@ -114,7 +156,7 @@ export function disposeObject(object: THREE.Object3D) {
   const geometries = new Set<THREE.BufferGeometry>();
   const materials = new Set<THREE.Material>();
   object.traverse(o => {
-    if (o instanceof THREE.Mesh || o instanceof THREE.LineSegments) {
+    if (o instanceof THREE.Mesh || o instanceof THREE.Line) {
       geometries.add(o.geometry);
       (Array.isArray(o.material) ? o.material : [o.material]).forEach(m => materials.add(m));
     }

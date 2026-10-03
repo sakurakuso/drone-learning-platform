@@ -28,14 +28,18 @@ Keep the local server running for normal use. Offline cache is a convenience for
 
 ## Assembly workflow / 使用流程
 
-1. Select a part from the left library or directly in the 3D scene. Each repeated instance has its own stable ID.
-2. Drag the part or the translation axes. Choose **Rotate / 旋转** to use the rotation rings. The inspector also accepts X/Y/Z positions and Euler angles in degrees; click **Apply transform / 应用位置与旋转** to commit one action.
+1. Start with the named mounting point already visible in the 3D scene, or press **Start: locate the main frame / 开始：定位主机架**. Click a target label, a library part or a marker in the top-view mounting map to select it. Selection alone never moves or installs a part. Each instance has its own stable ID.
+2. **Locate mounting point / 定位安装位** frames the selected component and its target. The blue FRONT arrow defines aircraft front; LEFT/RIGHT are aircraft sides. The guide describes the seat, direction and any prerequisites, with clickable prerequisite navigation. Drag the part or the translation axes. Choose **Rotate / 旋转** to use the rotation rings. The collapsed **Advanced: position & rotation / 高级调整** accepts X/Y/Z positions and Euler angles in degrees; click **Apply transform / 应用位置与旋转** to commit one action.
 3. **Align to target / 对齐安装位置** offers teaching assistance. It only moves the part; it does not install it or bypass dependency checks.
 4. **Check & install / 检查并安装** checks prerequisites, scale, position and angle tolerance, then snaps a valid component to the assumed target.
 5. Guided assembly recommends seven stages. Free assembly lets you choose the order while preserving the same dependency and tolerance rules.
 6. **Disassemble / 拆卸** rejects removal when installed components depend on the selected part. Remove dependent components first. A detached component remains at its installation position and becomes movable.
 7. **Undo / 撤销** restores one assembly action. Selection, camera, mode and exploded-view settings do not consume assembly history. Up to 100 snapshots are saved; reset is also undoable.
 8. **Exploded view / 爆炸图** changes the presentation only. Its slider controls separation from 1% to 100%; **Isolate part / 隔离零件** and **Hide guards / 隐藏保护架** aid inspection. These display settings do not create assembly history. Refresh retains exploded mode with full separation and restores normal visibility.  Real component transforms and installation flags stay unchanged. Editing and installation controls are disabled until you return to assembly view.
+
+The default scene shows the current step plus the explicit selection. **All mounting points / 全部安装位** shows remaining targets, with a scrollable label dock when they cannot fit without overlap. Blue outlines invite alignment, amber labels explain missing prerequisites, and green labels confirm readiness or installation. Text and symbols accompany colors. The dashed path and scene readout update during a drag; the inspector compares the committed transform after release. Target position and tolerance are read from the same catalog and numerical helpers as the installation rules.
+
+Narrow browser panels stack the complete canvas above the library and inspector, rather than cutting it off horizontally.
 
 Camera: drag empty space to orbit, scroll to zoom, right-drag to pan. Presets: Perspective, Top, Front and Side. Installed components are locked against movement. The frame counter reports measured rendered FPS for this Mac and browser; it is not a performance guarantee for other devices.
 
@@ -70,7 +74,3 @@ npm audit
 ## Limits / 边界
 
 This is an educational assembly demonstration. It has no CAD constraint solver, collision checking, screw/thread simulation, electrical validation, real aircraft calibration or flight simulation. Similar-looking instances are distinguished by IDs and their assumed target positions. Align assistance can make placement immediate, but all installation rules still run. Real hardware assembly and flight require validated engineering references outside this demo.
-
-## Future teaching integrations / 保留功能接口
-
-The [StarArch education reference](https://stararch.cn/index.html#education) informed the separation of experiment environments, equipment/software linkage and experimental training. `src/contracts/extensions.ts` and `src/extensions/index.ts` reserve typed ports and an empty registry for environment configuration, hardware telemetry, flight simulation and training assessment. These four features are **not implemented or connected**. See `EXTENSIONS.md` for boundaries and integration examples. Website graphics and layouts are not copied.
